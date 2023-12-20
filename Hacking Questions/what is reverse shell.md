@@ -1,6 +1,6 @@
 A reverse shell is a type of shell in which the target machine initiates a connection back to the attacker's machine, giving the attacker control over the target system. In a typical shell connection, the client (attacker) connects to the server (target) to execute commands. However, in a reverse shell scenario, the flow is reversed.
 
-Here's how a reverse shell typically works:
+# Here's how a reverse shell typically works:
 
 1. **Payload Generation:**
    - The attacker creates a payload, often a script or executable, that will be executed on the target system.
