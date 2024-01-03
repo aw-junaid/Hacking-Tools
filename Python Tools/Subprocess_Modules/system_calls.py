@@ -2,7 +2,7 @@
 import os
 from subprocess import call
 
-#  use the os interface to get access to system information
+# use the os interface to get access to system information
 print("Current path",os.getcwd())
 print("PATH Environment variable:",os.getenv("PATH"))
 
