@@ -5,7 +5,7 @@
 ![GitHub followers](https://img.shields.io/github/followers/aw-junaid)
 ![YouTube Channel Views](https://img.shields.io/youtube/channel/views/UClhKVCHjOxBTNM50lOBTgoA)
 ![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UClhKVCHjOxBTNM50lOBTgoA)
-![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/abw_Junaid)
+![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/awjunaid_)
 ![Twitch Status](https://img.shields.io/twitch/status/awjunaid)
 ![Reddit User Karma](https://img.shields.io/reddit/user-karma/link/aw-junaid)
 
