@@ -35,7 +35,7 @@ Ethical hacking is conducted in accordance with strict ethical guidelines. It is
   <a href="https://www.youtube.com/@awjunaid/featured" target="_blank">
     <img src="https://img.shields.io/static/v1?message=Youtube&logo=youtube&label=&color=FF0000&logoColor=white&labelColor=&style=plastic" height="27" alt="youtube logo"  />
   </a>
-  <a href="https://www.instagram.com/4wji_in41d" target="_blank">
+  <a href="https://www.instagram.com/awjunaid_" target="_blank">
     <img src="https://img.shields.io/static/v1?message=Instagram&logo=instagram&label=&color=E4405F&logoColor=white&labelColor=&style=plastic" height="27" alt="instagram logo"  />
   </a>
   <a href="https://www.twitch.tv/awjunaid" target="_blank">
@@ -53,7 +53,7 @@ Ethical hacking is conducted in accordance with strict ethical guidelines. It is
   <a href="https://dev.to/awjunaid" target="_blank">
     <img src="https://img.shields.io/static/v1?message=dev.to&logo=dev.to&label=&color=0A0A0A&logoColor=white&labelColor=&style=plastic" height="27" alt="devto logo"  />
   </a>
-  <a href="https://www.facebook.com/abdulwahjunaid" target="_blank">
+  <a href="https://www.facebook.com/awjunaid7" target="_blank">
     <img src="https://img.shields.io/static/v1?message=Facebook&logo=facebook&label=&color=1877F2&logoColor=white&labelColor=&style=plastic" height="27" alt="facebook logo"  />
   </a>
   <a href="https://linktr.ee/awjunaid" target="_blank">
@@ -68,7 +68,7 @@ Ethical hacking is conducted in accordance with strict ethical guidelines. It is
   <a href="https://t.me/aw_junaid" target="_blank">
     <img src="https://img.shields.io/static/v1?message=Telegram&logo=telegram&label=&color=2CA5E0&logoColor=white&labelColor=&style=plastic" height="27" alt="telegram logo"  />
   </a>
-  <a href="https://twitter.com/abw_junaid" target="_blank">
+  <a href="https://twitter.com/awjunaid_" target="_blank">
     <img src="https://img.shields.io/static/v1?message=Twitter&logo=twitter&label=&color=1DA1F2&logoColor=white&labelColor=&style=plastic" height="27" alt="twitter logo"  />
   </a>
   <a href="https://whatsapp.com/channel/0029VaCXDFaDJ6H8eKO6bB1p" target="_blank">
