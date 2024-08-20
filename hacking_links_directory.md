@@ -32,6 +32,7 @@
 
 # Websites
 - [AES-GCM and breaking it on nonce reuse](https://frereit.de/aes_gcm/)
+- [Attack of the clones: Getting RCE in Chrome’s renderer with duplicate object properties](https://github.blog/security/vulnerability-research/attack-of-the-clones-getting-rce-in-chromes-renderer-with-duplicate-object-properties/)
 
 # Books
 - [BPF Performance Tools: Linux and Application Observability](https://github.com/brendangregg/bpf-perf-tools-book)
