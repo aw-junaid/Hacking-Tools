@@ -19,6 +19,9 @@
 
 - [Web Scraping ](https://github.com/z0m31en7/Uscrapper)
 
+# OSINT 
+- [ OSINT tool](https://github.com/daprofiler/DaProfiler)
+
 
 
 # Courses
