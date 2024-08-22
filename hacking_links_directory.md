@@ -43,4 +43,11 @@
 - [Exploring the Attack Surface](https://blog.compass-security.com/2024/03/pwn2own-toronto-2023-part-2-exploring-the-attack-surface/)
 - [Exploration](https://blog.compass-security.com/2024/03/pwn2own-toronto-2023-part-3-exploration/)
 
+# Tor
+- [How to Create Your Own Dark Website (.onion) on Linux](https://hackernoon.com/how-to-create-your-own-dark-website-onion-on-linux)
+- [Set up Your Onion Service](https://community.torproject.org/onion-services/setup/)
+- [Creating a Dark Web Tor Onion Service/Website](https://charlie.fish/posts/2023/10/creating-dark-web-tor-onion-service-website/)
+
+  
+
 
