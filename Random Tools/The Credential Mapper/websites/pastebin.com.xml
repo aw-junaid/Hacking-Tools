@@ -1,0 +1,17 @@
+<properties>
+    <name value="Pastebin" />
+    <description value="A web service where users can store and share plain text commonly used for source code snippets." />
+    <login_url value="http://pastebin.com/login.php" />
+    <invalid_password value="There was an error with your login details. Make sure you use your" />
+    <inactive_account value="Your account has not been activated yet" />
+    <valid_response_header value="pastebin_user=.{32}" type="regex" />
+    <headers value="Referer=http://pastebin.com/login" />
+    <username_or_email value="username" />
+    <login_parameter value="user_name" />
+    <password_parameter value="user_password" />
+    <csrf_setcookie value="__cfduid=(?P&lt;token&gt;[a-z0-9]{43})" />
+    <data value="csrf_token_login=&amp;submit_hidden=submit_hidden&amp;user_name=&amp;user_password=&amp;submit=Login" />
+    <multiple_params value="http://pastebin.com/login.php">
+        <param value="csrf_token_login" type="data" />
+    </multiple_params>
+</properties>

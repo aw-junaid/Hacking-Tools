@@ -1,0 +1,12 @@
+<properties>
+    <name value="Reddit" />
+    <description value="An entertainment and news social network where members can submit content." />
+    <login_url value="https://www.reddit.com/api/login/" />
+    <valid_response_header value="reddit_session" />
+    <invalid_http_status value="503" msg="All of Reddit's servers are busy right now." />
+    <invalid_password value="WRONG_PASSWORD" />
+    <username_or_email value="username" />
+    <login_parameter value="user" />
+    <password_parameter value="passwd" />
+    <data value="op=login&amp;user=&amp;passwd=&amp;api_type=json" />
+</properties>

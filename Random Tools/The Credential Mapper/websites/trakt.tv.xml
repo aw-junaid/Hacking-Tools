@@ -1,0 +1,15 @@
+<properties>
+    <name value="Trakt" />
+    <description value="Service to track TV &amp; movies" />
+    <login_url value="https://trakt.tv/auth/signin" />
+    <valid_password value="Dashboard - Trakt.tv" />
+    <invalid_password value="Invalid username, email or password" />
+    <username_or_email value="both" />
+    <login_parameter value="user[login]" />
+    <password_parameter value="user[password]" />
+    <csrf_token_name value="authenticity_token" />
+    <csrf_url value="https://trakt.tv/auth/signin" />
+    <csrf_start value="type=&quot;hidden&quot; name=&quot;authenticity_token&quot; value=&quot;" />
+    <csrf_end value="&quot;/&gt;" />
+    <data value="utf8=%E2%9C%93&amp;authenticity_token=&amp;user[login]=&amp;user[password]=&amp;commit=Sign+in&amp;user[remember_me]=1" />
+</properties>

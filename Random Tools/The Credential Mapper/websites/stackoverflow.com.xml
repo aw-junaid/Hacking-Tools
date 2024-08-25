@@ -1,0 +1,14 @@
+<properties>
+    <name value="Stack Overflow" />
+    <description value="A social network of question and answers related to computer programming." />
+    <login_url value="https://stackoverflow.com/users/login?ssrc=head&amp;returnurl=http%3a%2f%2fstackoverflow.com%2f" />
+    <invalid_password value="Log In - Stack Overflow" />
+    <valid_response_header value="uauth=true" />
+    <username_or_email value="email" />
+    <login_parameter value="email" />
+    <password_parameter value="password" />
+    <csrf_token_name value="fkey" />
+    <csrf_url value="https://stackoverflow.com/users/login?ssrc=head&amp;returnurl=http%3a%2f%2fstackoverflow.com%2f" />
+    <csrf_regex value="name=&quot;fkey&quot;\svalue=&quot;(?P&lt;token&gt;.{32})&quot;&gt;" />
+    <data value="fkey=&amp;ssrc=head&amp;email=&amp;password=&amp;oauth_version=&amp;oauth_server=&amp;openid_username=&amp;openid_identifier=" />
+</properties>

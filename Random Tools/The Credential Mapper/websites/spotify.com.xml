@@ -1,0 +1,17 @@
+<properties>
+    <name value="Spotify" />
+    <description value="Online music streaming service." />
+    <login_url value="https://accounts.spotify.com/api/login" />
+    <invalid_http_status value="400" msg="Probably invalid credentials..." />
+    <valid_password value="{&quot;displayName&quot;:&quot;" />
+    <invalid_password value="{&quot;error&quot;:&quot;errorInvalidCredentials&quot;}" />
+    <headers value="Referer=https://accounts.spotify.com/en-US/login" />
+    <cookies value="__bon=MHwwfC0zMDc2NTg4NzR8LTEyOTIxNjcyNzA4fDF8MXwxfDE=" />
+    <username_or_email value="both" />
+    <login_parameter value="username" />
+    <password_parameter value="password" />
+    <csrf_token_name value="csrf_token" />
+    <csrf_url value="https://accounts.spotify.com/en-US/login" />
+    <csrf_setcookie value="csrf_token=(?P&lt;token&gt;[^\s]+)" />
+    <data value="remember=false&amp;username=&amp;password=&amp;csrf_token=" />
+</properties>

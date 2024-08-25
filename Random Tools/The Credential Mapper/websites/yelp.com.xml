@@ -1,0 +1,18 @@
+<properties>
+    <name value="Yelp" />
+    <description value="A service that gathers and displays crowd-sourced reviews about local businesses." />
+    <login_url value="https://www.yelp.com/login?return_url=%2F" />
+    <invalid_http_status value="503" msg="Your IP address is probably blocked!" />
+    <valid_password value="&quot;isLoggedIn&quot;: true" />
+    <invalid_password value="The email address or password you entered is incorrect." />
+    <captcha_flag value="captcha-msg" />
+    <valid_response_header value="zss=" />
+    <headers value="Referer=https://www.yelp.com/login?return_url=%2F" />
+    <username_or_email value="email" />
+    <login_parameter value="email" />
+    <password_parameter value="password" />
+    <data value="csrftok=&amp;email=&amp;password=&amp;" />
+    <multiple_params value="https://www.yelp.com/login?return_url=%2F">
+        <param value="csrftok" regex="ajax-login[^v]+value=&quot;(?P&lt;value&gt;[^&quot;]+)" />
+    </multiple_params>
+</properties>

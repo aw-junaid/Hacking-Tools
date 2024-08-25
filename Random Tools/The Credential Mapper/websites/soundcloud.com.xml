@@ -1,0 +1,18 @@
+<properties>
+    <name value="SoundCloud" />
+    <description value="Online audio network for users to upload, promote, and share their music." />
+    <login_url value="https://sign-in.soundcloud.com/sign-in/password" />
+    <valid_http_status value="4**" />
+    <valid_password value="{&quot;session&quot;:{&quot;access_token&quot;:&quot;" />
+    <invalid_password value="{&quot;error&quot;:&quot;invalid_credentials&quot;}" />
+    <invalid_account value="&quot;error&quot;:&quot;not_found&quot;,&quot;identifier_type&quot;:&quot;email&quot;" />
+    <headers value="Origin=https://soundcloud.com\nReferer=https://soundcloud.com/\nAccept=application/json, text/javascript, */*; q=0.1\nAccept-Language=en-US,en;q=0.5\nAccept-Encoding=gzip, deflate, br\nContent-Type=application/json" />
+    <username_or_email value="email" />
+    <login_parameter value="identifier" type="json" />
+    <password_parameter value="password" type="json" />
+    <csrf_token_name value="client_id" />
+    <csrf_url value="https://a-v2.sndcdn.com/assets/app-90da6-dcbb0ac.js" />
+    <csrf_regex value="query:{client_id:&quot;(?P&lt;token&gt;.{32})&quot;}" />
+    <captcha_flag value="{&quot;error&quot;:&quot;captcha_required&quot;}" />
+    <data value="{&quot;client_id&quot;:&quot;&quot;,&quot;scope&quot;:&quot;fast-connect non-expiring purchase signup upload&quot;,&quot;recaptcha_response&quot;:&quot;&quot;,&quot;credentials&quot;:{&quot;identifier&quot;:&quot;&quot;,&quot;password&quot;:&quot;&quot;}}" />
+</properties>

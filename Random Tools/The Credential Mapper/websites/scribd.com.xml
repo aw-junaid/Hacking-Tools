@@ -1,0 +1,17 @@
+<properties>
+    <name value="Scribd" />
+    <description value="A digital library and e-book, audiobook and comic book subscription service." />
+    <login_url value="https://www.scribd.com/login" />
+    <valid_password value="{&quot;login&quot;:true,&quot;success&quot;:true}" />
+    <invalid_password value="&quot;msg&quot;:&quot;Invalid password. Please try again&quot;" />
+    <invalid_account value="&quot;msg&quot;:&quot;We don&#39;t have an account with that email address or username." />
+    <valid_response_header value="_scribd_expire=" />
+    <headers value="Referer=https://www.scribd.com/login\nX-Requested-With=XMLHttpRequest\nX-Tried-CSRF=1\nX-CSRF-Token=\nAccept=application/json, text/javascript, */*; q=0.01" />
+    <username_or_email value="both" />
+    <login_parameter value="login_or_email" />
+    <password_parameter value="login_password" />
+    <data value="login_params%5Bnext_url%5D=%2F&amp;login_params%5Bcontext%5D=&amp;login_or_email=&amp;login_password=&amp;rememberme=off" />
+    <multiple_params value="https://www.scribd.com/login">
+        <param value="X-CSRF-Token" type="header" regex="&lt;meta\sname=&quot;csrf-token&quot;\scontent=&quot;(?P&lt;value&gt;[^&quot;]*)&quot;\s/&gt;" />
+    </multiple_params>
+</properties>

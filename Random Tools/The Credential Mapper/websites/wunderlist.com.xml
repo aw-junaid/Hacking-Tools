@@ -1,0 +1,15 @@
+<properties>
+    <name value="Wunderlist" />
+    <description value="A cloud-based task management application which allows users to manage their tasks from a smartphone, tablet and computer." />
+    <login_url value="https://www.wunderlist.com/login" />
+    <invalid_password value="Sign In: Wunderlist" />
+    <valid_response_header value="LOGGEDIN=true" />
+    <headers value="Referer=https://www.wunderlist.com/login?redirect_url=/webapp" />
+    <username_or_email value="email" />
+    <login_parameter value="email" />
+    <password_parameter value="password" />
+    <csrf_token_name value="_csrf" />
+    <csrf_url value="https://www.wunderlist.com/login?redirect_url=/webapp" />
+    <csrf_regex value="name=&quot;_csrf&quot;\svalue=&quot;(?P&lt;token&gt;.{36})&quot;/&gt;" />
+    <data value="_csrf=&amp;email=&amp;password=" />
+</properties>

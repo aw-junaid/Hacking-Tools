@@ -1,0 +1,14 @@
+<properties>
+    <name value="Twitter" />
+    <description value="Social networking service to send and read short messages" />
+    <login_url value="https://twitter.com/sessions" />
+    <valid_password value="action=&quot;/logout&quot;" />
+    <invalid_password value="LoginForm js-front-signin" />
+    <username_or_email value="both" />
+    <login_parameter value="session[username_or_email]" />
+    <password_parameter value="session[password]" />
+    <csrf_token_name value="authenticity_token" />
+    <csrf_url value="https://twitter.com/" />
+    <csrf_regex value="value=&quot;(?P&lt;token&gt;.{40})&quot;\sname=&quot;authenticity_token&quot;&gt;" />
+    <data value="session[username_or_email]=&amp;session[password]=&amp;return_to_ssl=true&amp;scribe_log=&amp;redirect_after_login=/&amp;authenticity_token=" />
+</properties>

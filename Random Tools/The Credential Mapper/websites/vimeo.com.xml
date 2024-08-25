@@ -1,0 +1,17 @@
+<properties>
+    <name value="Vimeo" />
+    <description value="A video-sharing website in which users can upload, share and view videos." />
+    <login_url value="https://vimeo.com/log_in?ssl=0&amp;iframe=0&amp;popup=0&amp;player=0&amp;product_id=0" />
+    <valid_password value="{&quot;logged_in&quot;:true,&quot;token&quot;:&quot;" />
+    <invalid_http_status value="418" />
+    <headers value="X-Requested-With=XMLHttpRequest\nReferer=https://vimeo.com/log_in" />
+    <username_or_email value="email" />
+    <login_parameter value="email" />
+    <password_parameter value="password" />
+    <data value="action=login&amp;service=vimeo&amp;email=&amp;password=&amp;null=Logging%20in...&amp;token=&amp;" />
+    <multiple_params value="https://vimeo.com/log_in">
+        <param value="vuid" regex="&quot;user&quot;:{&quot;vuid&quot;:&quot;(?P&lt;value&gt;[^&quot;]*)&quot;" type="cookie"/>
+        <param value="token" regex="xsrft&quot;:&quot;(?P&lt;value&gt;[^&quot;]*)&quot;" type="data" />
+    </multiple_params>
+</properties>
+
