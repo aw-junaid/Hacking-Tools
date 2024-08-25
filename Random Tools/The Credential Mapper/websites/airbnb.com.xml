@@ -1,0 +1,16 @@
+<properties>
+    <name value="Airbnb" />
+    <description value="Online service for people to list, find, and rent vacation homes for a processing fee." />
+    <login_url value="https://www.airbnb.ca/authenticate" />
+    <valid_password value="{&quot;status&quot;:&quot;ok&quot;,&quot;success&quot;:true" />
+    <invalid_password value="{&quot;status&quot;:&quot;error&quot;,&quot;message&quot;:&quot;Invalid password." />
+    <invalid_account value="{&quot;status&quot;:&quot;error&quot;,&quot;message&quot;:&quot;Invalid email." />
+    <headers value="X-Requested-With=XMLHttpRequest\nAccept=application/json, text/javascript, */*; q=0.01\nReferer=https://www.airbnb.com/" />
+    <username_or_email value="email" />
+    <login_parameter value="email" />
+    <password_parameter value="password" />
+    <data value="utf8=%E2%9C%93&amp;authenticity_token=&amp;from=email_login&amp;airlock_id=&amp;email=&amp;password=" />
+    <multiple_params value="https://www.airbnb.com/login_modal">
+        <param value="authenticity_token" />
+    </multiple_params>
+</properties>
