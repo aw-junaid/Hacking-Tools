@@ -1,0 +1,29 @@
+<properties>
+    <name value="Amazon" />
+    <description value="An e-commerce and cloud computing company." />
+    <login_url value="https://www.amazon.com/ap/signin" />
+    <valid_password value="Hello," />
+    <invalid_password value="There was an error with your E-Mail/ Password combination. Please try again." />
+    <custom_search value="Internal Error with Amazon. Maybe invalid password?" regex="Internal\sError\.\sPlease\stry\sagain\slater\." />
+    <valid_response_header value="sess-at-main=&quot;[^&quot;]+&quot;" type="regex" />
+    <captcha_flag value="enter the characters as they are shown in the image below." />
+    <headers value="Referer=https://www.amazon.com/ap/signin?_encoding=UTF8&amp;openid.assoc_handle=usflex&amp;openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;openid.mode=checkid_setup&amp;openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&amp;openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&amp;openid.pape.max_auth_age=0&amp;openid.return_to=https%3A%2F%2Fwww.amazon.com%2F%3Fref_%3Dnav_signin\nAccept=text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\nAccept-Language=en-US,en;q=0.5\nAccept-Encoding=gzip, deflate, br" />
+    <cookies value="ubid-main=&quot;160-0817696-3741069&quot;" />
+    <username_or_email value="email" />
+    <login_parameter value="email" />
+    <password_parameter value="password" />
+    <multiple_params value="https://www.amazon.com/ap/signin?_encoding=UTF8&amp;openid.assoc_handle=usflex&amp;openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;openid.mode=checkid_setup&amp;openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&amp;openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&amp;openid.pape.max_auth_age=0&amp;openid.return_to=https%3A%2F%2Fwww.amazon.com%2F%3Fref_%3Dnav_signin">
+        <param value="appActionToken" regex="&lt;input\stype=&quot;hidden&quot;\sname=&quot;appActionToken&quot;\svalue=&quot;(?P&lt;value&gt;[^&quot;]*)&quot;\s/&gt;" />
+        <param value="openid.pape.max_auth_age" />
+        <param value="openid.return_to" />
+        <param value="prevRID" />
+        <param value="openid.identity" />
+        <param value="openid.assoc_handle" />
+        <param value="openid.mode" />
+        <param value="openid.ns.pape" />
+        <param value="openid.claimed_id" />
+        <param value="pageId" />
+        <param value="openid.ns" />
+    </multiple_params>
+    <data value="appActionToken=&amp;appAction=SIGNIN&amp;openid.pape.max_auth_age=&amp;openid.return_to=&amp;prevRID=&amp;openid.identity=&amp;openid.assoc_handle=&amp;openid.mode=&amp;openid.ns.pape=&amp;openid.claimed_id=&amp;pageId=&amp;openid.ns=&amp;email=&amp;create=0&amp;password=" />
+</properties>

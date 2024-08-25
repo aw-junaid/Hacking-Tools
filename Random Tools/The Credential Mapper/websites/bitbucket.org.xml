@@ -1,0 +1,16 @@
+<properties>
+    <name value="Bitbucket" />
+    <description value="The Git solution for professional teams." />
+    <login_url value="https://bitbucket.org/account/signin/" />
+    <invalid_password value="Invalid username/email or password" />
+    <valid_response_header value="bb_session=[a-z0-9]{32}" type="regex" />
+    <invalid_account value="atlassian" />
+    <headers value="Referer=https://bitbucket.org/account/signin/" />
+    <username_or_email value="both" />
+    <login_parameter value="username" />
+    <password_parameter value="password" />
+    <csrf_token_name value="csrfmiddlewaretoken" />
+    <csrf_url value="https://bitbucket.org/account/signin/?next=/" />
+    <csrf_regex value="input type='hidden' name='csrfmiddlewaretoken' value='(?P&lt;token&gt;[^']+)" />
+    <data value="csrfmiddlewaretoken=&amp;next=%2F&amp;username=&amp;password=" />
+</properties>

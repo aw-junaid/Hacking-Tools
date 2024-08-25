@@ -1,0 +1,17 @@
+<properties>
+    <name value="Microsoft Live Account" />
+    <description value="A login portal for a user's Microsoft online services." />
+    <login_url value="https://login.live.com/ppsecure/post.srf?wa=wsignin1.0&amp;rpsnv=12&amp;rver=6.4.6456.0&amp;wp=MBI_SSL_SHARED&amp;wreply=https:%2F%2Fmail.live.com%2Fdefault.aspx%3Frru%3Dinbox" />
+    <invalid_password value="Your account or password is incorrect" />
+    <invalid_account value="That Microsoft account doesn\'t exist." />
+    <custom_search value="Account blocked because of too many invalid sign in attempts." regex="tried\sto\ssign\sin\stoo\smany\stimes\swith\san\sincorrect\saccount\sor\spassword" />
+    <valid_response_header value="PPAuth=" />
+    <headers value="Referer=https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=12&amp;ct=&amp;rver=6.4.6456.0&amp;wp=MBI_SSL_SHARED&amp;wreply=https:%2F%2Fmail.live.com%2Fdefault.aspx%3Frru%3Dinbox&amp;lc=&amp;id=&amp;mkt=&amp;cbcxt=" />
+    <username_or_email value="both" />
+    <login_parameter value="login" />
+    <password_parameter value="passwd" />
+    <data value="passwd=&amp;login=&amp;type=11&amp;PPFT=&amp;PPSX=Passport&amp;idsbho=1&amp;sso=0&amp;NewUser=1&amp;LoginOptions=3&amp;i1=0&amp;i2=1&amp;i3=45998&amp;i4=0&amp;i7=0&amp;i12=1&amp;i13=0&amp;i14=1789&amp;i15=11286&amp;i17=0&amp;i18=__Login_Strings%7C1%2C__Login_Core%7C1%2C" />
+    <multiple_params value="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=12&amp;ct=&amp;rver=6.4.6456.0&amp;wp=MBI_SSL_SHARED&amp;wreply=https:%2F%2Fmail.live.com%2Fdefault.aspx%3Frru%3Dinbox&amp;lc=&amp;id=&amp;mkt=&amp;cbcxt=">
+        <param value="PPFT" />
+    </multiple_params>
+</properties>

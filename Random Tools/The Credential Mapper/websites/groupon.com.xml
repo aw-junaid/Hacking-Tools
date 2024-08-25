@@ -1,0 +1,18 @@
+<properties>
+    <name value="Groupon" />
+    <description value="A global e-commerce marketplace connecting subscribers with local merchants by offering activities, travel, goods and services." />
+    <login_url value="https://www.groupon.com/login?ref=https%3A%2F%2Fwww.groupon.com%2F" />
+    <invalid_http_status value="403" />
+    <invalid_password value="Incorrect login. Try again or" />
+    <captcha_flag value="clicked on reCAPTCHA checkbox" />
+    <valid_response_header value="just_logged_in=true" />
+    <headers value="Referer=https://www.groupon.com/login" />
+    <cookies value="ak_bmsc=1" />
+    <username_or_email value="email" />
+    <login_parameter value="email" />
+    <password_parameter value="password" />
+    <csrf_token_name value="_csrf" />
+    <csrf_url value="https://www.groupon.com/login" />
+    <csrf_regex value="name=&quot;_csrf&quot;\svalue=&quot;(?P&lt;token&gt;[^&quot;]*)&quot;" />
+    <data value="_csrf=&amp;email=&amp;password=&amp;password-toggle=1" />
+</properties>

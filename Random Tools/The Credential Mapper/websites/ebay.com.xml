@@ -1,0 +1,23 @@
+<properties>
+    <name value="eBay" />
+    <description value="An e-commerce company, providing consumer to consumer and business to consumer sales services via Internet." />
+    <login_url value="https://signin.ebay.com/ws/eBayISAPI.dll?co_partnerId=2&amp;siteid=0&amp;UsingSSL=1" />
+    <valid_password value="UpdateContactInfo" />
+    <invalid_password value="Sign in or Register" />
+    <captcha_flag value="For added security, please enter the verification code below " />
+    <valid_response_header value="shs=" />
+    <headers value="Referer=https://signin.ebay.com/ws/eBayISAPI.dll?SignIn" />
+    <username_or_email value="both" />
+    <login_parameter value="userid" />
+    <password_parameter value="pass" />
+    <multiple_params value="https://signin.ebay.com/ws/eBayISAPI.dll?co_partnerId=2&amp;siteid=0&amp;UsingSSL=1">
+        <param value="regUrl" />
+        <param value="mid" />
+        <param value="srt" />
+        <param value="ru" />
+        <param value="usid" />
+        <param value="rqid" />
+        <param value="runId2" />
+    </multiple_params>
+    <data value="regUrl=&amp;MfcISAPICommand=SignInWelcome&amp;bhid=DEF_CI&amp;UsingSSL=1&amp;inputversion=2&amp;lse=true&amp;lsv=18.0.0&amp;mid=&amp;kgver=1&amp;kgupg=1&amp;kgstate=&amp;omid=&amp;hmid=&amp;rhr=f&amp;srt=&amp;siteid=0&amp;co_partnerId=2&amp;ru=&amp;pp=&amp;pa1=&amp;pa2=&amp;pa3=&amp;i1=-1&amp;pageType=-1&amp;rtmData=PS=T.0&amp;usid=&amp;&amp;rqid=&amp;afbpmName=sess1&amp;kgct=&amp;userid_otp=&amp;otp=&amp;keepMeSignInOption3=1&amp;userid=&amp;runId2=&amp;pass=&amp;sgnBt=Sign in&amp;keepMeSignInOption2=1=&amp;keepMeSignInOption=0" />
+</properties>

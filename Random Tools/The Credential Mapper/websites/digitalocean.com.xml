@@ -1,0 +1,16 @@
+<properties>
+    <name value="Digital Ocean" />
+    <description value="DigitalOcean, Inc. is an American cloud infrastructure provider that provisions virtual servers for software developers." />
+    <login_url value="https://cloud.digitalocean.com/sessions" />
+    <valid_password value="droplets" />
+    <invalid_password value="login" />
+    <valid_response_header value="last_logged_in_at"/>
+    <username_or_email value="email" />
+    <login_parameter value="user%5Bemail%5D" />
+    <password_parameter value="user%5Bpassword%5D" />
+    <csrf_token_name value="authenticity_token" />
+    <csrf_url value="https://cloud.digitalocean.com/login" />
+    <csrf_start value="name=&quot;authenticity_token&quot; value=&quot;" />
+    <csrf_end value="&quot;" />
+    <data value="utf8=%E2%9C%93&amp;authenticity_token=&amp;user%5Bemail%5D=&amp;user%5Bpassword%5D=&amp;commit=Log+In" />
+</properties>

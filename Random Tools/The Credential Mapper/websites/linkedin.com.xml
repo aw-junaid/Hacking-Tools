@@ -1,0 +1,19 @@
+<properties>
+    <name value="Linkedin" />
+    <description value="Social network for business professionals." />
+    <login_url value="https://www.linkedin.com/uas/login-submit" />
+    <valid_password value="Sign-In Verification" />
+    <invalid_password value="session_password-login-error&quot;&gt;Hmm, that&#39;s not the right password." />
+    <invalid_account value="session_key-login-error&quot;&gt;Hmm, we don&#39;t recognize that email." />
+    <valid_response_header value="li_at=" />
+    <headers value="Referer=https://www.linkedin.com/" />
+    <username_or_email value="email" />
+    <login_parameter value="session_key" />
+    <password_parameter value="session_password" />
+    <data value="isJsEnabled=false&amp;source_app=&amp;tryCount=&amp;clickedSuggestion=false&amp;session_key=&amp;session_password=&amp;signin=Sign+In&amp;session_redirect=&amp;trk=hb_signin&amp;loginCsrfParam=&amp;fromEmail=&amp;csrfToken=&amp;sourceAlias=" />
+    <multiple_params value="https://www.linkedin.com/uas/login?goback=&amp;trk=hb_signin">
+        <param value="loginCsrfParam" />
+        <param value="csrfToken" />
+        <param value="sourceAlias" />
+    </multiple_params>
+</properties>

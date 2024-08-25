@@ -1,0 +1,18 @@
+<properties>
+    <name value="Foursquare" />
+    <description value="A local search and discovery service which provides search results based on users' interest." />
+    <login_url value="https://foursquare.com/login?continue=%2F&amp;clicked=true" />
+    <valid_password value="&quot;firstName&quot;:&quot;" />
+    <invalid_password value="The password you entered is incorrect." />
+    <invalid_account value="The email/phone you entered is incorrect." />
+    <headers value="Referer=https://foursquare.com/login?continue=%2F&amp;clicked=true" />
+    <username_or_email value="email" />
+    <login_parameter value="emailOrPhone" />
+    <password_parameter value="password" />
+    <csrf_token_name value="fs-request-signature" />
+    <csrf_url value="https://foursquare.com/login?continue=%2F&amp;clicked=true" />
+    <csrf_start value="name=&quot;fs-request-signature&quot; value=&quot;" />
+    <csrf_end value="&quot;" />
+    <captcha_flag value="" />
+    <data value="fs-request-signature=&amp;emailOrPhone=&amp;password=" />
+</properties>

@@ -1,0 +1,15 @@
+<properties>
+    <name value="Github" />
+    <description value="Web-based Git repository hosting service" />
+    <login_url value="https://github.com/session" />
+    <valid_password value="View profile and more" />
+    <invalid_password value="Incorrect username or password." />
+    <username_or_email value="both" />
+    <login_parameter value="login" />
+    <password_parameter value="password" />
+    <csrf_token_name value="authenticity_token" />
+    <csrf_url value="https://github.com/login" />
+    <csrf_start value="&quot;authenticity_token&quot; type=&quot;hidden&quot; value=&quot;" />
+    <csrf_end value="&quot; /&gt;" />
+    <data value="authenticity_token=&amp;login=&amp;password=" />
+</properties>

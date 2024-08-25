@@ -1,0 +1,14 @@
+<properties>
+    <name value="Facebook" />
+    <description value="A social networking service to exchange messages, post status updates and photos, share videos and receive notifications." />
+    <login_url value="https://www.facebook.com/login.php?login_attempt=1" />
+    <valid_response_header value="c_user=" />
+    <invalid_account value="t match any account" />
+    <invalid_password value="Please re-enter your password" />
+    <custom_search value="This e-mail needs to be confirmed via confirmation code." regex="ajaxify=&quot;/confirm/ajax/code_entry_dialog\.php\?email=" />
+    <cookies value="locale=en_US" />
+    <username_or_email value="email" />
+    <login_parameter value="email" />
+    <password_parameter value="pass" />
+    <data value="email=&amp;pass=&amp;locale=en_US" />
+</properties>

@@ -1,0 +1,13 @@
+<properties>
+    <name value="Imgur" />
+    <description value="An image sharing community and image host." />
+    <login_url value="https://imgur.com/signin?minimal" />
+    <valid_password value="window.top.location = window.parent.document.referrer + &apos;?&apos;;" />
+    <invalid_password value="Your login information was incorrect" />
+    <captcha_flag value="Please fill out a captcha." />
+    <custom_response_header value="IMGURSESSION" msg="The provided user exists, but the password was incorrect!" />
+    <username_or_email value="both" />
+    <login_parameter value="username" />
+    <password_parameter value="password" />
+    <data value="username=&amp;password=&amp;remember=remember" />
+</properties>
