@@ -5,3 +5,4 @@
 ## Introduction
 
 - [About and History of Assembly Language](https://github.com/thewitcher21/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/about%20and%20history%20of%20assembly%20language.md)
+- [ARM vs x86-64 Instruction set](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/ARM%20vs%20x86-64%20Instruction%20set.md)
