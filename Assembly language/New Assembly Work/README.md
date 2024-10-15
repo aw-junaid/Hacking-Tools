@@ -13,6 +13,9 @@
 - [Program flow of control without and with interrupts](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Program%20flow%20of%20control%20without%20and%20with%20interrupts.md)
 - [Bus Interconnection scheme](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Bus%20Interconnection%20scheme.md)
 
-## Arithmatic and Logic
+## Arithmetic and Logic
 
-- []()
+- [The Decimal System](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/The%20Decimal%20System.md)
+- [Positional Number System](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/positional%20number%20system.md)
+- [The Binary System](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/The%20Binary%20System.md)
+- [Convert between binary and decimal](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Converting%20between%20binary%20and%20decimal.md)
