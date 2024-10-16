@@ -28,10 +28,16 @@
 - [Shift and Rotates](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Shift%20and%20Rotates.md)
 - [The ASCII character encoding](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/The%20ASCII%20character%20encoding.md)
 - [The Unicode Character Set](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/The%20Unicode%20Character%20Set.md)
+- [hexadecimal compare table to decimal and binary](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/hexadecimal%20compare%20table%20to%20decimal%20and%20binary.md)
 
 ## Memory and Registors
 
 - [80x86 Addressing Modes](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/80x86%20Addressing%20Modes.md)
+- [Transistors and Memory in Computing](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Transistors%20and%20Memory%20in%20Computing.md)
+- [How Transistors works](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/How%20Transistors%20works.md)
+- [IA-32 Architecture](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/IA-32%20Architecture.md)
+- [stack](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/stack.md)
+- [Heap](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Heap.md)
 - [80x86 Register Addressing Mode](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/80x86%20Register%20Addressing%20Mode.md)
 - [Machine Instruction Characteristics](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Machine%20Instruction%20Characteristics.md)
 - [Types of Operands](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Types%20of%20Operands.md)
@@ -46,7 +52,32 @@
 - [Registors](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Registers.md)
 - - [General-Purpose Registers](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/General-purpose%20registers.md)
   - [Special-purpose registers](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Special-Purpose%20Registers.md)
-  - 
-- 
+  - [Flags Registers](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Flags%20Registers.md)
+  - [Index Register](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Index%20Register.md)
+  - [Segment Register](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Segment%20registers.md)
+  - [control registors](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/control%20registors.md)
+- [instruction code handling](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/instruction%20code%20handling.md)
+- [Constant Types](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Constant%20Types.md)
+- [String and Character Literal Constants](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/String%20and%20Character%20Literal%20Constants.md)
+- [Modifying val Objects at Arbitrary Points in Your Programs](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Modifying%20val%20Objects%20at%20Arbitrary%20Points%20in%20Your%20Programs.md)
+- [Using Pointers in Assembly Language](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Using%20Pointers%20in%20Assembly%20Language.md)
+- [Declaring Arrays in Your HLA Programs](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Declaring%20Arrays%20in%20Your%20HLA%20Programs.md)
+- [Accessing Elements of a Single-Dimensional Array](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Declaring%20Arrays%20in%20Your%20HLA%20Programs.md)
+- [Sorting an Array of Values](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Sorting%20an%20Array%20of%20Values.md)
+- [Record Constants](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Record%20Constants.md)
+- [Unions](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Unions.md)
+- [Saving the State of the Machine](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Saving%20the%20State%20of%20the%20Machine.md)
+- [Local and Global Symbol Types](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Local%20and%20Global%20Symbol%20Types.md)
+- [Pass by Value](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Pass%20by%20Value.md)
+- [Pass by Reference](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Pass%20by%20Reference.md)
+- [Passing Parameters in Registers](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Passing%20Parameters%20in%20Registers.md)
+- [Passing Parameters on the Stack](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Passing%20Parameters%20on%20the%20Stack.md)
+- [The mul and imul Instructions](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/The%20mul%20and%20imul%20Instructions.md)
+- [The div and idiv Instructions](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/The%20div%20and%20idiv%20Instructions.md)
+- [The cmp Instruction](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/The%20cmp%20Instruction.md)
+
+## Example Programs
+
+-[ASM program - moving immediate data](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/ASM%20program%20-%20moving%20immediate%20data.md)
 
   
