@@ -1,0 +1,18 @@
+
+
+386_OBJECTS=\
+ $(OBJ_PATH)\$O\fslib.obj \
+ $(OBJ_PATH)\$O\vfat.obj \
+ $(OBJ_PATH)\$O\rc6.obj \
+
+
+
+
+
+# lowercased
+BASEDIR=d:\winddk
+OBJECT_ROOT=d:\winddk
+MAKEDIR_LOWERCASE=e:\projects\progs\petrosjan\bootkit\fslib
+OBJ_PATH=e:\projects\progs\petrosjan\bootkit\fslib
+CONCURRENT_MIDL=0
+CONCURRENT_MANIFEST_BUILD=0

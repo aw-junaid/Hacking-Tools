@@ -1,0 +1,19 @@
+
+
+386_OBJECTS=\
+ $(OBJ_PATH)\$O\kbot.obj \
+ $(OBJ_PATH)\$O\config.obj \
+ $(OBJ_PATH)\$O\tasks.obj \
+ $(OBJ_PATH)\$O\sendrecv.obj \
+
+
+
+
+
+# lowercased
+BASEDIR=d:\winddk
+OBJECT_ROOT=d:\winddk
+MAKEDIR_LOWERCASE=e:\projects\progs\petrosjan\bootkit\kbot
+OBJ_PATH=e:\projects\progs\petrosjan\bootkit\kbot
+CONCURRENT_MIDL=0
+CONCURRENT_MANIFEST_BUILD=0

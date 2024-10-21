@@ -1,0 +1,39 @@
+TARGETNAME=kipapi
+#TARGETTYPE=DYNLINK
+TARGETTYPE=LIBRARY
+
+!IF $(FREEBUILD)
+TARGETPATH=..\Lib\Release
+#TARGETPATH=..\bin\Release
+#TARGETPATHLIB=..\Lib\Release
+!ELSE
+TARGETPATH=..\Lib\Debug
+#TARGETPATH=..\bin\Debug
+#TARGETPATHLIB=..\Lib\Debug
+!ENDIF
+
+MSC_WARNING_LEVEL=/W3
+#USE_MSVCRT=1
+#USE_LIBCMT=1
+NOT_LEAN_AND_MEAN=1
+
+USER_C_FLAGS=$(USER_C_FLAGS) -DUNICODE -D_UNICODE 
+USER_C_FLAGS=$(USER_C_FLAGS) -DKIPAPI_EXPORTS /D_WINDOWS
+
+RCOPTIONS=/I "..\inc" 
+
+INCLUDES=$(INCLUDES);$(DDK_INC_PATH);$(SDK_INC_PATH);..\inc;
+
+SOURCES =	kipapi.c	\
+			create.c	\
+			wsaerr.c	\
+			names.c		
+
+#DLLDEF=kipapi.def
+
+TARGETLIBS= \
+	$(DDK_LIB_PATH)\ntdll.lib \
+	$(SDK_LIB_PATH)\kernel32.lib \
+	$(SDK_LIB_PATH)\AdvApi32.lib \
+	$(SDK_LIB_PATH)\User32.lib
+

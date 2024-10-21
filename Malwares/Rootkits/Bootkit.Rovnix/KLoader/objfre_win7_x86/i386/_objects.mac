@@ -1,0 +1,18 @@
+
+
+386_OBJECTS=\
+ $(OBJ_PATH)\$O\kloader.obj \
+ $(OBJ_PATH)\$O\joiner.obj \
+ $(OBJ_PATH)\$O\stubs.obj \
+
+
+
+
+
+# lowercased
+BASEDIR=d:\winddk
+OBJECT_ROOT=d:\winddk
+MAKEDIR_LOWERCASE=e:\projects\progs\petrosjan\bootkit\kloader
+OBJ_PATH=e:\projects\progs\petrosjan\bootkit\kloader
+CONCURRENT_MIDL=0
+CONCURRENT_MANIFEST_BUILD=0

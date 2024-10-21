@@ -1,0 +1,16 @@
+
+
+386_OBJECTS=\
+ $(OBJ_PATH)\$O\bkfilter.obj \
+
+
+
+
+
+# lowercased
+BASEDIR=d:\winddk
+OBJECT_ROOT=d:\winddk
+MAKEDIR_LOWERCASE=e:\projects\progs\petrosjan\bootkit\bkfilter
+OBJ_PATH=e:\projects\progs\petrosjan\bootkit\bkfilter
+CONCURRENT_MIDL=0
+CONCURRENT_MANIFEST_BUILD=0

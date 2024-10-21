@@ -1,0 +1,27 @@
+;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+;// KIP user-mode API library
+;//	
+;// module: kipapi.def
+;// $Revision: 90 $
+;// $Date: 2012-05-17 16:33:55 +0400 (Чт, 17 май 2012) $
+;// description:
+;//  Declares the module parameters and exported functions.
+
+LIBRARY kipapi
+EXPORTS
+	_tsocket
+	_tclosesocket
+	_tbind
+	_tconnect
+	_tsend
+	_trecv
+	_tsendto
+	_trecvfrom
+	_tshutdown
+	_tioctlsocket
+	_tgetsockopt
+	_tgetsockname
+	_tgetpeername
+	_taccept
+	_tlisten
+	_tselect

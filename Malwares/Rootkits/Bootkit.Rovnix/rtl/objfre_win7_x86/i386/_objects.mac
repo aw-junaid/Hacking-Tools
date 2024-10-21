@@ -1,0 +1,21 @@
+
+
+386_OBJECTS=\
+ $(OBJ_PATH)\$O\reg.obj \
+ $(OBJ_PATH)\$O\str.obj \
+ $(OBJ_PATH)\$O\osinfo.obj \
+ $(OBJ_PATH)\$O\debug.obj \
+ $(OBJ_PATH)\$O\util.obj \
+ $(OBJ_PATH)\$O\errno.obj \
+
+
+
+
+
+# lowercased
+BASEDIR=d:\winddk
+OBJECT_ROOT=d:\winddk
+MAKEDIR_LOWERCASE=e:\projects\progs\petrosjan\bootkit\rtl
+OBJ_PATH=e:\projects\progs\petrosjan\bootkit\rtl
+CONCURRENT_MIDL=0
+CONCURRENT_MANIFEST_BUILD=0

@@ -1,0 +1,2 @@
+LIBRARY	"SetupDll"
+ EXPORTS BkInstall

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="9,00"
+	Name="BkFilter"
+	ProjectGUID="{7CD72BDE-D273-4504-9C70-50E108A5AA47}"
+	Keyword="MakeFileProj"
+	TargetFrameworkVersion="131072"
+	>
+	<Platforms>
+		<Platform
+			Name="Win32"
+		/>
+		<Platform
+			Name="x64"
+		/>
+	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="0"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="ddkbuild -WIN7 checked ."
+				ReBuildCommandLine="ddkbuild -WIN7 checked . -cZ"
+				CleanCommandLine=""
+				Output="fslib.lib"
+				PreprocessorDefinitions="WIN32;_DEBUG"
+				IncludeSearchPath="$(WNETBASE)\inc\ddk\wxp&quot;;&quot;$(WLHBASE)\inc\ddk&quot;"
+				ForcedIncludes="..\version.h"
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="0"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="ddkbuild -WIN7 free ."
+				ReBuildCommandLine="ddkbuild -WIN7 free . -cZ"
+				CleanCommandLine=""
+				Output="dtester.sys"
+				PreprocessorDefinitions="WIN32;NDEBUG"
+				IncludeSearchPath="$(WNETBASE)\inc\ddk\wxp&quot;;&quot;$(WLHBASE)\inc\ddk&quot;"
+				ForcedIncludes="..\version.h"
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+		<Configuration
+			Name="Debug|x64"
+			OutputDirectory="$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			ConfigurationType="0"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="ddkbuild -WIN7A64 checked ."
+				ReBuildCommandLine="ddkbuild -WIN7A64 checked . -cZ"
+				CleanCommandLine=""
+				Output="dtester.sys"
+				PreprocessorDefinitions="WIN64;_DEBUG"
+				IncludeSearchPath="$(WNETBASE)\inc\ddk\wxp&quot;;&quot;$(WLHBASE)\inc\ddk&quot;"
+				ForcedIncludes="..\version.h"
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|x64"
+			OutputDirectory="$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			ConfigurationType="0"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="ddkbuild -WIN7A64 free ."
+				ReBuildCommandLine="ddkbuild -WIN7A64 free . -cZ"
+				CleanCommandLine=""
+				Output="dtester.sys"
+				PreprocessorDefinitions="AMD64;NDEBUG"
+				IncludeSearchPath="$(WNETBASE)\inc\ddk\wxp&quot;;&quot;$(WLHBASE)\inc\ddk&quot;"
+				ForcedIncludes="..\version.h"
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<Filter
+			Name="Source Files"
+			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
+			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
+			>
+			<File
+				RelativePath=".\bkfilter.c"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Header Files"
+			Filter="h;hpp;hxx;hm;inl;inc;xsd"
+			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
+			>
+			<File
+				RelativePath=".\bkfilter.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Build Files"
+			>
+			<File
+				RelativePath=".\sources"
+				>
+			</File>
+		</Filter>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

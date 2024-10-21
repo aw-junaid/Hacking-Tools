@@ -1,0 +1,55 @@
+TARGETNAME = KipLib
+TARGETTYPE = DRIVER_LIBRARY
+
+!IF $(FREEBUILD)
+TARGETPATH=..\lib\Release
+TARGETPATHLIB=..\lib\Release
+!ELSE
+TARGETPATH=..\lib\Debug
+TARGETPATHLIB=..\lib\Debug
+!ENDIF
+
+BUFFER_OVERFLOW_CHECKS=0
+C_DEFINES=$(C_DEFINES) /Gz
+
+USER_C_FLAGS=$(USER_C_FLAGS) -DBINARY_COMPATIBLE=0 -DNT -DUNICODE -D_UNICODE \
+	-DNDIS60 -DNDIS_SUPPORT_NDIS6 -DNDIS_LEGACY_DRIVER -DNDIS_LEGACY_MINIPORT -DNDIS51_MINIPORT
+
+!IF $(FREEBUILD)
+MSC_OPTIMIZATION = /O1
+MSC_WARNING_LEVEL=/W3 /WX
+MSC_STDCALL = 1
+!ENDIF
+
+!IF $(386)
+#LINKER_FLAGS=$(SDK_LIB_PATH)\exsup.lib 
+C_DEFINES=$(C_DEFINES) -D_WIN2K_COMPAT_SLIST_USAGE=1
+!ENDIF
+
+USER_C_FLAGS=$(USER_C_FLAGS) -D_CRT_ERRNO_DEFINED 
+#USER_C_FLAGS=$(USER_C_FLAGS) -D_TDI_SUPPORT
+
+INCLUDES=$(DDK_INC_PATH);..\inc;..\iplib\include;..\iplib\include\ipv4;..\iplib\include\netif;..\rtl;..\bkdrv;..\bklib
+
+SOURCES= \
+	kiplib.c	\
+	ndishook.c	\
+	ndisif.c	\
+	ethernetif.c	\
+	miniport.c	\
+	dma.c		\
+	protocol.c	\
+	filter.c	\
+	dumppkt.c	\
+	raslink.c	\
+	iodev.c		\
+	ksock.c		\
+	kstream.c	\
+	tdi.c		\
+	tsocket.c
+				
+#PRECOMPILED_INCLUDE=project.h
+#PRECOMPILED_PCH=project.pch
+#PRECOMPILED_OBJ=project.obj 
+			
+			

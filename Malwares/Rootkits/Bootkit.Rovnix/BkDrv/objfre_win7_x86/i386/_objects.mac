@@ -1,0 +1,18 @@
+
+
+386_OBJECTS=\
+ $(OBJ_PATH)\$O\bkdrv.obj \
+ $(OBJ_PATH)\$O\khook.obj \
+ $(OBJ_PATH)\$O\handle.obj \
+
+
+
+
+
+# lowercased
+BASEDIR=d:\winddk
+OBJECT_ROOT=d:\winddk
+MAKEDIR_LOWERCASE=e:\projects\progs\petrosjan\bootkit\bkdrv
+OBJ_PATH=e:\projects\progs\petrosjan\bootkit\bkdrv
+CONCURRENT_MIDL=0
+CONCURRENT_MANIFEST_BUILD=0

