@@ -1,0 +1,12 @@
+{
+  "callback_tokens": {
+    "test": {
+      "host": "hackerone.com",
+      "port": 443,
+      "ssl": true,
+      "path": "/webhooks",
+      "parameter": "url",
+      "method": "POST"
+    }
+  }
+}
