@@ -1,0 +1,8 @@
+## Trojans and stealers
+![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+
+<img src="trojangit.jpg" height="500" width="1750" > 
+
+    Keylogger has a set up that installs it in the startup folder. For this case, Put it manually and the run the .exe
+    the screenshot stealer takes screenshots of your screen and sends them to a clandestine email address in specific timelapses. 
+    It is also a module in the keylogger.

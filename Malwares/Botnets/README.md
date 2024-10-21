@@ -1,0 +1,36 @@
+## 👉 Kaiten Botnet
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black) ![Debian](https://img.shields.io/badge/Debian-D70A53?style=for-the-badge&logo=debian&logoColor=white) ![Arch](https://img.shields.io/badge/Arch%20Linux-1793D1?logo=arch-linux&logoColor=fff&style=for-the-badge) ![Linux Mint](https://img.shields.io/badge/Linux%20Mint-87CF3E?style=for-the-badge&logo=Linux%20Mint&logoColor=white)
+
+New and improved version of Kaiten, an Internet Relay Chat (IRC)-controlled malware typically used to carry out distributed denial-of-service (DDoS) attacks. The remastered malware has been dubbed “KTN-Remastered” or “KTN-RM”, with three versions of Linux/Remaiten already identified by ESET researchers. Based on artifacts in the code, the main feature of the malware is an improved spreading mechanism.
+Based primarily on Linux/Gafgyt’s telnet scanning, KTN-RM improves on that spreading mechanism by carrying downloader executable binaries for embedded platforms such as routers and other connected devices. Targeting mainly those with weak login credentials.
+
+Further, the downloader‘s job is to request the Linux/Remaiten bot binary from the Command & Control server for its current architecture. When executed, it also creates another bot for the malicious operators to use. We have seen this technique used before by Linux/Moose to spread infections,“ says Michal Malík, ESET Malware Researcher.
+
+## 👉 Lizard squad botnet
+![nVIDIA](https://img.shields.io/badge/nVIDIA-%2376B900.svg?style=for-the-badge&logo=nVIDIA&logoColor=white) ![PlayStation Network](https://img.shields.io/badge/PSN-%230070D1.svg?style=for-the-badge&logo=Playstation&logoColor=white) ![Steam](https://img.shields.io/badge/steam-%23000000.svg?style=for-the-badge&logo=steam&logoColor=white) ![Xbox](https://img.shields.io/badge/xbox-%23107C10.svg?style=for-the-badge&logo=xbox&logoColor=white) ![Playstation 5](https://img.shields.io/badge/Playstation%205-003791?style=for-the-badge&logo=playstation-5&logoColor=white)
+
+Lizard Squad was a black hat hacking group, mainly known for their claims of distributed denial-of-service (DDoS) attacks primarily to disrupt gaming-related services.
+
+On September 3, 2014, Lizard Squad seemingly announced that it had disbanded only to return later on, claiming responsibility for a variety of attacks on prominent websites. The organization at one point participated in the Darkode hacking forums and shared hosting with them. their targets;
+League of Legends DDoS,
+Destiny DDoS,
+PlayStation Network DDoS,
+Xbox Live DDoS,
+The Machinima Hack,
+North Korea DDoS,
+Christmas attacks:
+(Lizard Squad had previously threatened to take down gaming services on Christmas),
+Malaysia Airlines website attack,
+Daybreak Games DDoS.
+
+## 👉 Moobot botnet
+![Rss](https://img.shields.io/badge/rss-F88900?style=for-the-badge&logo=rss&logoColor=white) ![Shell Script](https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
+
+A variant of the Mirai botnet known as MooBot is co-opting vulnerable D-Link devices into an army of denial-of-service bots by taking advantage of multiple exploits. MooBot, first disclosed by Qihoo 360's Netlab team in September 2019, has previously targeted LILIN digital video recorders and Hikvision video surveillance products to expand its network. In the latest wave of attacks discovered by Unit 42 in early August 2022, as many as four different flaws in D-Link devices, both old and new, have paved the way for the deployment of MooBot samples. These include -
+
+    CVE-2015-2051 (CVSS score: 10.0) - D-Link HNAP SOAPAction Header Command Execution Vulnerability
+    CVE-2018-6530 (CVSS score: 9.8) - D-Link SOAP Interface Remote Code Execution Vulnerability
+    CVE-2022-26258 (CVSS score: 9.8) - D-Link Remote Command Execution Vulnerability, and
+    CVE-2022-28958 (CVSS score: 9.8) - D-Link Remote Command Execution Vulnerability
+    
+Successful exploitation of the aforementioned flaws could lead to remote code execution and the retrieval of a MooBot payload from a remote host, which then parses instructions from a command-and-control (C2) server to launch a DDoS attack on a specific IP address and port number.
