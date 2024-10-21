@@ -1,0 +1,65 @@
+;Support file for installation of the miniport driver during installation of Windows
+
+
+
+;the disk containing the required files
+;description, tagfile to verify that the disk is the valid disk, directory in the disk containing ;the files
+
+[Disks]
+disk	=	"VMware SCSI Controller Installation Disk", \disk.tag, \
+
+
+
+;The default driver during installation
+
+[Defaults]
+scsi	=	VMSCSI
+
+
+
+;The HwComponent section allows for a suitable description for the driver
+
+[scsi]
+VMSCSI	=	"VMware SCSI Controller"
+
+
+
+;filetype = diskN,filename[,DriverKey]
+
+[Files.scsi.VMSCSI]
+driver	=	disk, vmscsi.sys, VMSCSI
+inf	=	disk, vmscsi.inf
+catalog	=	disk, vmscsi.cat
+
+
+
+;value = subkey_name,value_name,value_type,value
+
+[Config.VMSCSI]
+# Add registry value:
+#
+#  HKLM\System\CurrentControlSet\VMSCSI\Tag 
+#
+# with value of 5
+value = "", Tag, REG_DWORD, 5
+
+# Add registry value:
+#
+#  HKLM\System\CurrentControlSet\VMSCSI\Parameters\PnPInterface\5
+#
+# with value of 1. "5" is the registry subkey name with a value of 1.
+#
+# The subkey name should be 5 for PCIBus
+#
+# The value of the subkey should be 1 for PnP enabled or 0 for disabled.
+value = Parameters\PnpInterface, 5 ,REG_DWORD, 1
+
+# Add registry value to set max outstanding requests to the adapter
+value = Parameters\Device, NumberOfRequests, REG_DWORD, 128
+
+
+
+;id = "deviceID","service"
+
+[HardwareIds.scsi.VMSCSI]
+id	=	"PCI\VEN_104B&DEV_1040", "VMscsi"

@@ -1,0 +1,154 @@
+
+; Black Hat Europe 2009 Engine
+
+; uses virus-description language
+
+
+CheckSignature:
+
+; edi = buffer to be scanned
+; ecx = count of bytes
+
+; searches for  "PeterKleissnerTestString"
+; stores result in [Found_Signature] (0 = not found, 1 = found)
+
+pushad
+push ds
+push es
+
+mov [Found_Signature],byte 0
+
+; set buffer to be scanned
+ror edi,4
+mov es,di
+shr edi,32-4
+
+%ifdef USE_DWORD_SCAN_ENGINE
+
+; set signature string
+mov esi,ProbeString
+ror esi,4
+mov ds,si
+shr esi,32-4
+
+; same code as in "Proof of Concept C++ Source"; (dword scan operation)
+shr ecx,2
+mov eax,[si]
+
+ScanString:
+
+repne scasd
+jecxz CheckSignature_Exit
+
+add si,4
+mov eax,[si]
+or al,al
+jnz ScanString
+
+; (found)
+mov [Found_Signature],byte 1
+sub edi,24       ; subtract size of signature to get found start address
+ror edi,4
+mov ax,ds
+add di,ax
+rol edi,4
+mov [Found_Address],dword edi
+
+%else
+
+Fast_Compare_String:
+
+; set signature string
+mov esi,ProbeString
+ror esi,4
+mov ds,si
+shr esi,32-4
+
+lodsb
+repne scasb
+jecxz CheckSignature_Exit       ; if no characters left             => exit
+jne CheckSignature_Exit         ; if string not found               => exit
+
+cmp ecx,23                      ; to prevent buffer wrap-around/overflow
+jb CheckSignature_Exit
+
+push ecx
+mov ecx,23      ; <-- Signature Size -1
+rep cmpsb
+pop ecx
+je Found
+
+jecxz CheckSignature_Exit
+dec di
+inc cx
+jmp Fast_Compare_String
+
+Found:
+
+; (found)
+mov [Found_Signature],byte 1
+sub edi,24       ; subtract size of signature to get found start address
+ror edi,4
+mov ax,es
+add di,ax
+rol edi,4
+mov [Found_Address],dword edi
+
+%endif
+
+CheckSignature_Exit:
+
+pop es
+pop ds
+popad
+
+ret
+
+
+
+
+ReplaceFoundSignature:
+
+; replaces with "KingPeterKleissner4ever!"
+
+; there must be a match with CheckSignature before
+
+pushad
+push ds
+push es
+
+; check if signature was found
+cmp [Found_Signature],byte 0
+je ReplaceFoundSignature_Exit
+
+; set target to signature we replace
+mov edi,[Found_Address]
+ror edi,4
+mov es,di
+shr edi,32-4
+
+; source is in this case the replace string (for vdl some buffer)
+mov esi,ReplaceString
+ror esi,4
+mov ds,si
+shr esi,32-4
+
+; simple operation: replace!
+mov ecx,24 / 4
+rep movsd
+
+; done!
+
+ReplaceFoundSignature_Exit:
+
+pop es
+pop ds
+popad
+
+ret
+
+
+
+
+ProbeString     db  "PeterKleissnerTestString", 0
+ReplaceString   db  "KingPeterKleissner4ever!", 0

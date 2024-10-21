@@ -1,0 +1,86 @@
+;vmscsi.INF
+;This file contains the information required to load the driver for the VMware SCSI Controller
+
+; Copyright (c) 2001 - 2004, VMware, Inc.
+
+[version]
+Signature="$Windows NT$"
+Class=SCSIAdapter
+ClassGuid={4D36E97B-E325-11CE-BFC1-08002BE10318}
+Provider=%VMWARE%
+DriverVer=08/17/2005,1.2.0.4
+CatalogFile=vmscsi.cat
+
+
+
+[SourceDisksNames.x86]
+1 = %DSKID1%,,,""
+
+[SourceDisksFiles]
+; Files for disk VMware SCSI Controller Installation Disk #1 (SCSIAdapter)
+vmscsi.sys = 1,,
+
+[DestinationDirs]
+DefaultDestDir=12
+
+
+
+[Manufacturer]
+%VMWARE%=VMware.Mfg
+
+
+
+[VMware.Mfg]
+%DEVICE%=DDInstall,PCI\VEN_104B&DEV_1040
+
+
+
+[DDInstall]
+CopyFiles=@vmscsi.sys
+
+
+
+[DDInstall.Services]
+AddService=vmscsi,0x00000002,Service_Install,EventLog_Install
+
+
+
+[Service_Install]
+DisplayName=vmscsi
+ServiceType=0x01		;KERNEL Driver
+StartType=0			;Boot Time
+ErrorControl=1			;Display Errors
+ServiceBinary=%12%\vmscsi.sys
+LoadOrderGroup=SCSI Miniport
+
+AddReg=pnpsafe_pci_addreg
+
+AddReg=os_hba_queue_limit_addreg
+
+
+[os_hba_queue_limit_addreg]
+HKR, "Parameters\Device", "NumberofRequests", %REG_DWORD%, 128
+
+
+
+[pnpsafe_pci_addreg]
+HKR, "Parameters\PnpInterface", "5", 0x00010001, 0x00000001
+
+
+
+[EventLog_Install]
+AddReg = EventLog_AddReg
+
+[EventLog_AddReg]
+HKR,,EventMessageFile,%REG_EXPAND_SZ%,"%%SystemRoot%%\System32\IoLogMsg.dll"
+HKR,,TypesSupported,%REG_DWORD%,7
+
+
+
+[strings]
+VMWARE="VMware, Inc."
+VMSCSI="VMscsi"
+DEVICE="VMware SCSI Controller"
+DSKID1="VMware SCSI Controller Installation Disk #1 (SCSIAdapter)"
+REG_EXPAND_SZ=0x00020000
+REG_DWORD=0x00010001

@@ -1,0 +1,207 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<TITLE>Microsoft Windows&nbsp;2000 Resource Kit Tool Download Release Notes</TITLE>
+<style>
+
+body    		{ color: #000000;
+		background: #FFFFFF;  	
+		font-size: 75%;    		
+		font-family: Verdana, Arial, Sans Serif; }
+
+
+a:link, a:visited 	{ color: "#0000FF"; text-decoration:"underline";}
+
+a:active, a:hover 	{ color: "#FF0000";  cursor:hand; text-decoration:"underline";}
+
+h1
+		{ font-size: 125%; 
+		margin-bottom:" .5em"; clear:both; }
+
+h2
+		{ font-size: 110%;  
+		margin-top: "1.5em";
+		margin-bottom:" .5em"; clear:both; }
+
+h3
+		{ font-size: 100%; 
+		margin-top: "1.2em";  
+		margin-bottom: ".5em"; clear:both; }
+
+
+p
+		{ margin-top:" .6em"; 
+		margin-bottom: ".6em"; }
+			
+ol
+		{ margin-top: ".5em"; 
+		margin-bottom: 0; 
+		margin-left: "2.1em"; 
+		padding-left: "0em";
+		margin-right:"2.1em" }
+	
+ul
+		{ margin-top: ".6em"; 	
+		margin-bottom: 0;
+		list-style-type: disc;
+		margin-left: "1.5em";
+		padding-left: "0em";
+		margin-right: "1.5em"; }
+		
+li
+		{ margin-bottom: ".7em"; clear:both; }
+		
+p.indent		{ margin-left: "2em"; }    
+
+		
+p.proclabel	{ font-size: 100%; 	
+		font-weight: bold; clear: both; }
+		
+		
+table
+		{ font-size: 100%;
+		margin-top: "1em"; 
+		margin-bottom: "1em"; }
+		
+th
+		{ text-align: left;
+		background: #DDDDDD;
+		vertical-align: bottom;
+		padding: .2em;
+		padding-left: .45em;
+		padding-right: .5em;}
+		
+tr
+		{ vertical-align: top; }
+
+td
+		{ background: #EEEEEE;
+		vertical-align: top;
+		padding: .2em;
+		padding-left: .45em;
+		padding-right: .5em;}
+		pre
+		{ margin-top: ".5em";
+		margin-bottom: ".5em"; }
+
+code
+		{ font-family: Courier New; 
+		font-size: "1.1em"; }
+</style>
+</HEAD>
+
+<BODY>
+
+<h1>Microsoft Windows&nbsp;2000 Resource Kit<BR>
+Tool Download Release Notes</h1>
+
+<P>This document is included with the software tool you have downloaded and installed. It contains important general information not found in the specific documentation file for this tool.</P>
+
+<P>The Microsoft<sup>&#174;</sup> Windows<sup>&#174;</sup>&nbsp;2000 Resource Kit tools can help you streamline administrative tasks such as managing Active Directory&#153;, administering security features, working with Group Policy and Terminal Services, automating application deployment, and other important jobs. The Resource Kit companion CD includes nearly 300 such tools.</P>
+
+<P>For more information about the <I>Windows&nbsp;2000 Resource Kits</I>, including new tools, hotfixes, and updated documentation, visit the <a href="http://reskit.com" target="out">Windows&nbsp;2000 Resource Kits</a> Web site.</P>
+
+<P>This tool is designed to be installed and run only on Microsoft<sup>&#174;</sup>&nbsp;Windows&nbsp;2000.</P>
+
+<P class="indent"><b>Important</b>&nbsp;&nbsp;&nbsp;The Resource Kit tools are not localized; they are written and tested in English only. Using these tools with a different language version of Windows&nbsp;2000 might produce unpredictable results.</P>
+
+<h2>Contents</h2>
+
+<p><a href="#setup">Setup for the Resource Kit Downloads</a></P>
+	<p class="indent"><a href="#general">Installing and Uninstalling This Tool</a></P>
+	<p class="indent"><a href="#cmd">Installing from the Command Prompt</a></P>
+	<p class="indent"><a href="#unattend">Unattended Installation</a></p>
+<P><a href="#support">Support Policy</a></P>
+
+<HR>
+
+<h2><a name="setup">Setup for the Resource Kit Downloads</a></h2>
+
+<h3><a name="general">Installing and Uninstalling This Tool</a></h3>
+
+<P>The download from which this readme is extracted also contains a documentation file and the file or files necessary to run the tool.</P>
+
+<P>The download file is a self-extracting executable, either an .msi (Microsoft Software Installer) file or an .exe (executable) file. When you run this file, it installs the tool and documentation onto your computer.</P>
+
+<P>When you install a downloaded tool, you are prompted to choose an install directory.  It is recommended that you install all future tool downloads and versions of the Windows&nbsp;2000 Resource Kit into the same directory to avoid an overly large system path and to ensure more reliable upgrades. The recommended directory is C:\Program Files\Resource Kit (the default directory for the Resource Kit companion CD).</P>
+
+<P>You can uninstall any downloaded tool or the entire Resource Kit by using <B>Add/Remove Programs</B> in <B>Control Panel</B>. Or, you can run the download file, and then select <B>Remove All</B> in the Setup Wizard.</P>
+
+<h3><a name="cmd">Installing from the Command Prompt</a></h3>
+
+<P>You can install Resource Kit tool downloads from the command prompt. If necessary, you can also use the <B>/q</B> option of <B>msiexec</B> to install or uninstall in silent mode, which requires no further action from the user.</P>
+
+<P>For example, to install the contents of <I>toolname</I>.msi in the default Resource Kit directory, type the following at the command prompt:</P>
+
+<B><CODE>msiexec /i c:\Program Files\Resource Kit\<I>toolname</I>.msi</CODE></B>
+
+<P>The following table lists the <B>msiexec</B> command-line options for installing .msi files from the command prompt.</P>
+
+<TABLE>
+<TR>
+<!--Column 1--><TH>Option</TH>
+<!--Column 2--><TH>Parameters</TH>
+<!--Column 3--><TH>Meaning</TH>
+</TR>
+<TR>
+<!--Column 1--><TD><B>/i</B></TD>
+<!--Column 2--><TD><I>toolname</I>.msi</TD>
+<!--Column 3--><TD>Installs or configures.</TD>
+</TR>
+<TR>
+<!--Column 1--><TD><B>/f</B></TD>
+<!--Column 2--><TD>[ReinstallModes] <I>toolname</I>.msi</TD>
+<!--Column 3--><TD>Repairs a previous installation.</TD>
+</TR>
+<TR>
+<!--Column 1--><TD><B>/a</B></TD>
+<!--Column 2--><TD><I>toolname</I>.msi</TD>
+<!--Column 3--><TD>Admin Installation. Installs on the network.</TD>
+</TR>
+<TR>
+<!--Column 1--><TD><B>/x</B></TD>
+<!--Column 2--><TD><I>toolname</I>.msi</TD>
+<!--Column 3--><TD>Uninstalls.</TD>
+</TR>
+<TR>
+<!--Column 1--><TD><B>/l</B></TD>
+<!--Column 2--><TD>[<B>i</B>|<B>w</B>|<B>e</B>|<B>f</B>|<B>a</B>|<B>r</B>|<B>u</B>|<B>c</B>|<B>m</B>|<B>p</B>|<B>+</B>]<I>logfile</I></TD>
+<!--Column 3--><TD>Specifies path to log file. The flags indicate the information to log.
+<P><B>i</B> – Status messages</P>
+<P><B>w</B> – Non-fatal warnings</P>
+<P><B>e</B> – All error messages</P>
+<P><B>f</B> – List of replaced files</P>
+<P><B>a</B> – Start up of actions</P>
+<P><B>r</B> – Action-specific records</P>
+<P><B>u</B> – User requests</P>
+<P><B>c</B> – Initial UI parameters</P>
+<P><B>m</B> – Out-of-memory</P>
+<P><B>p</B> – Terminal properties</P>
+<P><B>+</B> – Append to existing file</TD>
+</TR>
+<TR>
+<!--Column 1--><TD><B>/?</B></TD>
+<!--Column 2--><TD>&nbsp;</TD>
+<!--Column 3--><TD>Displays online Help.</TD>
+</TR>
+</TABLE>
+
+<h3><a name="unattend"></a>Unattended installation</h3>
+
+<P>To perform an unattended installation of <I>toolname</I>.msi, run the following command line:<BR>
+<B><CODE>msiexec c:\Program Files\Resource Kit\<I>toolname</I>.msi /QB</CODE></B></P>
+
+<HR>
+
+<h2><a name="support">Support Policy</a></h2>
+
+<P>The SOFTWARE supplied in the Resource Kit Tools download site is not supported under any Microsoft standard support program or service. You can, however, report issues and bugs by sending e-mail to <A HREF="mailto:rkinput@microsoft.com">rkinput@microsoft.com</A>. Microsoft will, at its sole discretion, address issues and bugs reported in this manner, and responses are not guaranteed.</P>
+
+<P>The SOFTWARE (including instructions for its use and all printed and online documentation) is provided AS IS without warranty of any kind. Microsoft further disclaims all implied warranties including, without limitation, any implied warranties of merchantability or of fitness for a particular purpose. The entire risk arising out of the use or performance of the SOFTWARE and documentation remains with you.</P>
+
+<P>In no event shall Microsoft, its authors, or anyone else involved in the creation, production, or delivery of the SOFTWARE be liable for any damages whatsoever (including, without limitation, damages for loss of business profits, business interruption, loss of business information, or other pecuniary loss) arising out of the use of or inability to use the SOFTWARE or documentation, even if Microsoft has been advised of the possibility of such damages.</P>
+
+<P>&copy; Copyright 1985–2000 Microsoft Corporation. All rights reserved.</P>
+
+</BODY>
+</HTML>

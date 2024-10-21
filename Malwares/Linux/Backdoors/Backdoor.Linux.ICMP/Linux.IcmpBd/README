@@ -1,0 +1,50 @@
+ 
+[ ICMP Backdoor ]
+
+
+[ Usage
+
+Before you compile you should set your own session_id in 'config.h' !
+
+To install the server just type 'make server' and run './ibd-server <icmpcode>' !
+<icmpcode> is the code which is used by the server to send packets. For
+possible codes look below.
+
+To install the client type 'make client' and run './ibd-client <host> <icmpcode>' !
+<host> is the host to connect to and <icmpcode> see above.
+
+Do not use interactive programs like vi, pine, etc. with this backdoor
+because it does not create a streaming connection.
+
+
+[ Possible icmpcodes
+
+ 0 - Echo Reply
+ 5 - Redirect
+ 8 - Echo Request
+ 9 - Router advertisement
+10 - Router solicitation
+13 - Timestamp request
+14 - Timestamp reply
+15 - Information request
+16 - Information reply
+17 - AddressMask request
+18 - AdressMask reply
+
+
+[ Author
+
+Martin J. Muench
+
+Mail: mjm@codito.de
+Web: www.codito.de
+
+
+[ Thanks
+
+Mixter
+
+
+[ Disclaimer
+
+I AM NOT RESPONSIBLE FOR ANY ILLEGAL USAGE OF THIS PROGRAM.

