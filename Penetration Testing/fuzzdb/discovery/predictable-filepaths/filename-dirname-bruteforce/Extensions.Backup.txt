@@ -1,0 +1,14 @@
+backup
+bck
+old
+save
+bak
+sav
+~
+copy
+orig
+tmp
+txt
+back
+swp
+rej
