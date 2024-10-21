@@ -1,0 +1,5 @@
+pycryptodome==3.9.8
+requests==2.24.0
+pyinstaller==3.6
+pyarmor==6.3.3
+pywin32==227
