@@ -1,0 +1,12 @@
+RunAsDaemon 1
+AvoidDiskWrites 1
+ControlPort 9051
+SOCKSPort 9050
+SafeSocks 0
+TestSocks 0
+DNSPort auto
+TransPort auto
+CookieAuthentication 1
+VirtualAddrNetwork 10.192.0.0/10
+AutomapHostsOnResolve 1
+DisableNetwork 0

