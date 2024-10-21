@@ -1,0 +1,14 @@
+typedef void (* COMMANDPROC)(int,LPVOID);
+
+typedef struct tagCOMMAND
+{
+	BYTE		byCode;
+	COMMANDPROC	proc;
+} COMMAND, * LPCOMMAND;
+
+typedef struct tagCOMMANDPACKET
+{
+	BYTE	byCode;
+	WORD	cchData;
+	BYTE	byData[];
+} COMMANDPACKET, * LPCOMMANDPACKET;

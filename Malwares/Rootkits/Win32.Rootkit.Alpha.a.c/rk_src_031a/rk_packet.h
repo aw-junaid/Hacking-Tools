@@ -1,0 +1,43 @@
+
+#ifndef __PACKET_H__
+#define __PACKET_H__
+
+/*
+ * defines and such
+ */
+#define ETHERNET_HEADER_LENGTH   14
+#define RESERVED(_p) ((PPACKET_RESERVED)((_p)->ProtocolReserved))
+#define TRANSMIT_PACKETS    16
+#define MAX_POSITIONS 32
+
+/* types
+ *
+ */
+typedef struct _BFRF {
+	PVOID mBuf;
+	ULONG mLen;
+} BFRF, *PBFRF;
+
+/*
+ * Prototypes
+ */
+VOID OnOpenAdapterDone	( IN NDIS_HANDLE ProtocolBindingContext, IN NDIS_STATUS Status, IN NDIS_STATUS OpenErrorStatus );
+VOID OnCloseAdapterDone	( IN NDIS_HANDLE ProtocolBindingContext, IN NDIS_STATUS Status );
+VOID OnSendDone		( IN NDIS_HANDLE ProtocolBindingContext, IN PNDIS_PACKET pPacket, IN NDIS_STATUS Status );
+VOID OnTransferDataDone	( IN NDIS_HANDLE ProtocolBindingContext, IN PNDIS_PACKET Packet, IN NDIS_STATUS Status, IN UINT BytesTransferred );
+VOID OnResetDone	( IN NDIS_HANDLE ProtocolBindingContext, IN NDIS_STATUS Status );
+VOID OnRequestDone	( IN NDIS_HANDLE ProtocolBindingContext, IN PNDIS_REQUEST pRequest, IN NDIS_STATUS Status );
+NDIS_STATUS OnReceiveStub      ( IN NDIS_HANDLE ProtocolBindingContext, IN NDIS_HANDLE MacReceiveContext, IN PVOID HeaderBuffer, IN UINT HeaderBufferSize, IN PVOID LookAheadBuffer, IN UINT LookaheadBufferSize, IN UINT PacketSize );
+VOID OnReceiveDoneStub	( IN NDIS_HANDLE ProtocolBindingContext );
+VOID OnStatus		( IN NDIS_HANDLE ProtocolBindingContext, IN NDIS_STATUS Status, IN PVOID StatusBuffer, IN UINT StatusBufferSize );
+VOID OnStatusDone	( IN NDIS_HANDLE ProtocolBindingContext );
+NTSTATUS OnReadStub( IN PDEVICE_OBJECT DeviceObject, IN PIRP Irp );
+
+/* use this to send raw packets */
+VOID SendRaw (char *c, int len);
+
+extern BFRF GlobalPtrArray[MAX_POSITIONS]; /* max recv packets waiting */
+extern ULONG GPFront;
+
+
+#endif

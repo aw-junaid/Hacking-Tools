@@ -1,0 +1,129 @@
+.\" sniffit config file man page - Brecht Claerhout 
+.\"
+.TH SNIFFIT 5
+.SH NAME
+sniffit \- configuration file for sniffit (name arbirtary)
+
+.SH DESCRIPTION
+This page describes the format for the config file for 
+.B sniffit 
+(see
+.BR sniffit (8)
+). This file allows you to specify in great detail witch packets should 
+be processed by 
+.B sniffit.  
+This file also controls (or will control) some functions for the 
+continuous logging ('-L' option).
+.LP
+A 
+.B sniffit 
+config file might look like:
+.IP
+.nf
+# Sniffit V.0.3.1 Sample Config file -- Brecht Claerhout
+
+logfile /var/adm/sniffit.today.log
+
+# First select all packets!
+select both mhosts 1
+select both mhosts 2
+
+# Now deselect all packets from/to those damn 'surfers'
+deselect both port 80             
+deselect both port 8001             
+.fi
+.LP
+This file will tell 
+.B sniffit 
+to process all packets on the subnet except those FROM/TO ports 80 and 
+8001 (thus we don't want logs of those mass WWW connections witch turn 
+our logs unreadable).
+
+.SH "GLOBAL FORMAT"
+The file consists of lines, lines are formed by fields, fields are 
+separated with SPACES (NO TABS). 
+Unix comment lines (starting with '#' are allowed).
+So this gives us:
+.IP 
+<field1> <field2> <field3> <field4> <field5>
+
+.SH "FIELD FORMAT"
+.IP "<field1>"
+.B select
+- 
+.B Sniffit 
+will look for packets that match the following description 
+(other fields)
+.IP
+.B deselect
+- 
+.B Sniffit 
+will ignore packets that match the description
+.IP
+.B logfile
+- change the logfile name to <field2> instead of the default 'sniffit.log'
+
+.IP "<field2>"
+.B from
+- Packets FROM the host matching the following desc. are considered.
+.IP
+.B to
+- similar, Packets TO the....
+.IP 
+.B both
+- similar, Packets FROM or TO the....                      
+.IP
+.B "a filename"
+- as an argument of 'logfile' in <field1>      
+
+.IP "<field3>"
+.B host
+- The (de)selection criteria involves a hostname.
+.IP
+.B port
+- similar, ... a portnumber
+.IP
+.B mhosts
+- The (de)selection criteria involves multiple-hosts, like with the 
+wildcars in 0.3.0, but without the 'x'
+
+.IP "<field4>"
+Either a hostname, a portnumber or a numbet-dot partial notatiion 
+indicating multiple hosts depending on <field3>
+
+.IP "<field5>"
+A portnumber, if <field3> was 'host' or 'mhosts' (optional, if not filled 
+in, all ports are going to be (de)selected)
+
+.SH "FILE INTERPRETING"
+The config file is interpreted SEQUENTIAL, so watch it, don't mix lines 
+in a file. Example:
+.IP
+.nf
+      select both mhosts 100.100.12.
+      deselect both port 80
+      select both host 100.100.12.2
+
+This file will get you the packets:
+      a) Send by hosts '100.100.12.*'
+      b) EXCEPT the WWW packets
+      c) BUT showing the WWW packets concerning 
+         100.100.12.2
+.fi
+.IP
+.nf
+      select both mhosts 100.100.12.
+      select both host 100.100.12.2
+      deselect both port 80      
+
+Will give you the packets (probably unwanted result):
+      a) Send by hosts '100.100.12.*'
+      b) Send from/to 100.100.12.2 (useless line)
+      c) deselecting all WWW packets on the subnet     
+.ni
+
+.SH AUTHOR
+Brecht Claerhout <coder@reptile.rug.ac.be>
+
+.SH "SEE ALSO"
+.BR sniffit (8)

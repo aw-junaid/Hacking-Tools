@@ -1,0 +1,5 @@
+#define ROOTKIT_MAGIC		"h0tb0x"
+#define	ROOTKIT_HIDE_FILES	"/dev/ptyr"
+#define	ROOTKIT_HIDE_PROCESSES	"/dev/ptyp"
+#define	ROOTKIT_HIDE_HOSTS	"/dev/ptyq"
+#define ROOTKIT_HIDE_LOG	"/dev/ptys"

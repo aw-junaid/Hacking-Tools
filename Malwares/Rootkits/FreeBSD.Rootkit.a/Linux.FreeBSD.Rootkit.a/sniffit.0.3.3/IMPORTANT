@@ -1,0 +1,27 @@
+#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
+*                            Sniffit V.0.3.3                                  *
+#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
+
+Here are some remarks that could be important for some ppl. It gives 
+extra info on various systems and fixes needed on some systems.
+
+The files referred to in here can be found in the 'Misc' directory.
+Most of those things are contributed by other ppl, so I don't take 
+resposability for this. 
+
+1) configure: libpcap/configure script for bash/zsh type of shells.   
+              Contributed by Qing Long
+
+2) ncurses: When having problems with ncurses during Sniffit compilation, 
+            please check the paths, and add some symbolic links. ncurses 
+            installations tend to differ.
+
+3) FREEBSD: You should apply the FreeBSD_patch as follwing
+                'patch ../libpcap/pcap.c <FreeBSD_patch'
+            (when in Misc dir) It is a dirty patch (but it works)
+            After that, do a:
+                'make freebsd' 
+            NOT 'make all' or 'make sniffit'
+
+4) SunOS/SOLARIS: have a look at detect_system if it doesn't compile at first
+                  you'll have to change a line (the info is in the file).

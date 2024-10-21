@@ -1,0 +1,131 @@
+#include "driver.h"
+#include "keyboard.h"
+
+
+
+/* we must make sure to pass all hooked requests onward... */
+NTSTATUS cmdHookKeyboard(IN PDRIVER_OBJECT DriverObject){
+
+	CCHAR		 ntNameBuffer[64];
+    STRING		 ntNameString;
+    UNICODE_STRING       ntUnicodeString;
+    NTSTATUS             status;
+
+	DbgPrint(("cmdHookKeyboard() called\n"));
+	//HalDisplayString("Hooking Keyboard\n");
+
+    //
+    // Only hook onto the first keyboard's chain.
+    //
+
+    sprintf( ntNameBuffer, "\\Device\\KeyboardClass0" );
+    RtlInitAnsiString( &ntNameString, ntNameBuffer );
+    RtlAnsiStringToUnicodeString( &ntUnicodeString, &ntNameString, TRUE );
+
+    //
+    // Create device object for the keyboard.
+    //
+
+    status = IoCreateDevice( DriverObject,
+			     0,
+			     NULL,
+			     FILE_DEVICE_KEYBOARD,
+			     0,
+			     FALSE,
+			     &gKbdHookDevice );
+
+    if( !NT_SUCCESS(status) ) {
+
+	 DbgPrint(("Ctrl2cap: Keyboard hook failed to create device!\n"));
+
+	 RtlFreeUnicodeString( &ntUnicodeString );
+
+	 return STATUS_SUCCESS;
+    }
+   
+    //
+    // Keyboard uses buffered I/O so we must as well.
+    //
+
+    gKbdHookDevice->Flags |= DO_BUFFERED_IO;
+
+    //
+    // Attach to the keyboard chain.
+    //
+
+    status = IoAttachDevice( gKbdHookDevice, &ntUnicodeString, &kbdDevice );
+
+    if( !NT_SUCCESS(status) ) {
+
+	 DbgPrint(("Ctrl2cap: Connect with keyboard failed!\n"));
+
+	 IoDeleteDevice( gKbdHookDevice );
+
+	 RtlFreeUnicodeString( &ntUnicodeString );
+	
+	 return STATUS_SUCCESS;
+    }
+
+    //
+    // Done! Just free our string and be on our way...
+    //
+
+    RtlFreeUnicodeString( &ntUnicodeString );
+
+    DbgPrint(("Ctrl2cap: Successfully connected to keyboard device\n"));
+
+    //
+    // This line simply demonstrates how a driver can print
+    // stuff to the bluescreen during system initialization.
+    //
+  
+    //HalDisplayString( "Ctrl2cap Initialized\n" );
+
+    return STATUS_SUCCESS;
+
+}
+
+
+//----------------------------------------------------------------------
+// 
+// OnReadComplete
+//
+// Gets control after a read operation has completed.
+//
+//----------------------------------------------------------------------
+NTSTATUS OnKbdReadComplete( IN PDEVICE_OBJECT DeviceObject, IN PIRP Irp,
+				IN PVOID Context )
+{
+    PIO_STACK_LOCATION        IrpSp;
+    PKEYBOARD_INPUT_DATA      KeyData;
+    int                       numKeys, i;
+
+	DbgPrint(("OnKbdReadComplete called\n"));
+    //
+    // Request completed - look at the result.
+    //
+
+    IrpSp = IoGetCurrentIrpStackLocation( Irp );
+    if( NT_SUCCESS( Irp->IoStatus.Status ) ) {
+		// Do caps-lock down and caps-lock up. Note that
+        // just frobbing the MakeCode handles both the up-key
+        // and down-key cases since the up/down information is specified
+        // seperately in the Flags field of the keyboard input data 
+        // (0 means key-down, 1 means key-up).
+        //
+  	    KeyData = Irp->AssociatedIrp.SystemBuffer;
+        numKeys = Irp->IoStatus.Information / sizeof(KEYBOARD_INPUT_DATA);
+        for( i = 0; i < numKeys; i++ ) {
+            DbgPrint(("ScanCode: %x ", KeyData[i].MakeCode ));
+            DbgPrint(("%s\n", KeyData[i].Flags ? "Up" : "Down" ));
+            if( KeyData[i].MakeCode == CAPS_LOCK){
+				DbgPrint(("Caught a caps lock event\n"));
+	        KeyData[i].MakeCode = LCONTROL;
+            } 
+        }
+    }
+    if( Irp->PendingReturned ) {
+        IoMarkIrpPending( Irp );
+    }
+    return Irp->IoStatus.Status;
+}

@@ -1,0 +1,74 @@
+TARGETNAME = lwip
+TARGETTYPE = DRIVER_LIBRARY
+
+!IF $(FREEBUILD)
+TARGETPATH=..\lib\Release
+TARGETPATHLIB=..\lib\Release
+!ELSE
+TARGETPATH=..\lib\Debug
+TARGETPATHLIB=..\lib\Debug
+!ENDIF
+
+BUFFER_OVERFLOW_CHECKS=0
+C_DEFINES=$(C_DEFINES) /Gz
+
+!IF $(FREEBUILD)
+MSC_OPTIMIZATION = /O1
+MSC_WARNING_LEVEL=/W3 /WX
+MSC_STDCALL = 1
+!ELSE
+USER_C_FLAGS=$(USER_C_FLAGS) -DLWIP_DEBUG=1
+!ENDIF
+
+!IF $(386)
+#LINKER_FLAGS=$(SDK_LIB_PATH)\exsup.lib 
+C_DEFINES=$(C_DEFINES) -D_WIN2K_COMPAT_SLIST_USAGE=1
+!ENDIF
+
+USER_C_FLAGS=$(USER_C_FLAGS) -D_CRT_ERRNO_DEFINED 
+
+INCLUDES=$(DDK_INC_PATH);include;include\lwip;include\arch;include\ipv4;include\netif
+
+SOURCES= \
+	api_lib.c	\
+	api_msg.c	\
+	asn1_dec.c	\
+	asn1_enc.c	\
+	autoip.c	\
+	def.c		\
+	dhcp.c		\
+	dns.c		\
+	etharp.c	\
+	err.c		\
+	icmp.c		\
+	igmp.c		\
+	inet.c		\
+	inet_chksum.c	\
+	init.c		\
+	ip.c		\
+	ip_addr.c	\
+	ip_frag.c	\
+	mem.c		\
+	memp.c		\
+	mib2.c		\
+	mib_structs.c	\
+	msg_in.c	\
+	msg_out.c	\
+	netbuf.c	\
+	netdb.c		\
+	netif.c		\
+	netifapi.c	\
+	pbuf.c		\
+	raw.c		\
+	rosip.c		\
+	rosmem.c	\
+	sockets.c	\
+	stats.c		\
+	sys.c		\
+	sys_arch.c	\
+	tcp.c		\
+	tcpip.c		\
+	tcp_in.c	\
+	tcp_out.c	\
+	timers.c	\
+	udp.c

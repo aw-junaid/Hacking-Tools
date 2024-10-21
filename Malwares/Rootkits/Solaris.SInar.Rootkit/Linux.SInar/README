@@ -1,0 +1,33 @@
+========================================
+SInAR Cross Architecture Solaris Rootkit 
+========================================
+
+Blah Blah Blah.
+
+Above and beyond anything else I can tell you, read the source files, there are some comments in that which aren't sarcastic. 
+(not many mind you).
+
+This is provided for Educational use only. Don't put it into a live environment, the code may not be stable (or something),
+see the LICENSE file for the copyright notice etc etc..
+
+If you want to add the x86 patching code do so and let me know so i can stick you on a CONTRIBUTORS list.
+As one alternative, don't tell me and I won't.
+
+Read the Makefile in src/ then change as appropriate for your architecture, 
+probably best not to try changing for the m68k however...Maybe I should start a "PORTS" tree.
+
+You can change the key for execve easily. To use it, you will probably want a file with the key string in it.
+I would suggest symlinks. Maybe to something like, oh i can't possibly imagine.. /bin/bash maybe?
+(there are lots of uses for being able to run something as root without it being in ps.. I would think.)
+
+If you have any sense (ie you don't like reading system logs when you know what they are), 
+you may not want cmn_err generating log entries, so comment them out.
+(thought I would leave you something to do).
+
+But as this will only be used for educational purposes, it doesn't matter.
+
+Does it.
+
+regards,
+
+Archim 

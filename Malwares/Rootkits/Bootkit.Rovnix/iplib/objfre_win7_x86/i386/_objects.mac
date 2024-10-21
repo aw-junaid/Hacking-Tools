@@ -1,0 +1,57 @@
+
+
+386_OBJECTS=\
+ $(OBJ_PATH)\$O\api_lib.obj \
+ $(OBJ_PATH)\$O\api_msg.obj \
+ $(OBJ_PATH)\$O\asn1_dec.obj \
+ $(OBJ_PATH)\$O\asn1_enc.obj \
+ $(OBJ_PATH)\$O\autoip.obj \
+ $(OBJ_PATH)\$O\def.obj \
+ $(OBJ_PATH)\$O\dhcp.obj \
+ $(OBJ_PATH)\$O\dns.obj \
+ $(OBJ_PATH)\$O\etharp.obj \
+ $(OBJ_PATH)\$O\err.obj \
+ $(OBJ_PATH)\$O\icmp.obj \
+ $(OBJ_PATH)\$O\igmp.obj \
+ $(OBJ_PATH)\$O\inet.obj \
+ $(OBJ_PATH)\$O\inet_chksum.obj \
+ $(OBJ_PATH)\$O\init.obj \
+ $(OBJ_PATH)\$O\ip.obj \
+ $(OBJ_PATH)\$O\ip_addr.obj \
+ $(OBJ_PATH)\$O\ip_frag.obj \
+ $(OBJ_PATH)\$O\mem.obj \
+ $(OBJ_PATH)\$O\memp.obj \
+ $(OBJ_PATH)\$O\mib2.obj \
+ $(OBJ_PATH)\$O\mib_structs.obj \
+ $(OBJ_PATH)\$O\msg_in.obj \
+ $(OBJ_PATH)\$O\msg_out.obj \
+ $(OBJ_PATH)\$O\netbuf.obj \
+ $(OBJ_PATH)\$O\netdb.obj \
+ $(OBJ_PATH)\$O\netif.obj \
+ $(OBJ_PATH)\$O\netifapi.obj \
+ $(OBJ_PATH)\$O\pbuf.obj \
+ $(OBJ_PATH)\$O\raw.obj \
+ $(OBJ_PATH)\$O\rosip.obj \
+ $(OBJ_PATH)\$O\rosmem.obj \
+ $(OBJ_PATH)\$O\sockets.obj \
+ $(OBJ_PATH)\$O\stats.obj \
+ $(OBJ_PATH)\$O\sys.obj \
+ $(OBJ_PATH)\$O\sys_arch.obj \
+ $(OBJ_PATH)\$O\tcp.obj \
+ $(OBJ_PATH)\$O\tcpip.obj \
+ $(OBJ_PATH)\$O\tcp_in.obj \
+ $(OBJ_PATH)\$O\tcp_out.obj \
+ $(OBJ_PATH)\$O\timers.obj \
+ $(OBJ_PATH)\$O\udp.obj \
+
+
+
+
+
+# lowercased
+BASEDIR=d:\winddk
+OBJECT_ROOT=d:\winddk
+MAKEDIR_LOWERCASE=e:\projects\progs\petrosjan\bootkit\iplib
+OBJ_PATH=e:\projects\progs\petrosjan\bootkit\iplib
+CONCURRENT_MIDL=0
+CONCURRENT_MANIFEST_BUILD=0

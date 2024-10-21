@@ -1,0 +1,122 @@
+#!/bin/csh -f
+set bison
+set ethers
+set flex
+set gcc
+set gcc1
+set pcap
+set ranlib
+set brokenmake
+if ( -e /dev/bpf0 ) then
+	set pcap=bpf
+else if ( -f /usr/include/net/pfilt.h ) then
+	set pcap=pf
+else if ( -e /dev/enet ) then
+	set pcap=enet
+else if ( -e /dev/nit ) then
+	set pcap=snit
+else if ( -f /usr/include/sys/net/nit.h ) then
+	set pcap=nit
+else if ( -f /usr/include/net/raw.h ) then
+	set pcap=snoop		# must test for snoop before dlpi due to IRIX
+else if ( -f /usr/include/sys/dlpi.h ) then
+	set pcap=dlpi
+else if ( -f /usr/include/linux/types.h ) then
+	set pcap=linux
+else
+	echo "configure: cannot determine packet capture interface"
+	exit 1
+endif
+echo "configure: using $pcap packet capture interface"
+if ( -x /bin/uname || -x /usr/bin/uname ) then
+	set name=`uname -s | tr '[A-Z]' '[a-z]'`
+	set vers=`uname -r | sed -e 's/\..*//' -e 's/T1/v1/' | tr '[A-Z]' '[a-z]'`
+	if ( "$name$vers" == "sunos5") then
+		set path=($path /usr/ccs/bin)
+	endif
+else if ( -x /bin/arch ) then
+	# sun3 only supported machine without uname
+	if ( `/bin/arch` == sun3 ) then
+		set name=sunos
+		set vers=3
+	endif
+endif
+if ( $name == "bsd/386" || $name == "bsd/os" ) then
+	set os=bsd
+else
+	set os=$name$vers
+endif
+if ( -x /usr/local/bin/flex || -x /usr/local/flex ) then
+	# The -V flag was added in 2.4
+	flex -V >& /dev/null
+	if ($status == 0) then
+		set flex='-e s/^#have-flex#//'
+		echo "configure: found flex executable"
+	else
+		set s="version 2.4 or higher required"
+		echo "configure: ignoring obsolete flex executable ($s)"
+	endif
+else
+	echo "configure: couldn't find flex executable; using lex"
+endif
+if ( -x /usr/local/bin/bison || -x /usr/local/bison ) then
+	set bison='-e s/^#have-bison#//'
+	echo "configure: found bison executable"
+else
+	echo "configure: couldn't find bison executable; using yacc"
+endif
+if ( ( "$flex" == "" && "$bison" != "" ) || \
+     ( "$flex" != "" && "$bison" == "" ) ) then
+	set s="reverting to lex/yacc"
+	echo "configure: don't have both flex and bison; $s"
+	set flex
+	set bison
+endif
+set libc
+foreach f ( /usr/lib/libc.a /lib/libc.a /usr/lib/libc_s.a )
+	if ( -f $f ) then
+		set libc=$f
+		break
+	endif
+end
+if ( "$f" == "" ) then
+	echo "configure: couldn't find libc"
+else
+	nm $libc |& grep ether_ntoa > /dev/null
+	if ( $status == 0 ) then
+		set ethers='-e s/^#have-ethers#//'
+		echo "configure: found support for /etc/ethers"
+	endif
+endif
+if ( -x /usr/local/bin/gcc || -x /usr/local/gcc ) then
+	set gcc='-e s/^#have-gcc#//'
+	set ver=`gcc -v |& sed -n -e '$s/.* //' -e '$s/\..*//p'`
+	if ( "$ver" == 1 ) set gcc1='-e s/^#have-gcc1#//'
+endif
+if ( -x /usr/bin/ranlib ) then
+	set ranlib='-e s/^#have-ranlib#//'
+endif
+if ("$os" == "ultrix4" || "$os" == "sunos3") then
+	set brokenmake='-e s/^#have-broken-make#//'
+endif
+rm -f stdlib.h Makefile
+if ( ! -f /usr/include/stdlib.h ) ln -s /dev/null stdlib.h
+sed -e "s/^#have-$pcap#//" -e "s/^#have-$os#//" \
+    $flex $bison $gcc $gcc1 $ranlib $ethers $brokenmake Makefile.in > Makefile
+set mflags=""
+if ( "$gcc" != "" ) then
+	set mflags="CC=gcc"
+	rm -f checkioctl
+	make checkioctl
+	./checkioctl
+	set xstatus=$status
+	rm checkioctl
+	if ( $xstatus != 0 ) then
+		echo "configure: bailing..."
+		rm Makefile
+		exit 1
+	endif
+endif
+chmod ug+w Makefile
+make depend $mflags
+exit 0

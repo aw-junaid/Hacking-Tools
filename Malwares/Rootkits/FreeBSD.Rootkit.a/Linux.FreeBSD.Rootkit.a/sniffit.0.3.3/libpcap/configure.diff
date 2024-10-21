@@ -1,0 +1,11 @@
+*** ../libpcap-0.0.6~/configure	Fri Apr 21 21:50:47 1995
+--- configure	Sat Sep 30 01:10:11 1995
+***************
+*** 22,25 ****
+--- 22,27 ----
+  else if ( -f /usr/include/sys/dlpi.h ) then
+  	set pcap=dlpi
++ else if ( -f /usr/include/linux/types.h ) then
++ 	set pcap=linux
+  else
+  	echo "configure: cannot determine packet capture interface"

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\GreenKit\PortScan.cpp" />
+    <ClCompile Include="..\GreenKit\BitcoinMiner.cpp" />
+    <ClCompile Include="..\GreenKit\utils.cpp" />
+    <ClCompile Include="GreenKitExe.cpp" />
+    <ClCompile Include="Injector.cpp" />
+    <ClCompile Include="MemoryModule.cpp" />
+    <ClCompile Include="process.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\GreenKit\utils.h" />
+    <ClInclude Include="BitcoinMiner.h" />
+    <ClInclude Include="GreenKitExe.h" />
+    <ClInclude Include="Injector.h" />
+    <ClInclude Include="MemoryModule.h" />
+    <ClInclude Include="portscan.h" />
+    <ClInclude Include="process.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="GreenKit.ico" />
+    <Image Include="small.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

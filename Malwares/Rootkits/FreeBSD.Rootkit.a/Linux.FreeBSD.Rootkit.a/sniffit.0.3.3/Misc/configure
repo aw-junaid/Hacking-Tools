@@ -1,0 +1,217 @@
+#!/bin/sh -f
+#
+# Script written by Qing Long <qinglong@Bolizm.ihep.su>
+#
+unset bison
+unset ethers
+unset flex
+unset gcc
+unset gcc1
+unset pcap
+unset ranlib
+unset brokenmake
+if [ -e /dev/bpf0 ]
+ then
+  pcap=bpf
+ else
+  if [ -f /usr/include/net/pfilt.h ]
+   then
+    pcap=pf
+   else
+    if [ -e /dev/enet ]
+     then
+      pcap=enet
+     else
+      if [ -e /dev/nit ]
+       then
+        pcap=snit
+       else
+        if [ -f /usr/include/sys/net/nit.h ]
+         then
+          pcap=nit
+         else
+          if [ -f /usr/include/net/raw.h ]
+           then
+	    pcap=snoop	# must test for snoop before dlpi due to IRIX
+           else
+            if [ -f /usr/include/sys/dlpi.h ]
+             then
+              pcap=dlpi
+             else
+              if [ -f /usr/include/linux/types.h ]
+               then
+	        pcap=linux
+               else
+                echo "configure: cannot determine packet capture interface"
+                exit 1
+              fi
+            fi
+          fi
+        fi
+      fi
+    fi
+  fi
+fi
+#
+echo "configure: using $pcap packet capture interface"
+#
+if [ -x /bin/uname \
+  -o -x /usr/bin/uname \
+   ]
+ then
+  name=$(uname -s | tr '[A-Z]' '[a-z]')
+  vers=$(uname -r | sed -e 's/\..*//' -e 's/T1/v1/' | tr '[A-Z]' '[a-z]')
+  if [ "$name$vers" = "sunos5" ]
+   then
+    PATH="$PATH:/usr/ccs/bin"
+  fi
+ else
+  if [ -x /bin/arch ]
+   then
+    # sun3 only supported machine without uname
+    if [ "$(/bin/arch)" = "sun3" ]
+     then
+      name=sunos
+      vers=3
+    fi
+  fi
+fi
+#
+if [ "$name" = "bsd/386" \
+  -o "$name" = "bsd/os" \
+   ]
+ then
+  os=bsd
+ else
+  os="$name$vers"
+fi
+#
+if [ -x /usr/local/bin/flex \
+  -o -x /usr/local/flex \
+  -o -x /usr/bin/flex \
+  -o -x /bin/flex \
+   ]
+ then
+  # The -V flag was added in 2.4
+  if flex -V &> /dev/null
+   then
+    flex='-e s/^#have-flex#//'
+    echo "configure: found flex executable"
+   else
+    s="version 2.4 or higher required"
+    echo "configure: ignoring obsolete flex executable ($s)"
+  fi
+ else
+  echo "configure: couldn't find flex executable; using lex"
+fi
+#
+if [ -x /usr/local/bin/bison \
+  -o -x /usr/local/bison \
+  -o -x /usr/bin/bison \
+  -o -x /bin/bison \
+   ]
+ then
+  bison='-e s/^#have-bison#//'
+  echo "configure: found bison executable"
+ else
+  echo "configure: couldn't find bison executable; using yacc"
+fi
+#
+if [ -z "$flex" -a -n "$bison" ] || [ -n "$flex" -a -z "$bison" ]
+ then
+  s="reverting to lex/yacc"
+  echo "configure: don't have both flex and bison; $s"
+  unset flex
+  unset bison
+fi
+#
+unset libc
+#
+for f in /usr/lib/libc.a /lib/libc.a /usr/lib/libc_s.a ;
+ do
+  if [ -f $f ]
+   then
+    libc=$f
+    break
+  fi
+done
+#
+if [ "$f" = "" ]
+ then
+  echo "configure: couldn't find libc"
+ else
+  if $libc 2>&1 | grep ether_ntoa > /dev/null
+   then
+    ethers='-e s/^#have-ethers#//'
+    echo "configure: found support for /etc/ethers"
+  fi
+fi
+#
+if [ -x /usr/local/bin/gcc \
+  -o -x /usr/local/gcc \
+  -o -x /usr/bin/gcc \
+  -o -x /bin/gcc \
+   ]
+ then
+  gcc='-e s/^#have-gcc#//'
+  ver=$(gcc -v 2>&1 | sed -n -e '$s/.* //' -e '$s/\..*//p')
+  if [ "$ver" = 1 ]
+   then
+    gcc1='-e s/^#have-gcc1#//'
+  fi
+fi
+#
+if [ -x /usr/bin/ranlib ]
+ then
+  ranlib='-e s/^#have-ranlib#//'
+fi
+#
+if [ "$os" = "ultrix4" \
+  -o "$os" = "sunos3" \
+   ]
+ then
+  brokenmake='-e s/^#have-broken-make#//'
+fi
+#
+rm -f stdlib.h Makefile
+#
+if ! [ -f /usr/include/stdlib.h ]
+ then
+  ln -s /dev/null stdlib.h
+fi
+#
+sed -e "s/^#have-$pcap#//"	\
+    -e "s/^#have-$os#//"	\
+    $flex	\
+    $bison	\
+    $gcc	\
+    $gcc1	\
+    $ranlib	\
+    $ethers	\
+    $brokenmake	\
+    Makefile.in > Makefile
+#
+mflags=""
+#
+if [ "$gcc" != "" ]
+ then
+  mflags="CC=gcc"
+  rm -f checkioctl
+  make checkioctl
+  ./checkioctl
+  if ! ./checkioctl
+   then
+    rm checkioctl
+    echo "configure: bailing..."
+    rm Makefile
+    exit 1
+   else
+    rm checkioctl
+  fi
+fi
+#
+chmod ug+w Makefile
+make depend $mflags
+exit 0
+
+#

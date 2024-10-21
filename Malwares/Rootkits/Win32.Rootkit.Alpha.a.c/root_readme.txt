@@ -1,0 +1,41 @@
+Alpha build - debug 0.31
+
+This has been tested and known to work under NT 4.0 Server (1381).
+This has been tested and known to work under Windows 2000 RC2 (2128).
+
+Note: this debug build of the rootkit generates huge amounts of debug messages.  You can watch these with a tool such as DbgView from www.sysinternals.com (or equivalent).
+
+To test out the rootkit, copy deploy.exe and _root_.sys to a common directory.
+
+To install and start the rootkit, run deploy.exe.
+
+To start and stop the rootkit in realtime, use the following commands:
+
+net start _root_
+net stop _root_
+
+Respectively.
+
+Test Registry Hiding:
+---------------------
+
+Any value or key that begins with the 6 letters '_root_' should be hidden from view. regedit.exe and regedt32.exe were tested.
+
+Additionally, any program that is running that begins with '_root_' will be excempt from any subterfuge - hence, if you make a copy of regedit.exe called '_root_regedit.exe' - the new copy of regedit will be able to see all of the hidden keys!  (neato)
+
+Try starting and stopping the rootkit dynamically and refreshing your view of the registry, also.  You will see that it is working.
+
+Test EXE redirection:
+---------------------
+
+For now, this test is hard coded.  To test, first carry out the following:
+
+Copy 'calc.exe' to C:\
+Copy any other executable to C:\ and rename it so that the first 6 characters of the filename are '_root_'.  CMD.EXE was tested, so it would be ranamed to "C:\_root_cmd.exe".
+
+The rootkit will detect the execution of the filename that starts with '_root_' and redirect it to "C:\calc.exe".  Try executing the file and you will see that calc.exe gets executed instead.
+
+Now, with the rootkit turned off, open '_root_cmd.exe' (or equivalent) in a hex editor.  Now start the rootkit and open it again.  Note that the images are exactly the same!  You are looking at the same file.  Now open calc.exe and verify that it is different.  As you can see the rootkit does not effect the ability to read a file correctly.  The rootkit only becomes involved when the file is executed.  This should fool programs that perform CRC's or Hashes of files.
+
+  
+

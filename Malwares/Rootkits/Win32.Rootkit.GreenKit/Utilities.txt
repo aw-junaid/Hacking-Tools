@@ -1,0 +1,46 @@
+Duplication du virus :
+	- Generation d'un nom aléatoire
+	- Copie sur clé USB : autorun.inf avec nom du virus aléatoire
+
+Lancement du virus au démarrage :
+	- Win6-7-8: C:\users\%username%\AppData\Roaming\Microsoft\Windows\Start 
+	- Regitre : HKCU\Software\Microsoft\Windows\CurrentVersion\Run
+
+EXPLOITS :
+	Privilege escalation :
+		https://blog.netspi.com/windows-privilege-escalation-part-1-local-administrator-privileges/
+		Guest to Admin =>
+			W7 :
+				x86:
+					http://download.pureftpd.org/public/misc/UAC.cpp
+				x64
+			W8:
+				x86:
+					http://download.pureftpd.org/public/misc/UAC.cpp
+				x64:
+
+A lire :
+
+
+A analyser :
+http://www.pretentiousname.com/misc/W7E_Source/Win7Elevate_Utils.cpp.html
+http://www.adlice.com/fr/rootkits-noyau-partie-1-hooks-ssdt/
+http://www.kernelhacking.com/rodrigo/docs/StMichael/kernel-land-rootkits.pdf
+Création d'un driver: http://www.codeproject.com/Articles/9504/Driver-Development-Part-Introduction-to-Drivers
+Hooker la SSDT: http://resources.infosecinstitute.com/hooking-system-service-dispatch-table-ssdt/
+Cacher un rootkit driver avec DKROM: http://www.flatland.tuxfamily.org/dkom_driver.php
+Créer un rootkit kernel land et le protéger: http://c0decstuff.blogspot.fr/2011/01/ring-0f-fire-rootkits-and-dkom.html
+Tuto rootkit XP Sp3 http://www.infond.fr/2009/10/tutoriel-rootkits-coder-son-premier.html
+How to bypass patchguard http://vrt-blog.snort.org/2014/08/the-windows-81-kernel-patch-protection.html
+Patchguards and some malwares http://www.malekal.com/2011/09/07/rootkit-et-patchguard-sur-windows-64-bits/
+
+Windows Sysinternals:
+https://technet.microsoft.com/en-us/sysinternals/bb842062.aspx
+
+Logiciels permettant la détections de virus:
+-Autoruns
+-Procmon (processus monitor)
+-TCPView
+-Process Explorer
+
+Si le virus n'est pas détecté par ces logiciels, c'est un virus "STAR WARS"/"BIG MAMA"

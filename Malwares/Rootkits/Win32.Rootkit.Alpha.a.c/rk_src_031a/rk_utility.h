@@ -1,0 +1,7 @@
+
+#ifndef __RK_UTILITY_H__
+#define __RK_UTILITY_H__
+
+NTSTATUS	ReadRegistry(IN  PUNICODE_STRING theBindingName );
+
+#endif

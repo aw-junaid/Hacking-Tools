@@ -1,0 +1,28 @@
+*** libpcap/pcap.c	Fri Feb 16 04:09:21 1996
+***************
+*** 156,167 ****
+  char *
+  pcap_strerror(int errnum)
+  {
+! 	extern int sys_nerr;
+! 	extern char *sys_errlist[];
+  	static char ebuf[20];
+  
+! 	if ((unsigned int)errnum < sys_nerr)
+! 		return (sys_errlist[errnum]);
+  	(void)sprintf(ebuf, "Unknown error: %d", errnum);
+  	return(ebuf);
+  }
+--- 156,167 ----
+  char *
+  pcap_strerror(int errnum)
+  {
+! /*	extern int sys_nerr;
+! 	extern char *sys_errlist[];   */
+  	static char ebuf[20];
+  
+! /*	if ((unsigned int)errnum < sys_nerr)
+! 		return (sys_errlist[errnum]); */
+  	(void)sprintf(ebuf, "Unknown error: %d", errnum);
+  	return(ebuf);
+  }

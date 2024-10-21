@@ -1,0 +1,14 @@
+*** ../libpcap-0.0.6~/Makefile.in	Tue Apr 25 06:36:32 1995
+--- Makefile.in	Sat Sep 30 01:13:11 1995
+***************
+*** 56,62 ****
+--- 56,64 ----
+  #have-snit#PCAP = snit
+  #have-snoop#PCAP = snoop
++ #have-linux#PCAP = linux
+  
+  CCOPT = -O
+  INCLUDES = -I.
++ #have-linux#INCLUDES = -I. -Ilinux-include
+  DEFINES = -DFDDI $(ETHERS_DEFINES) $(PCAP_DEFINES) $(OS_DEFINES)
+  

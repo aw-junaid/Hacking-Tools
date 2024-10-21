@@ -1,0 +1,29 @@
+
+February 6th 2005 -	Finally got around to looking at the released version of X86 Solaris today.
+version 0.2		Had minor heart attack regarding a problem which resulted in the module being visible.
+
+			Solution: changed the order of things in the code, so that the list is unlinked first,
+			before the dtrace 10 symbol tests are performed.
+
+ 			If you don't do this then you end up being a registered module if you fail to load 
+			(ie if some symbols don't exist) this subsequently means any loading which takes place 
+			after the initial fail will result in the module being loaded into the modinfo entry which 
+			was created before the initial failure.. ie, you can be seen.
+			All fixed so don't worry, should port straight to SPARC so no issue there either.
+
+			My apologies to those of you who tried to grab me @ 21C3 following my talk, 
+			Something very much disagreed with my stomach and I spent a rather dubious night
+			wondering if the floor of my hotel bathroom was heated.
+
+			If you can, catch me at BCS 2005 (Jakarta, Indonesia) I have no immediate plans to do a repeat
+			performance of projectile vomitting. 
+
+
+December 28th 2004 - 	Released unto the world. Let the changes begin.
+version 0.1
+
+December 27th 2004 - 	Cut the crud out of dtrace.h, file deleted and merged. (Can you merge a deleted file? 
+			Answers on a Postcard.)
+
+< 27th December 2004 -	Disk flashed.
+
