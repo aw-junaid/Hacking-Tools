@@ -1,0 +1,44 @@
+{
+  "manifest_version": 2,
+
+  // Extension's informations
+  "name": "Damn Website Scanner",
+  "description": "This extension will crawl a website to check for common vulnerabilities",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+
+  "icons": { "16": "icons/icon16.png",
+             "48": "icons/icon48.png",
+             "128": "icons/icon128.png" 
+  },
+
+  // Permissions of the extension
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "notifications",
+    "storage",
+    "cookies",
+    "http://*/*", 
+    "https://*/*" 
+  ],
+
+  // Script files
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["popup.js"]
+    }
+  ],
+
+  // Background script to catch new/updated tab
+  "background": {
+    "matches": ["<all_urls>"],
+    "scripts": ["background.js"]
+  }
+
+}

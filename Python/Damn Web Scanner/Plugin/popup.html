@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Damn Website Scanner</title>
+    <style>
+      body {
+        width: 300px;
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+        text-align: center;
+      }
+      #content{
+        margin-bottom: 20px;
+      }
+      #info {
+        text-align: left;
+      }
+      #stop,#refresh{
+        width: 100px;
+        padding: 8px;
+        display: inline-block;
+        margin: 0 auto;
+        border-radius: 5px;
+        text-decoration: none;
+        text-transform: uppercase;
+        text-align: center;
+        color: white;
+        background-image: -webkit-linear-gradient(top,#5cb85c,#4cae4c);
+        font-family: arial;
+        font-weight: bold;
+        line-height: 30px;
+        box-shadow: 0px 2px 0px #553634, 0px 3px 3px #888;
+        opacity: 1;
+      }
+      #stop:hover, #refresh:hover{
+        opacity: 0.9;
+      }
+      #refresh{
+        background-image: -webkit-linear-gradient(top,#00BFA5,#26A69A);
+      }
+      #debug{
+        margin-top: 20px;
+      }
+      #list,#export{
+        display: none;
+        text-align: left;
+      }
+    </style>
+    <script src="popup.js"></script>
+  </head>
+
+
+  <body>
+    <h3>Damn Website Scanner</h3>
+  
+    <div id="content">
+      <span id='url'><a href='http://example.com'>http://limited.url</a></span>
+      
+      <ul id="info">
+        <li><span id='xss'>0 Cross Site Scripting</span></li>
+        <li><span id='sql'>0 Injection SQL</span></li>
+        <li><span id='lfi'>0 Local File Inclusion</span></li>
+        <li><span id='rce'>0 Remote Commands Execution</span></li>
+      </ul>
+     
+      <span id='total'>Total : 0 vulnerability found</span>
+    </div>
+    
+    <!-- Used only to display debug informations-->
+    <a href='#stop' id='stop'>START</a>
+    <a href='./vulns.html' target=_blank id='refresh'>LIST</a>
+    <a href='#export' id='export'>EXPORT</a>
+    <div id='debug'>
+      <span id='status'>Status Server</span>
+      <ul id='list'></ul>  
+    </div>
+  </body>
+</html>
