@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Created-By: 1.0 (Android SignApk)
+
+Name: assets/BATTLETO.NES
+SHA1-Digest: XDpJeoK+YHBN7fRSSLatmzLIVas=
+
+Name: AndroidManifest.xml
+SHA1-Digest: TsyBm2AWJuGN1+2VF2Mqhsh0lIs=
+
+Name: res/mipmap-hdpi-v4/ic_launcher.png
+SHA1-Digest: mia8a4rWAQnUlaN5aNYXSpSHZT0=
+
+Name: resources.arsc
+SHA1-Digest: Qa+GXKaz+QW8YCI//aC3dExztZw=
+
+Name: classes.dex
+SHA1-Digest: pGoen4FCTKIgfxHFyJjk17CuCzU=
+
+Name: res/xml/policies.xml
+SHA1-Digest: KPx/L5zRxoAcWl6aHTaag/qEiLQ=
+
+Name: res/layout/start.xml
+SHA1-Digest: wBPaaYZLRqdDsZnwqtO9GueY6Sw=
+
+Name: res/mipmap-hdpi-v4/icon.png
+SHA1-Digest: mia8a4rWAQnUlaN5aNYXSpSHZT0=
+

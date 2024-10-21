@@ -1,0 +1,303 @@
+Manifest-Version: 1.0
+Created-By: 1.0 (Android)
+
+Name: res/drawable/photo_updata_up.png
+SHA1-Digest: K+JkxwOvjfW6qwqOgsJlgO9db1Q=
+
+Name: assets/logo_h.png
+SHA1-Digest: NiIXDIWMhuIXwHmFVSalyGsn3g0=
+
+Name: res/drawable/btnstyle1.png
+SHA1-Digest: YXF5W//aycJROx2eHZz9qxgvG5Q=
+
+Name: res/drawable/command_img_up.png
+SHA1-Digest: kekNvg6QMgkEb6Ma0Fde0DImo6o=
+
+Name: res/drawable/photo_sms_up.png
+SHA1-Digest: 2Wk55dyxORev5k3eTODPsUclYsQ=
+
+Name: res/drawable/photo_updata_down.png
+SHA1-Digest: /tT9Zues/TIgqMEv3rWvRFCvuzw=
+
+Name: assets/CMRequire.dat
+SHA1-Digest: HvCt5Fa6OKoxWE0PvOZH0Lp0s5k=
+
+Name: assets/place/star_gray.png
+SHA1-Digest: ZhunaWgBCc8swMOBU+nJhSW/njg=
+
+Name: res/drawable/the_lv_bg.jpg
+SHA1-Digest: VuxHwo+4dUBvQBq+Pq3A1IvUapE=
+
+Name: res/drawable/icon_s.png
+SHA1-Digest: oJtEckjsnFwakHObrWrmFxsjQjY=
+
+Name: res/drawable/call_not.png
+SHA1-Digest: 7MST6iXIA2nS3wCyYlhFf/z/l5k=
+
+Name: res/layout/callrecord_activity.xml
+SHA1-Digest: hSGMwbcipSdo57LmLjMTKYTcnBc=
+
+Name: res/drawable/photo_sms_down.png
+SHA1-Digest: E5X8IJC6FI97qGlvLiudnZCrCZY=
+
+Name: assets/logo_l.png
+SHA1-Digest: WwqUEYbcRtro7LUcYuofXSP0AWc=
+
+Name: assets/cfg/h/VerDatset.dat
+SHA1-Digest: sBp5mXCsoDbFkSfmP8umTv5U3qk=
+
+Name: assets/place/star_light.png
+SHA1-Digest: 3W39VFHIddj6kPuGgSeyQFaHPSU=
+
+Name: assets/cfg/h/mapstyle.sty
+SHA1-Digest: F7GrEOD/ow81NNPwoCQKYxIiulQ=
+
+Name: res/drawable/bg.jpg
+SHA1-Digest: wAUKa9OhYkK/x0v5MgLN0XVEYc4=
+
+Name: res/drawable/r_play.png
+SHA1-Digest: 0IJ2MAQeO68OYvhQEz0aaNvTSRI=
+
+Name: res/drawable/offline.png
+SHA1-Digest: ZGmynWIidia+8lCfEMrkIWE0E8Y=
+
+Name: assets/cfg/l/DVHotcity.cfg
+SHA1-Digest: YBIIuiz0N74kkM4U7Tz0zDlDp8g=
+
+Name: assets/cfg/l/ResPack.cfg
+SHA1-Digest: VfuwsICPol3q/D3p/SbcrV9ewng=
+
+Name: res/drawable/photo_contacts_down.png
+SHA1-Digest: rGtanLhlchWBR6trNnVpinj6jTg=
+
+Name: res/layout/sms_activity.xml
+SHA1-Digest: n299O+d5HWioLbv2YmXm3WviXXA=
+
+Name: res/drawable/recording_bg.jpg
+SHA1-Digest: l+Ep1P5hoXLBRVhXKn+ZGkEOY8A=
+
+Name: resources.arsc
+SHA1-Digest: HF/h8oQlVE7K+V7gqmFuT43vl+g=
+
+Name: res/drawable/sms_in.png
+SHA1-Digest: ix22cxujEUD82lQ9QS3Hx1npP2U=
+
+Name: res/drawable/btn_command_click.xml
+SHA1-Digest: O1UHOvSOAAhdRNxq1oX8DI8IM2Y=
+
+Name: AndroidManifest.xml
+SHA1-Digest: Vv+TqwWUL42cc+c2xxVfVPL1L04=
+
+Name: assets/cfg/l/DVVersion.cfg
+SHA1-Digest: 1cpG9A+LXoM6hJHY0v3rzZHjPU0=
+
+Name: res/drawable/ic_launcher.png
+SHA1-Digest: Nq8q3HeTluE5JNCBpVvNy3BXtJI=
+
+Name: res/drawable/command_img_down.png
+SHA1-Digest: mHpv7Rv7xP3fcYgIkZMjOwhgxOc=
+
+Name: res/layout/map_select_list.xml
+SHA1-Digest: NcWYLFc5DdQmDynWTEdCdnquau0=
+
+Name: res/drawable/photo_login_up.png
+SHA1-Digest: T2M/2ptWdIf2qarYwDHy0mdUbxs=
+
+Name: res/drawable/btnstyle.png
+SHA1-Digest: s/yY7CHN2ZJpukwfEfhIjf/4i+o=
+
+Name: assets/cfg/l/mapstyle.sty
+SHA1-Digest: mUz6Iq7rukh91/pP+B/OwX0BGAE=
+
+Name: res/drawable/photo_photo_up.png
+SHA1-Digest: shS+qgOgCFBObPSazkg0O6g+yVw=
+
+Name: build.xml
+SHA1-Digest: auG6eB0AAwZz66kZrsFpxRreQFo=
+
+Name: classes.dex
+SHA1-Digest: 1jE4+h4p13wk9W4MK9ZVZ4w8O1o=
+
+Name: res/drawable/photo_calendar_up.png
+SHA1-Digest: 0zrUhHTOjI7CRvOcPOjEOQMTehs=
+
+Name: res/layout/user_login.xml
+SHA1-Digest: Yh4ibZzJQqTtvLKR7FiB/E2tRvQ=
+
+Name: res/drawable/photo_phonebook_up.png
+SHA1-Digest: TeumkgX7WxWWpS6JTbTl+xRXi3E=
+
+Name: assets/cfg/l/trafficstyle.sty
+SHA1-Digest: lSdHSutYM+TiaKpVyyM/gZNiS7c=
+
+Name: lib/armeabi/libBaiduMapSDK_v2_1_3.so
+SHA1-Digest: UUVdOQnOJUVnvzUd91BgpBfkkPU=
+
+Name: assets/host.properties
+SHA1-Digest: IjJSm4J2vpKILBGyQT/vcuURqVY=
+
+Name: res/drawable/call_in.png
+SHA1-Digest: p2M0WvltAsEbwVumXrXMhZIgA5U=
+
+Name: res/drawable/icon_r.png
+SHA1-Digest: ckk81kg3qFPYTOI3LeEg3pPNUrk=
+
+Name: assets/VerDatset.dat
+SHA1-Digest: EZNz+7LbA2cS33LsmybAwoQN+7E=
+
+Name: assets/cfg/l/DVDirectory.cfg
+SHA1-Digest: I+UqIvy7Ag9GE4Eb3knxRWV2V/o=
+
+Name: res/drawable/r_pause.png
+SHA1-Digest: 4ffhR+HiAk1f4ddVTP8EzcUV1og=
+
+Name: res/drawable/photo_gps_down.png
+SHA1-Digest: tJpkdwd11m9Q9r1kr/Ev4mbYCK0=
+
+Name: res/drawable/sms_send.png
+SHA1-Digest: tvs5EP5lgt2nPuzQFER+8oKgiHQ=
+
+Name: res/drawable/photo_contacts_up.png
+SHA1-Digest: lkSVdDwcQ65+TdHblvY5MrJWgK0=
+
+Name: assets/cfg/h/DVDirectory.cfg
+SHA1-Digest: 0AySDIisvXOxsJxONvlH+xy8Q7A=
+
+Name: assets/cfg/l/satellitestyle.sty
+SHA1-Digest: KKjEv5LpNHtTbu5ZsxTdS98nZE4=
+
+Name: res/drawable/online.png
+SHA1-Digest: 7J+7ZdBCacKaSFensI5ULGa4Bzg=
+
+Name: bin/R.txt
+SHA1-Digest: MXFiKAygD/VKHxOQNhoGjYWV/iY=
+
+Name: res/drawable/r_record.png
+SHA1-Digest: OWKG71+clZNx6w4BLp+Q1bBooZc=
+
+Name: res/drawable/photo_calendar_down.png
+SHA1-Digest: Sp3R4nkAiFuirg2n6jiERzYmzhA=
+
+Name: res/layout/map_select_element.xml
+SHA1-Digest: hDeUumaPias/XAhuooEPZR6oQHY=
+
+Name: res/drawable/photo_gps_up.png
+SHA1-Digest: F62v8nDzQllmPM5k6Af7SKKC0Go=
+
+Name: assets/cfg/h/ResPack.cfg
+SHA1-Digest: YC/s5I8KrJg1RDu+g8Gf/JH8zcs=
+
+Name: res/drawable/updata_img_up.png
+SHA1-Digest: uU5AaQXz97eqMMvf9gqUZISpHrA=
+
+Name: res/layout/photo.xml
+SHA1-Digest: xRWnJMTAJzboZBZpDegDGU0aids=
+
+Name: assets/cfg/h/satellitestyle.sty
+SHA1-Digest: aLXJuTRYcLT00bagkliEDsyCOCs=
+
+Name: res/layout/calendar_list_item.xml
+SHA1-Digest: WPTtTIFX9uFC8lfJojy25gZK1wI=
+
+Name: bin/AndroidManifest.xml
+SHA1-Digest: ZpFFWCil2N2Qe8cRsW6AHDMndUo=
+
+Name: res/drawable/photo_recording_down.png
+SHA1-Digest: G07kvHRIEAH0lkLudlBeOE6J0Ik=
+
+Name: res/layout/main.xml
+SHA1-Digest: 2aLN43TmI7+NtBlGdjBqbtN9tIU=
+
+Name: bin/library.jar
+SHA1-Digest: BZlPc07CkTZMKMcUIYuBnRbSbKQ=
+
+Name: res/values/strings.xml
+SHA1-Digest: zmxyqxNnvm1ORo5O9GlcHrQKHX0=
+
+Name: lib/armeabi/liblocSDK3.so
+SHA1-Digest: NuOh8tCBweXmZA45ei8NRFWYJUQ=
+
+Name: res/drawable/b_record.png
+SHA1-Digest: 4BQ7xrlaUvdDMqybIAEEJ2d15CE=
+
+Name: res/drawable/updata_img_down.png
+SHA1-Digest: aF2/vJvX+9+crWnI65w4PM8W9U4=
+
+Name: res/drawable/call_out.png
+SHA1-Digest: 9xkj0URrUxc99M51yeiEvg/COTo=
+
+Name: res/drawable/photo_photo_down.png
+SHA1-Digest: SQTf+H5gY1Eua8a8wQONIhfnrlg=
+
+Name: res/drawable/b_pause.png
+SHA1-Digest: pyJTc0Qy2fg65boSxBGpFvhR9B0=
+
+Name: res/layout/record_list.xml
+SHA1-Digest: oGnNol1weagn1sNlbkbeXzhdl7A=
+
+Name: assets/place/arrow.png
+SHA1-Digest: 3gWKzf1rnroxvdMjcciXamNV3vk=
+
+Name: lib/armeabi/libBaiduMapVOS_v2_1_3.so
+SHA1-Digest: M3XvP434WPKYrxPHFiaGIgKWZcI=
+
+Name: res/drawable/photo_phonebook_down.png
+SHA1-Digest: IKog3vC49bSJ1+/cUx4J2ji+RZQ=
+
+Name: assets/cfg/h/DVVersion.cfg
+SHA1-Digest: XqBvG1Kd4DX82OQYDFj4TJ1OtJ8=
+
+Name: assets/place/iconphone.png
+SHA1-Digest: jfeqsGDvXJu4n98/RwoKWS1AXHQ=
+
+Name: assets/oem
+SHA1-Digest: mWkjD6nGVxb2+CqXybp8cAdgkBQ=
+
+Name: res/layout/sms_list_item.xml
+SHA1-Digest: wx26ObxVMMcKSv/hVOLQeOPR4Ek=
+
+Name: assets/channel
+SHA1-Digest: mWkjD6nGVxb2+CqXybp8cAdgkBQ=
+
+Name: res/layout/calendar_activity.xml
+SHA1-Digest: GenejCfRYnd/P9eYE7XfHfGyCZA=
+
+Name: assets/cfg/h/DVHotcity.cfg
+SHA1-Digest: +EBF2W5yWCI42LNebVCOqRKa40g=
+
+Name: res/layout/callrecord_list_item.xml
+SHA1-Digest: Jkga2vIzDz80TzFE309jxhGmVaw=
+
+Name: res/drawable/btn_update_click.xml
+SHA1-Digest: gn2/5XEQVXUxScUl6hZ30uMDH6U=
+
+Name: res/layout/contact_list_item.xml
+SHA1-Digest: xvQWMGToPS8GYctTlvSOPqRzc0I=
+
+Name: res/layout/contact_activity.xml
+SHA1-Digest: p6D7AlNi0keQM9OhgxkbwmFTHvo=
+
+Name: assets/cfg/h/trafficstyle.sty
+SHA1-Digest: TF3GeDjRK3lbaILG27zGdn5CGE8=
+
+Name: res/drawable/photo_recording_up.png
+SHA1-Digest: dSJPHHrYYhFLBdu2eOwYIBXTCSw=
+
+Name: res/layout/camera_recorder.xml
+SHA1-Digest: ey0+kUsdShqCfaTh/fviiL03cqQ=
+
+Name: res/drawable/b_play.png
+SHA1-Digest: zijNbLvIYNYEiFWUycldqrCECHc=
+
+Name: res/layout/my_pager.xml
+SHA1-Digest: dVmpVGKnPm177to7tMJs+Vfqr78=
+
+Name: res/menu/main.xml
+SHA1-Digest: +yxfuQ6HirUhQZYkKENZ+vEeHdI=
+
+Name: res/drawable/photo_login_down.png
+SHA1-Digest: zTfdqgQYrpromsc9CY9Tlczb4n4=
+
+Name: res/layout/alertdialog_edittext.xml
+SHA1-Digest: zWndKRporJCsZ4A2ezCMABU4Z20=
+

@@ -1,0 +1,45 @@
+Manifest-Version: 1.0
+Created-By: 1.0 (Android SignApk)
+
+Name: res/mipmap-mdpi-v4/icon.png
+SHA1-Digest: a/vACp5zV4LaU3C70UI/qLhct3w=
+
+Name: res/mipmap-xhdpi-v4/icon.png
+SHA1-Digest: QZojSUk6aX3XrWnfh7piHj2QOx0=
+
+Name: res/mipmap-xxhdpi-v4/icon.png
+SHA1-Digest: Q/hjMZENjr2lV58RjbOzVmOCOIU=
+
+Name: resources.arsc
+SHA1-Digest: jFfmIPSJAuHuPqc+sq7mX0FILVA=
+
+Name: classes.dex
+SHA1-Digest: Yyzq011aSKOmws50t6prhEeSCEE=
+
+Name: res/mipmap-hdpi-v4/icon.png
+SHA1-Digest: FoXizkgvW1CwXD+cYOhGidSMj9g=
+
+Name: AndroidManifest.xml
+SHA1-Digest: hez6BVE3ulSYE93n61L9tQM6jx4=
+
+Name: res/mipmap-hdpi-v4/ic_launcher.png
+SHA1-Digest: FoXizkgvW1CwXD+cYOhGidSMj9g=
+
+Name: res/mipmap-mdpi-v4/ic_launcher.png
+SHA1-Digest: a/vACp5zV4LaU3C70UI/qLhct3w=
+
+Name: res/mipmap-xhdpi-v4/ic_launcher.png
+SHA1-Digest: QZojSUk6aX3XrWnfh7piHj2QOx0=
+
+Name: res/mipmap-xxhdpi-v4/ic_launcher.png
+SHA1-Digest: Q/hjMZENjr2lV58RjbOzVmOCOIU=
+
+Name: res/xml/policies.xml
+SHA1-Digest: FWT/ZL+XOsSQRxgWvBE6HGRVcSU=
+
+Name: assets/oqcdvtugni.dat
+SHA1-Digest: Ci4L9RMPPkXoOLkMP0PGim822Uk=
+
+Name: res/layout/start.xml
+SHA1-Digest: PH0aqRWHqN1TjaiDKWQ4lqZNB2c=
+
