@@ -1,0 +1,21 @@
+[package]
+name = "server"
+version = "0.1.0"
+authors = ["Sylvain Kerkour <sylvain@kerkour.fr>"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+common = { path = "../common" }
+
+axum = "0.5"
+tower-http = { version = "0.3", features = ["fs", "trace"] }
+axum-extra = { version = "0.3", features = ["spa"] }
+tokio = { version = "1", features = ["full"] }
+env_logger = "0.9"
+clap = { version = "3.1", features = ["cargo"] }
+log = "0.4"
+sqlx = { version = "0.6", features = [ "runtime-tokio-rustls", "sqlite", "chrono" ] }
+chrono = "0.4"
+uuid = { version = "1", features = ["v4"] }

@@ -1,0 +1,8 @@
+# rust
+target/
+**/*.rs.bk
+
+.env
+.venv
+/tests
+.DS_Store
