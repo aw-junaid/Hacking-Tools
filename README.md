@@ -8,6 +8,7 @@
 ![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/awjunaid_)
 ![Twitch Status](https://img.shields.io/twitch/status/awjunaid)
 ![Reddit User Karma](https://img.shields.io/reddit/user-karma/link/aw-junaid)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/t/aw-junaid/hacking-tools)
 
 <p align="left">
   <a href="https://github.com/sponsors/awjunaid">
