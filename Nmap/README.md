@@ -20,4 +20,6 @@ and Mac OS X.
 - [what is nmap](https://github.com/aw-junaid/Hacking-Tools/blob/master/Nmap/Nmap%20Commands/what%20is%20nmap.md)
 - [how to use nmap](https://github.com/aw-junaid/Hacking-Tools/blob/master/Nmap/Nmap%20Commands/how%20to%20use%20nmap.md)
 - [10 most important command of nmap](https://github.com/aw-junaid/Hacking-Tools/blob/master/Nmap/Nmap%20Commands/10%20most%20important%20command%20of%20nmap.md)
+- [Typical Nmap Scan](https://github.com/aw-junaid/Hacking-Tools/blob/master/Nmap/Nmap%20Commands/Typical%20Nmap%20Scan.md)
+- [ipv4 header](https://github.com/aw-junaid/Hacking-Tools/blob/master/Nmap/Nmap%20Commands/ipv4%20header.md)
 
