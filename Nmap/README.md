@@ -22,4 +22,7 @@ and Mac OS X.
 - [10 most important command of nmap](https://github.com/aw-junaid/Hacking-Tools/blob/master/Nmap/Nmap%20Commands/10%20most%20important%20command%20of%20nmap.md)
 - [Typical Nmap Scan](https://github.com/aw-junaid/Hacking-Tools/blob/master/Nmap/Nmap%20Commands/Typical%20Nmap%20Scan.md)
 - [ipv4 header](https://github.com/aw-junaid/Hacking-Tools/blob/master/Nmap/Nmap%20Commands/ipv4%20header.md)
+- [TCP header](https://github.com/aw-junaid/Hacking-Tools/blob/master/Nmap/Nmap%20Commands/TCP%20header.md)
+- [UDP Header](https://github.com/aw-junaid/Hacking-Tools/blob/master/Nmap/Nmap%20Commands/UDP%20header.md)
+- [ICMP header](https://github.com/aw-junaid/Hacking-Tools/blob/master/Nmap/Nmap%20Commands/ICMP%20header.md)
 
