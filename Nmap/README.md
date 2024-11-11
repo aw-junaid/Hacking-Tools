@@ -25,4 +25,6 @@ and Mac OS X.
 - [TCP header](https://github.com/aw-junaid/Hacking-Tools/blob/master/Nmap/Nmap%20Commands/TCP%20header.md)
 - [UDP Header](https://github.com/aw-junaid/Hacking-Tools/blob/master/Nmap/Nmap%20Commands/UDP%20header.md)
 - [ICMP header](https://github.com/aw-junaid/Hacking-Tools/blob/master/Nmap/Nmap%20Commands/ICMP%20header.md)
+- [Host Discovery (“Ping Scanning”)](https://github.com/aw-junaid/Hacking-Tools/blob/master/Nmap/Nmap%20Commands/Host%20Discovery%20(%E2%80%9CPing%20Scanning%E2%80%9D).md)
+- [CIDR Notation](https://github.com/aw-junaid/Hacking-Tools/blob/master/Nmap/Nmap%20Commands/CIDR%20network%20notation.md)
 
