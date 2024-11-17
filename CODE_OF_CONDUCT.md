@@ -1,5 +1,6 @@
 # Code of Conduct for Hacking Tools
 
+> [!CAUTION]
 This repository is designed to be a safe and educational resource for ethical hacking, security testing, and research. By using, contributing to, or engaging with this repository, you agree to follow this Code of Conduct. Violations may result in losing access to the repository, removal of your contributions, or further action, as outlined below.
 
 ### **1. Legal and Ethical Use Only**
