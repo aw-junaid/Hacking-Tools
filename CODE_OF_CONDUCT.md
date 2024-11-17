@@ -48,8 +48,9 @@ This repository is designed to be a safe and educational resource for ethical ha
 
 ---
 
+> [!WARNING]
 By adhering to these guidelines, you contribute to a safe, ethical, and responsible community dedicated to cybersecurity. Violations of this Code of Conduct may result in removal from this repository and notification of relevant authorities if required.
 
 --- 
-
+> [!TIP]
 This Code of Conduct helps ensure that the hacking tools in this repository are used responsibly and that the cybersecurity community upholds ethical and professional standards.
