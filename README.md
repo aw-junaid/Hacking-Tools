@@ -65,59 +65,122 @@
 - [Worms](https://github.com/thewitcher21/Hacking-Tools/tree/master/Worms)
 - [XSS](https://github.com/thewitcher21/Hacking-Tools/tree/master/XSS)
 
-## Android Malware
-- [2FA](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/2FA)
-- [Adware](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/Adware)
-- [Android Malicious Samples](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/Android%20Malicious%20Samples)
-- [Android Malware](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/Android.Malware.at_plapk.a)
-- [Android Spy 277 Origin](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/Android.Spy.277.origin)
-- [Android Trojan](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/Android.Troj.at_fonefee.b)
-- [Android Malicious Games](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/Android_Games_malicious)
-- [Android Legit Apps](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/Android_legit_apps_malicious)
-- [Anubis](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/Anubis)
-- [BreakBottlenect](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/BreakBottleneck)
-- [Comebot](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/Comebot)
-- [Dendroid](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/Dendroid)
-- [L3MONBot](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/L3MONBot/L3MON-master)
-- [Ahmyth Android Spy](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/ahmyth%20android%20spy)
-- [GhostPush](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/braintest_or_ghostpush)
-- [Brazilizan Android Rat](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/brazilian_android_RAT)
-- [Candy Corn](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/candy_corn)
-- [Crypto](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/crypto)
-- [Descarga](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/descarga)
-- [Fake Bankers](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/fake_bankers)
-- [Farseer](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/farseer)
-- [Feabme](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/feabme)
-- [Fraud Financial Apps](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/fraud_financial_apps)
-- [Jssmsers](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/jssmsers)
-- [Krep Banking Malware](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/krep_banking_malware)
-- [Malbus](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/malbus)
-- [Mazar Bot](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/mazar_bot)
-- [Motion Detection](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/motion%20detection)
-- [Presistent Malware](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/persistent_malware)
-- [Rootnik Malware](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/rootnik_malware)
-- [Rumms.april2016](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/rumms.april2016)
-- [Simplocker](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/simplocker)
-- [Smack](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/smack)
-- [towel Root](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/towelroot)
-- [Trend Mirco Banking Malware](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/trendmicro_banking_malware)
-- [TV Remote](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/tv_remote)
-- [Unclassifed Apk Malware](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/unclassified-apk-malware)
-- [Xbot](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/xbot)
-- [Zazdi Botnet](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/zazdi_botnet)
+## **Android Malware:**
+
+- **[2FA](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/2FA)**: Two-factor authentication bypass malware.  
+- **[Adware](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/Adware)**: Malware that generates unwanted advertisements.  
+- **[Android Malicious Samples](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/Android%20Malicious%20Samples)**: A collection of Android malware samples.  
+- **[Android Malware](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/Android.Malware.at_plapk.a)**: Specific Android malware sample.  
+- **[Android Spy 277 Origin](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/Android.Spy.277.origin)**: Spyware for Android devices.  
+- **[Android Trojan](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/Android.Troj.at_fonefee.b)**: A Trojan targeting Android devices.  
+- **[Android Malicious Games](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/Android_Games_malicious)**: Malicious games designed to infect Android devices.  
+- **[Android Legit Apps](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/Android_legit_apps_malicious)**: Legitimate apps modified to contain malware.  
+- **[Anubis](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/Anubis)**: Android banking trojan.  
+- **[BreakBottlenect](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/BreakBottleneck)**: Malware targeting Android's bottleneck.  
+- **[Comebot](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/Comebot)**: Android botnet malware.  
+- **[Dendroid](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/Dendroid)**: Remote Access Trojan (RAT) targeting Android.  
+- **[L3MONBot](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/L3MONBot/L3MON-master)**: A botnet for Android devices.  
+- **[Ahmyth Android Spy](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/ahmyth%20android%20spy)**: Spyware for Android.  
+- **[GhostPush](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/braintest_or_ghostpush)**: Adware/spyware often used for push notifications.  
+- **[Brazilian Android RAT](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/brazilian_android_RAT)**: Remote Access Trojan targeting Android.  
+- **[Candy Corn](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/candy_corn)**: Malware that exploits candy-themed apps.  
+- **[Crypto](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/crypto)**: Cryptocurrency-focused malware.  
+- **[Descarga](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/descarga)**: Malware targeting Android download services.  
+- **[Fake Bankers](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/fake_bankers)**: Banking malware for Android.  
+- **[Farseer](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/farseer)**: Spyware targeting financial transactions.  
+- **[Feabme](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/feabme)**: Android malware often used for banking fraud.  
+- **[Fraud Financial Apps](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/fraud_financial_apps)**: Fake financial apps used to steal data.  
+- **[Jssmsers](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/jssmsers)**: Malware focused on SMS spoofing.  
+- **[Krep Banking Malware](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/krep_banking_malware)**: Targets banking applications on Android.  
+- **[Malbus](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/malbus)**: Malware focusing on credential stealing.  
+- **[Mazar Bot](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/mazar_bot)**: A botnet designed for Android devices.  
+- **[Motion Detection](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/motion%20detection)**: Malware with motion detection capabilities.  
+- **[Persistent Malware](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/persistent_malware)**: Malware with persistence mechanisms.  
+- **[Rootnik Malware](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/rootnik_malware)**: Malware focused on rooting Android devices.  
+- **[Rumms.april2016](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/rumms.april2016)**: Android malware targeting specific vulnerabilities.  
+- **[Simplocker](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/simplocker)**: Ransomware targeting Android devices.  
+- **[Smack](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/smack)**: Malware used for surveillance and control.  
+- **[Towel Root](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/towelroot)**: Rooting tool for Android devices, often associated with malware.  
+- **[Trend Micro Banking Malware](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/trendmicro_banking_malware)**: Targets banking applications.  
+- **[TV Remote](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/tv_remote)**: A tool used for remote control of Android devices.  
+- **[Unclassified Apk Malware](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/unclassified-apk-malware)**: Various unclassified APK-based malware.  
+- **[Xbot](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/xbot)**: Android malware designed to steal personal data.  
+- **[Zazdi Botnet](https://github.com/aw-junaid/Hacking-Tools/tree/master/Android/zazdi_botnet)**: Android-based botnet for malicious control.
+
+
 
 ## Assembly Language
 
-- [ASM Hacking Tools](https://github.com/aw-junaid/Hacking-Tools/tree/master/Assembly%20language/Assembly%20Hacking%20Tools)
-- [**Basics of Assembly Language**](https://github.com/aw-junaid/Hacking-Tools/tree/master/Assembly%20language/Basics%20of%20Assembly%20language)
-- -  [About and History of Assembly Language](https://github.com/thewitcher21/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/about%20and%20history%20of%20assembly%20language.md)
-- - [ARM vs x86-64 Instruction set](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/ARM%20vs%20x86-64%20Instruction%20set.md)
-- - [Von Neumann Architecture](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Von%20Neumann%20architecture.md)
-- - [Major Elements of Multi-core Computers](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Major%20Elements%20of%20Multi-core%20Computers.md)
-- - [Computer Components Top-level View](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Computer%20Components%20Top-level%20View.md)
-- - [Instruction Fetch and Execute Cycle](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Instruction%20Fetch%20and%20Execute%20Cycle.md)
-- - [Program flow of control without and with interrupts](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Program%20flow%20of%20control%20without%20and%20with%20interrupts.md)
-- - [Bus Interconnection scheme](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Bus%20Interconnection%20scheme.md)
+### Introduction
+- **[About and History of Assembly Language](https://github.com/thewitcher21/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/about%20and%20history%20of%20assembly%20language.md)**: Overview of assembly language's development and historical context.
+- **[ARM vs x86-64 Instruction set](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/ARM%20vs%20x86-64%20Instruction%20set.md)**: A comparison of two major instruction sets used in modern computing.
+- **[Von Neumann Architecture](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Von%20Neumann%20architecture.md)**: A computer architecture design where program instructions and data share the same memory space.
+- **[Major Elements of Multi-core Computers](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Major%20Elements%20of%20Multi-core%20Computers.md)**: Key components and benefits of multi-core processors in computing.
+- **[Computer Components Top-level View](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Computer%20Components%20Top-level%20View.md)**: A high-level look at the basic components of a computer system.
+- **[Instruction Fetch and Execute Cycle](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Instruction%20Fetch%20and%20Execute%20Cycle.md)**: The cycle where a processor fetches and executes instructions.
+- **[Program flow of control without and with interrupts](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Program%20flow%20of%20control%20without%20and%20with%20interrupts.md)**: Describes how program execution flows with and without external interrupts.
+- **[Bus Interconnection scheme](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Bus%20Interconnection%20scheme.md)**: The arrangement of buses that allow communication between various computer components.
+
+### Arithmetic and Logic
+- **[The Decimal System](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/The%20Decimal%20System.md)**: The base-10 number system used in everyday life.
+- **[Positional Number System](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/positional%20number%20system.md)**: A numeral system where the position of a digit determines its value.
+- **[The Binary System](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/The%20Binary%20System.md)**: A number system that uses two digits: 0 and 1, fundamental in computing.
+- **[Convert between binary and decimal](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Converting%20between%20binary%20and%20decimal.md)**: Methods for converting numbers between binary and decimal formats.
+- **[The Arithmetic and Logic Unit](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/The%20Arithmetic%20and%20Logic%20Unit.md)**: The part of a CPU that performs arithmetic and logical operations.
+- **[Boolean Algebra](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Boolean%20Algebra.md)**: A mathematical framework for logical operations, widely used in computing.
+- **[Logic Gates](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Logic%20Gates.md)**: Basic building blocks of digital circuits that perform logical operations.
+- **[Data Organization: Bits, Nibbles, Words, Double Words, Quad Words and Long Words](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Data%20Organization%3A%20Bits%2C%20Nibbles%2C%20Words%2C%20Double%20Words%2C%20Quad%20Words%20and%20Long%20Words.md)**: Different data sizes and how they are organized in memory.
+- **[Logical Operation on Bits](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Logical%20operations%20on%20bits.md)**: Techniques for manipulating individual bits using logical operations.
+- **[Sign Extension, Zero Extension, Contraction and Saturation](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Sign%20Extension%2C%20Zero%20Extension%2C%20Contraction%20and%20Saturation.md)**: Methods for handling binary data in different bit-width operations.
+- **[Shift and Rotates](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Shift%20and%20Rotates.md)**: Techniques for shifting or rotating bits within a register.
+- **[The ASCII character encoding](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/The%20ASCII%20character%20encoding.md)**: A character encoding standard using numeric values for letters, digits, and symbols.
+- **[The Unicode Character Set](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/The%20Unicode%20Character%20Set.md)**: A universal character encoding standard designed to include all writing systems.
+- **[Hexadecimal compare table to decimal and binary](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/hexadecimal%20compare%20table%20to%20decimal%20and%20binary.md)**: A reference table for converting between hexadecimal, binary, and decimal systems.
+
+### Memory and Registers
+- **[80x86 Addressing Modes](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/80x86%20Addressing%20Modes.md)**: Various addressing techniques used in x86 architecture to access memory.
+- **[Transistors and Memory in Computing](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Transistors%20and%20Memory%20in%20Computing.md)**: The role of transistors in memory storage and computational functions.
+- **[How Transistors works](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/How%20Transistors%20works.md)**: Explanation of how transistors function as switches in digital circuits.
+- **[IA-32 Architecture](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/IA-32%20Architecture.md)**: Intel’s 32-bit microprocessor architecture and its features.
+- **[Stack](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/stack.md)**: A memory structure used to store temporary data such as function calls and local variables.
+- **[Heap](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Heap.md)**: A memory area used for dynamic memory allocation during program execution.
+- **[80x86 Register Addressing Mode](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/80x86%20Register%20Addressing%20Mode.md)**: Ways in which registers in the 80x86 architecture are accessed and used.
+- **[Machine Instruction Characteristics](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Machine%20Instruction%20Characteristics.md)**: Description of machine-level instructions and their format.
+- **[Types of Operands](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Types%20of%20Operands.md)**: Different data types or values used in machine instructions.
+- **[The code section](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/The%20code%20section.md)**: A segment of memory where executable code is stored.
+- **[The static section](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/The%20static%20section.md)**: Memory section storing global variables that persist throughout program execution.
+- **[The Read only data section](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/The%20Read%20only%20data%20section.md)**: Memory section for data that cannot be altered during execution.
+- **[The Storage Section](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/The%20Storage%20Section.md)**: Memory section used for dynamically allocated data.
+- **[The Var section](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/The%20Var%20section.md)**: A section of memory dedicated to storing variable data.
+- **[The Basic Push Instruction](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/The%20Basic%20Push%20Instruction.md)**: An instruction to place data onto the stack.
+- **[The Basic Pop Instruction](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/The%20Basic%20Pop%20Instruction.md)**: An instruction to remove data from the stack.
+- **[Dynamic Memory Allocation and the Heap Segment](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Dynamic%20Memory%20Allocation%20and%20the%20Heap%20Segment.md)**: Managing memory dynamically using heap allocation.
+- **[Registers](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Register.md)**: Small, fast storage locations within the CPU for data processing.
+  - **[General-Purpose Registers](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/General%20Purpose%20Registers.md)**: Registers used for storing temporary data in computations.
+  - **[Special-purpose registers](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Special%20Purpose%20Registers.md)**: Registers with specific functions, like program counters and status registers.
+  - **[Flags Registers](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Flags%20Registers.md)**: A register containing bits that represent the status of operations.
+  - **[Index Register](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Index%20Register.md)**: A register used to store addresses in array or string manipulation.
+  - **[Segment Register](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Segment%20Register.md)**: Registers used in segmented memory models to point to memory segments.
+  - **[Control Registers](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Control%20Registers.md)**: Registers that control the operation of the CPU.
+- **[Instruction code handling](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Instruction%20code%20handling.md)**: How the CPU decodes and processes machine instructions.
+- **[Constant Types](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Constant%20Types.md)**: Different categories of constant values used in programming.
+- **[String and Character Literal Constants](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/String%20and%20Character%20Literal%20Constants.md)**: Constants representing text and individual characters.
+- **[Modifying val Objects at Arbitrary Points in Your Programs](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Modifying%20val%20Objects%20at%20Arbitrary%20Points%20in%20Your%20Programs.md)**: Techniques for modifying objects at specified points in a program.
+- **[Using Pointers in Assembly Language](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Using%20Pointers%20in%20Assembly%20Language.md)**: How pointers are utilized to reference memory locations in assembly.
+- **[Declaring Arrays in Your HLA Programs](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Declaring%20Arrays%20in%20Your%20HLA%20Programs.md)**: How to define arrays in High-Level Assembly (HLA).
+- **[Accessing Elements of a Single-Dimensional Array](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Accessing%20Elements%20of%20a%20Single-Dimensional%20Array.md)**: Accessing array elements in assembly programming.
+- **[Sorting an Array of Values](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Sorting%20an%20Array%20of%20Values.md)**: Methods for sorting arrays using assembly language techniques.
+- **[Record Constants](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Record%20Constants.md)**: Data structures for holding related constants.
+- **[Unions](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Unions.md)**: A data structure where different data types share the same memory location.
+- **[Saving the State of the Machine](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Saving%20the%20State%20of%20the%20Machine.md)**: Storing the processor’s state to resume execution later.
+- **[Local and Global Symbol Types](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Local%20and%20Global%20Symbol%20Types.md)**: Variables that are accessible within specific scopes or globally in a program.
+- **[Pass by Value](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Pass%20by%20Value.md)**: Passing a copy of a variable’s value to a function.
+- **[Pass by Reference](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Pass%20by%20Reference.md)**: Passing a reference to the actual data in memory to a function.
+- **[Passing Parameters in Registers](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Passing%20Parameters%20in%20Registers.md)**: Method of passing parameters using CPU registers.
+- **[Passing Parameters on the Stack](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Passing%20Parameters%20on%20the%20Stack.md)**: Passing function arguments via the stack.
+- **[Exceptions](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Exceptions.md)**: Handling errors or exceptional conditions during program execution.
+- **[Interrupts](https://github.com/aw-junaid/Hacking-Tools/blob/master/Assembly%20language/New%20Assembly%20Work/Assembly%20Language/Interrupts.md)**: Mechanism for transferring control to handle external events.
+
 
 ## [C Hacking Tools](https://github.com/aw-junaid/Hacking-Tools/tree/master/C%20Hacking%20Tools)
 
@@ -176,34 +239,37 @@
 
 # DDos Tools
 
-- [DB2AMP](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.DB2AMP)
-- [Heartbleed](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.Heartbleed)
-- [MDNS](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.MDNS)
-- [NETBIOS](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.NETBIOS)
-- [NTP](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.NTP)
-- [OVH](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.OVH)
-- [SENTINEL](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.SENTINEL)
-- [SNMP](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.SNMP)
-- [SSDP](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.SSDP)
-- [SYN](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.SYN)
-- [TS3](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.TS3)
-- [UDP](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.UDP)
-- [XMLRPC](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.XMLRPC)
-- [ACK](https://github.com/aw-junaid/Hacking-Tools/blob/master/DDoS/VirTool.DDoS.ACK.c)
-- [ARME](https://github.com/aw-junaid/Hacking-Tools/blob/master/DDoS/VirTool.DDoS.ARME.c)
-- [CHARGEN](https://github.com/aw-junaid/Hacking-Tools/blob/master/DDoS/VirTool.DDoS.CHARGEN.c)
-- [DNS](https://github.com/aw-junaid/Hacking-Tools/blob/master/DDoS/VirTool.DDoS.DNS.c)
-- [DOMINATE](https://github.com/aw-junaid/Hacking-Tools/blob/master/DDoS/VirTool.DDoS.DOMINATE.c)
-- [DRDOS](https://github.com/aw-junaid/Hacking-Tools/blob/master/DDoS/VirTool.DDoS.DRDOS.pl)
-- [TELNET](https://github.com/aw-junaid/Hacking-Tools/blob/master/DDoS/VirTool.DDoS.TELNET.c)
-- [SUDP](https://github.com/aw-junaid/Hacking-Tools/blob/master/DDoS/VirTool.DDoS.SUDP.c)
-- [STD](https://github.com/aw-junaid/Hacking-Tools/blob/master/DDoS/VirTool.DDoS.STD.c)
-- [STCP](https://github.com/aw-junaid/Hacking-Tools/blob/master/DDoS/VirTool.DDoS.STCP.c)
-- [SSYN](https://github.com/aw-junaid/Hacking-Tools/blob/master/DDoS/VirTool.DDoS.SSYN.b.c)
+- **[DB2AMP](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.DB2AMP)**: Exploits DB2 Amplification attacks.  
+- **[Heartbleed](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.Heartbleed)**: Leverages the Heartbleed vulnerability in OpenSSL for DDoS attacks.  
+- **[MDNS](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.MDNS)**: Targets mDNS (Multicast DNS) for amplification.  
+- **[NETBIOS](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.NETBIOS)**: Amplifies attacks using NETBIOS service.  
+- **[NTP](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.NTP)**: Leverages the Network Time Protocol (NTP) for DDoS.  
+- **[OVH](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.OVH)**: Targets OVH servers for massive traffic bursts.  
+- **[SENTINEL](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.SENTINEL)**: Specific tool for DDoS attacks.  
+- **[SNMP](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.SNMP)**: Uses Simple Network Management Protocol (SNMP) to amplify attacks.  
+- **[SSDP](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.SSDP)**: Exploits SSDP for amplification.  
+- **[SYN](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.SYN)**: SYN flood attacks, often used in DoS (Denial of Service).  
+- **[TS3](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.TS3)**: Targets TS3 servers for flooding.  
+- **[UDP](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.UDP)**: A UDP-based DDoS attack tool.  
+- **[XMLRPC](https://github.com/aw-junaid/Hacking-Tools/tree/master/DDoS/VirTool.DDoS.XMLRPC)**: Exploits XML-RPC for attack amplification.  
+
+### **DDoS Tools (Code-Based)**  
+- **[ACK](https://github.com/aw-junaid/Hacking-Tools/blob/master/DDoS/VirTool.DDoS.ACK.c)**: ACK flood attack tool written in C.  
+- **[ARME](https://github.com/aw-junaid/Hacking-Tools/blob/master/DDoS/VirTool.DDoS.ARME.c)**: ARME attack simulation in C.  
+- **[CHARGEN](https://github.com/aw-junaid/Hacking-Tools/blob/master/DDoS/VirTool.DDoS.CHARGEN.c)**: Exploits the CHARGEN service for DoS.  
+- **[DNS](https://github.com/aw-junaid/Hacking-Tools/blob/master/DDoS/VirTool.DDoS.DNS.c)**: DNS-based DDoS tool in C.  
+- **[DOMINATE](https://github.com/aw-junaid/Hacking-Tools/blob/master/DDoS/VirTool.DDoS.DOMINATE.c)**: A tool for dominating targeted networks.  
+- **[DRDOS](https://github.com/aw-junaid/Hacking-Tools/blob/master/DDoS/VirTool.DDoS.DRDOS.pl)**: Distributed Reflection DoS (DRDoS) in Perl.  
+- **[TELNET](https://github.com/aw-junaid/Hacking-Tools/blob/master/DDoS/VirTool.DDoS.TELNET.c)**: Telnet flood attack simulation.  
+- **[SUDP](https://github.com/aw-junaid/Hacking-Tools/blob/master/DDoS/VirTool.DDoS.SUDP.c)**: UDP-based attack tool written in C.  
+- **[STD](https://github.com/aw-junaid/Hacking-Tools/blob/master/DDoS/VirTool.DDoS.STD.c)**: Another DoS tool written in C.  
+- **[STCP](https://github.com/aw-junaid/Hacking-Tools/blob/master/DDoS/VirTool.DDoS.STCP.c)**: TCP-based DoS simulation tool in C.  
+- **[SSYN](https://github.com/aw-junaid/Hacking-Tools/blob/master/DDoS/VirTool.DDoS.SSYN.b.c)**: SYN flood attack with a slight modification.  
+
 
 # [Malware Analysis](https://github.com/aw-junaid/Hacking-Tools/tree/master/Malwares)
 
-- #### Malware Corpora
+### Malware Corpora
 
 >*Malware samples collected for analysis.*
 
@@ -240,7 +306,7 @@
   trojan leaked in 2011.
 * [VX Underground](http://vx-underground.org/) - Massive and growing collection of free malware samples.
 
-- #### Other Resources
+### Other Resources
 
 > *Threat intelligence and IOC resources.*
 
@@ -297,7 +363,7 @@
 * [ZeuS Tracker](https://zeustracker.abuse.ch/blocklist.php) - ZeuS
   blocklists.
 
-- #### Documents and Shellcode
+### Documents and Shellcode
 
 >*Analyze malicious JS and shellcode from PDFs and Office documents. See also
 the [browser malware](#browser-malware) section.*
@@ -332,7 +398,7 @@ the [browser malware](#browser-malware) section.*
 * [Spidermonkey](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey)
   Mozilla's JavaScript engine, for debugging malicious JS.
 
-- #### Network
+### Network
 
 >*Analyze network interactions.*
 
@@ -392,7 +458,7 @@ the [browser malware](#browser-malware) section.*
 * [Wireshark](https://www.wireshark.org/) - The network traffic analysis
   tool.  
 
-- #### Memory Forensics
+### Memory Forensics
 
 >*Tools for dissecting malware in memory images or running systems.*
 
@@ -426,7 +492,7 @@ the [browser malware](#browser-malware) section.*
 * [WinDbg](https://developer.microsoft.com/en-us/windows/hardware/windows-driver-kit) -
   Live memory inspection and kernel debugging for Windows systems.
 
-- #### Book List
+### Book List
 
 - [Intelligence Driven Incident Response](http://shop.oreilly.com/product/0636920043614.do)
 - [Practical Malware Analysis](https://www.nostarch.com/malware)
@@ -450,179 +516,176 @@ the [browser malware](#browser-malware) section.*
 - [Learning Malware Analysis](https://www.amazon.co.uk/Learning-Malware-Analysis-techniques-investigate/dp/1788392507/ref=sr_1_1?ie=UTF8&qid=1534162748&sr=8-1&keywords=malware+analysis)
 - [Sandworm](https://www.penguinrandomhouse.com/books/597684/sandworm-by-andy-greenberg/)
 
-- #### CheatSheets/Tables
+### **Cheat Sheets/Tables**
+- **[IDA Cheat Sheet](https://securedorg.github.io/idacheatsheet.html)**: A quick reference for frequently used IDA Pro commands and shortcuts.
+- **[Cheat Sheets](https://highon.coffee/blog/cheat-sheet/)**: Various IT and cybersecurity-related cheat sheets, from networking to reverse engineering.
+- **[File Signatures](http://www.garykessler.net/library/file_sigs.html)**: A comprehensive list of file signatures for identifying file types.
+- **[APT Groups and Operations](https://docs.google.com/spreadsheets/d/1H9_xaxQHpWaa4O_Son4Gx0YOIzlcBWMsdvePFX68EKU/pubhtml#)**: Detailed spreadsheet tracking Advanced Persistent Threat (APT) groups and their operations.
+- **[Ransomware Overview](https://docs.google.com/spreadsheets/d/1TWS238xacAto-fLKh1n5uTsdijWdCEsGIM0Y0Hvmc5g/pubhtml#)**: Catalog of ransomware families, including indicators of compromise and behavior.
+- **[Intel Assembler Code Table](http://www.jegerlehner.ch/intel/)**: Instruction set reference for Intel assembly language.
+- **[ARM Assembly Cheatsheet](https://azeria-labs.com/assembly-basics-cheatsheet/)**: A quick guide to basic ARM assembly instructions.
+- **[APTnotes](https://github.com/kbandla/APTnotes)**: Repository of publicly available documents related to APT activities.
+- **[PE 101](https://github.com/corkami/pics/blob/master/binary/pe101/pe101.pdf)**: Illustrated guide to the Portable Executable (PE) file format.
+- **[PDF 101](https://github.com/corkami/docs/blob/master/PDF/PDF.md)**: A deep dive into the structure and quirks of PDF files.
+- **[PDF Analysis](https://github.com/zbetcheckin/PDF_analysis)**: Tools and techniques for analyzing PDF documents.
+- **[Digital Forensics and Incident Response](https://www.jaiminton.com/cheatsheet/DFIR/#)**: Comprehensive DFIR cheat sheet covering common tools and methodologies.
 
-- [IDA Cheat Sheet](https://securedorg.github.io/idacheatsheet.html)
-- [Cheat Sheets](https://highon.coffee/blog/cheat-sheet/)
-- [File Signatures](http://www.garykessler.net/library/file_sigs.html)
-- [APT Groups and Operations](https://docs.google.com/spreadsheets/d/1H9_xaxQHpWaa4O_Son4Gx0YOIzlcBWMsdvePFX68EKU/pubhtml#)
-- [Ransomware Overview](https://docs.google.com/spreadsheets/d/1TWS238xacAto-fLKh1n5uTsdijWdCEsGIM0Y0Hvmc5g/pubhtml#)
-- [Intel Assembler Code Table](http://www.jegerlehner.ch/intel/)
-- [ARM Assembly Cheatsheet](https://azeria-labs.com/assembly-basics-cheatsheet/)
-- [APTnotes](https://github.com/kbandla/APTnotes)
-- [PE 101](https://github.com/corkami/pics/blob/master/binary/pe101/pe101.pdf)
-- [PDF 101](https://github.com/corkami/docs/blob/master/PDF/PDF.md)
-- [PDF Analysis](https://github.com/zbetcheckin/PDF_analysis)
-- [Digital Forensics and Incident Response](https://www.jaiminton.com/cheatsheet/DFIR/#)
 
-- #### Decoders
-- [CyberChef](https://gchq.github.io/CyberChef/)
-- [KevtheHermit RAT Decoders](https://github.com/kevthehermit/RATDecoders)
+### **Decoders**
+- **[CyberChef](https://gchq.github.io/CyberChef/)**: A web-based tool for encoding, decoding, and analyzing data.
+- **[KevtheHermit RAT Decoders](https://github.com/kevthehermit/RATDecoders)**: Scripts for decoding configurations from various Remote Access Trojans (RATs).
 
-- #### Debuggers
-- [OllyDbg](http://www.ollydbg.de/)
-- [Immunity Debugger](https://www.immunityinc.com/products/debugger/)
-- [X64dbg](https://x64dbg.com/#start)
-- [Rvmi](https://github.com/fireeye/rvmi)
-- [WinDBG](https://docs.microsoft.com/en-gb/windows-hardware/drivers/debugger/debugger-download-tools)
 
-- #### Disassemblers
-- [IDA Pro](https://www.hex-rays.com/products/ida/)
-- [Binary Ninja](https://binary.ninja/)
-- [Radare2](https://github.com/radare/radare2)
-- [Cutter](https://github.com/radareorg/cutter)
-- [BinNavi](https://github.com/google/binnavi)
-- [Hopper](https://www.hopperapp.com/)
-- [medusa](https://github.com/wisk/medusa)
-- [Disassembler.io](https://www.onlinedisassembler.com/static/home/)
-- [Ghidra](https://ghidra-sre.org/)
+### **Debuggers**
+- **[OllyDbg](http://www.ollydbg.de/)**: A 32-bit assembler-level debugger for Windows.
+- **[Immunity Debugger](https://www.immunityinc.com/products/debugger/)**: A powerful debugger geared toward exploit development.
+- **[X64dbg](https://x64dbg.com/#start)**: An open-source x64/x32 debugger for Windows.
+- **[Rvmi](https://github.com/fireeye/rvmi)**: Remote debugger for virtual machine introspection.
+- **[WinDBG](https://docs.microsoft.com/en-gb/windows-hardware/drivers/debugger/debugger-download-tools)**: Microsoft’s debugger for Windows development and analysis.
 
-- #### Static Analysis Tools
-- [PEiD](https://www.aldeid.com/wiki/PEiD)
-- [McAfee FileInsight](https://www.mcafee.com/uk/downloads/free-tools/fileinsight.aspx)
-- [HashMyFiles](http://www.nirsoft.net/utils/hash_my_files.html)
-- [CFF Explorer](http://www.ntcore.com/exsuite.php)
-- [AnalyzePESig](https://blog.didierstevens.com/2012/10/01/searching-for-that-adobe-cert/)
-- [ByteHist](https://www.cert.at/downloads/software/bytehist_en.html)
-- [Exeinfo](http://exeinfo.pe.hu/)
-- [Scylla](https://github.com/NtQuery/Scylla)
-- [MASTIFF](https://git.korelogic.com/mastiff.git/)
-- [PEframe](https://github.com/guelfoweb/peframe)
-- [PEscan](https://tzworks.net/prototype_page.php?proto_id=15)
-- [PEstudio](https://www.winitor.com/)
-- [PE-Bear](https://hshrzd.wordpress.com/2013/07/09/introducing-new-pe-files-reversing-tool/)
-- [PE-sieve](https://github.com/hasherezade/pe-sieve)
-- [Flare-Floss](https://github.com/fireeye/flare-floss)
-- [PatchDiff2](https://github.com/filcab/patchdiff2)
-- [PE Insider](http://cerbero.io/peinsider/)
-- [Resource Hacker](http://www.angusj.com/resourcehacker/)
-- [DarunGrim](https://github.com/ohjeongwook/DarunGrim)
-- [Mal Tindex](https://github.com/joxeankoret/maltindex)
-- [Manalyze](https://github.com/JusticeRage/Manalyze)
-- [PDBlaster](https://github.com/SecurityRiskAdvisors/PDBlaster)
-- [ImpFuzzy](https://github.com/JPCERTCC/impfuzzy)
-- [Florentino](https://github.com/0xsha/florentino/blob/master/README.md)
-- [Viper](https://viper.li/en/latest/)
 
-- #### Text/Hex Editor Tools
-- [Notepad++](https://notepad-plus-plus.org/)
-- [010 Editor](https://www.sweetscape.com/010editor/)
-- [HxD](https://mh-nexus.de/en/hxd/)
-- [BinText](https://www.aldeid.com/wiki/BinText)
-- [Hexinator](https://hexinator.com/)
+### **Disassemblers**
+- **[IDA Pro](https://www.hex-rays.com/products/ida/)**: Industry-standard interactive disassembler for reverse engineering.
+- **[Binary Ninja](https://binary.ninja/)**: A modern binary analysis platform with a focus on usability.
+- **[Radare2](https://github.com/radare/radare2)**: Open-source framework for reverse engineering.
+- **[Cutter](https://github.com/radareorg/cutter)**: A GUI frontend for Radare2.
+- **[BinNavi](https://github.com/google/binnavi)**: Binary analysis IDE for exploring code and data structures.
+- **[Hopper](https://www.hopperapp.com/)**: A macOS/Linux-based disassembler with decompilation features.
+- **[Medusa](https://github.com/wisk/medusa)**: Open-source disassembler with a focus on simplicity.
+- **[Disassembler.io](https://www.onlinedisassembler.com/static/home/)**: Free online disassembler for quick binary analysis.
+- **[Ghidra](https://ghidra-sre.org/)**: NSA-developed reverse engineering tool with extensive features.
 
-- #### Threat Intelligence
-- [ThreatMiner](https://www.threatminer.org/)
-- [RiskIQ Community](https://community.riskiq.com/home)
-- [PasteBin](https://pastebin.com/)
-- [Shodan](https://www.shodan.io/)
-- [Censys](https://censys.io/)
-- [DNSdumpster](https://dnsdumpster.com/)
-- [URLHaus](https://urlhaus.abuse.ch/)
-- [AlienVault OTX](https://otx.alienvault.com/)
-- [C2 Tracker](http://tracker.viriback.com/stats.php)
-- [MISP](https://www.misp-project.org/)
-- [The Hive](https://thehive-project.org/)
-- [Yeti](https://yeti-platform.github.io/)
-- [Using ATT&CK for CTI Training](https://attack.mitre.org/resources/training/cti/)
-- [PasteScraper](https://github.com/PimmyTrousers/pastescraper)
 
-# OSINT
+### **Static Analysis Tools**
+- **[PEiD](https://www.aldeid.com/wiki/PEiD)**: Detects packers, cryptors, and compilers in PE files.
+- **[McAfee FileInsight](https://www.mcafee.com/uk/downloads/free-tools/fileinsight.aspx)**: Hex editor with scripting capabilities for analyzing malware.
+- **[HashMyFiles](http://www.nirsoft.net/utils/hash_my_files.html)**: Generates file hashes for comparison and verification.
+- **[CFF Explorer](http://www.ntcore.com/exsuite.php)**: PE file editor with advanced analysis tools.
+- **[AnalyzePESig](https://blog.didierstevens.com/2012/10/01/searching-for-that-adobe-cert/)**: Tool for identifying suspicious digital signatures in PE files.
+- **[ByteHist](https://www.cert.at/downloads/software/bytehist_en.html)**: Visualizes byte-level distribution in binary files.
+- **[Exeinfo](http://exeinfo.pe.hu/)**: Provides detailed metadata for PE files.
+- **[Scylla](https://github.com/NtQuery/Scylla)**: Imports reconstruction tool for analyzing dumped PE files.
+- **[MASTIFF](https://git.korelogic.com/mastiff.git/)**: Automates static analysis of malware.
+- **[PEframe](https://github.com/guelfoweb/peframe)**: Framework for analyzing PE files for malware indicators.
+- **[PEscan](https://tzworks.net/prototype_page.php?proto_id=15)**: Scans PE files for suspicious characteristics.
+- **[PEstudio](https://www.winitor.com/)**: Tool for analyzing PE files, detecting anomalies, and unpacking.
+- **[PE-Bear](https://hshrzd.wordpress.com/2013/07/09/introducing-new-pe-files-reversing-tool/)**: PE file reverse-engineering tool.
+- **[PE-sieve](https://github.com/hasherezade/pe-sieve)**: Detects and dumps in-memory PE modifications.
+- **[Flare-Floss](https://github.com/fireeye/flare-floss)**: Automatically extracts obfuscated strings from malware.
+- **[PatchDiff2](https://github.com/filcab/patchdiff2)**: Binary diffing tool for comparing patched/unpatched binaries.
+- **[PE Insider](http://cerbero.io/peinsider/)**: Comprehensive PE file analysis toolkit.
+- **[Resource Hacker](http://www.angusj.com/resourcehacker/)**: Editor for viewing, editing, and extracting resources in executables.
+- **[DarunGrim](https://github.com/ohjeongwook/DarunGrim)**: Tool for binary diffing and similarity analysis.
+- **[Mal Tindex](https://github.com/joxeankoret/maltindex)**: Malware indexing and classification tool.
+- **[Manalyze](https://github.com/JusticeRage/Manalyze)**: Framework for static analysis of PE files.
+- **[PDBlaster](https://github.com/SecurityRiskAdvisors/PDBlaster)**: Generates PDB files for stripped binaries.
+- **[ImpFuzzy](https://github.com/JPCERTCC/impfuzzy)**: Calculates fuzzy hashes based on imports for similarity analysis.
+- **[Florentino](https://github.com/0xsha/florentino/blob/master/README.md)**: Static analysis tool focused on script and malware detection.
+- **[Viper](https://viper.li/en/latest/)**: A versatile platform for managing and analyzing malware samples.
 
-- #### Server & Network Tools
+### **Text/Hex Editor Tools**
+- **[Notepad++](https://notepad-plus-plus.org/)**: A powerful text editor with support for syntax highlighting and plugins.
+- **[010 Editor](https://www.sweetscape.com/010editor/)**: A professional-grade hex editor with binary templates for file parsing.
+- **[HxD](https://mh-nexus.de/en/hxd/)**: A fast hex editor, disk editor, and RAM editor for Windows.
+- **[BinText](https://www.aldeid.com/wiki/BinText)**: A tool to extract readable ASCII and Unicode strings from binary files.
+- **[Hexinator](https://hexinator.com/)**: A hex editor with advanced analysis and reverse engineering capabilities.
 
-- [Shodan](http://shodan.io) 
-- [Onyphe](http://onyphe.io)
-- [Censys](http://censys.io)
-- [Ivre](http://ivre.rocks)
-- [BGPView](http://bgpview.io)
-- [DNSDumpster](http://dnsdumpster.com)
-- [CertStream](http://certstream.calidog.io)
-- [Exploit Observer](https://www.exploit.observer/)
-- [Subdomain Center](https://www.subdomain.center/)
-- [Malcore](https://malcore.io/)
-- [SearchCode](https://searchcode.com/)
-- [Internet intelligence](https://netlas.io/)
-- [Criminal IP](https://www.criminalip.io/)
-- [GreyNoise](https://www.greynoise.io/)
-- [Arkham Intelligence](https://www.arkhamintelligence.com/)
-- [WhatsMyName](https://whatsmyname.app/)
-- [DeHashed](https://dehashed.com/)
-- [WhiteIntel](https://whiteintel.io/)
-- [ManyPasswords](https://github.com/many-passwords/many-passwords)
-- [DNS History](http://dnshistory.org/)
-- [Global Terrorism Catalogue](https://www.kaggle.com/datasets/klapeyefoundation/global-terrorism)
-- [Public Intelligence](https://publicintelligence.net/)
-- [CINS Army](http://cinsscore.com/#list)
-- [Umbrella List](http://s3-us-west-1.amazonaws.com/umbrella-static/index.html)
-- [Malware Bazaar](https://bazaar.abuse.ch/)
-- [War on the Rocks](https://warontherocks.com/)
-- [IntelligenceX](https://intelx.io/)
-- [Counter Extremism](https://www.counterextremism.com/)
-- [MITRE ATT&CK](https://attack.mitre.org/)
-- [Exploit Alert](https://www.exploitalert.com/)
+### **Threat Intelligence**
+- **[ThreatMiner](https://www.threatminer.org/)**: A threat intelligence platform for analyzing malware, domains, and other artifacts.
+- **[RiskIQ Community](https://community.riskiq.com/home)**: Platform for exploring internet threats and analyzing malicious activity.
+- **[PasteBin](https://pastebin.com/)**: Often used for data leaks and shared threat intelligence.
+- **[Shodan](https://www.shodan.io/)**: A search engine for internet-connected devices, including vulnerable systems.
+- **[Censys](https://censys.io/)**: Internet-wide scanning and analysis tool for finding exposed systems.
+- **[DNSdumpster](https://dnsdumpster.com/)**: A domain research tool for identifying DNS records and subdomains.
+- **[URLHaus](https://urlhaus.abuse.ch/)**: A database of malicious URLs used in malware campaigns.
+- **[AlienVault OTX](https://otx.alienvault.com/)**: Open Threat Exchange for collaborative threat intelligence sharing.
+- **[C2 Tracker](http://tracker.viriback.com/stats.php)**: Tracks command and control (C2) infrastructure used by malware.
+- **[MISP](https://www.misp-project.org/)**: Malware Information Sharing Platform for sharing threat intelligence.
+- **[The Hive](https://thehive-project.org/)**: Incident response platform with collaborative features.
+- **[Yeti](https://yeti-platform.github.io/)**: Your Everyday Threat Intelligence tool for managing and enriching indicators.
+- **[Using ATT&CK for CTI Training](https://attack.mitre.org/resources/training/cti/)**: MITRE ATT&CK-based training for Cyber Threat Intelligence (CTI).
+- **[PasteScraper](https://github.com/PimmyTrousers/pastescraper)**: Automates scraping of PasteBin and similar sites for threat intelligence.
 
-- #### Search & Intelligence Tools
+### **OSINT Tools**
 
-- [Google](http://google.com)
-- [IntelX](http://intelx.io)
-- [URLScan](http://urlscan.io)
-- [PublicWWW](http://publicwww.com)
-- [Searchcode](http://searchcode.com)
-- [Grep.app](http://grep.app)
-- [Onion Search Engine](http://onionsearchengine.com)
-- [Archive.org](http://archive.org)
-- [Spyonweb](http://spyonweb.com)
+#### **Server & Network Tools**
+- **[Shodan](http://shodan.io/)**: Search engine for discovering internet-connected devices.
+- **[Onyphe](http://onyphe.io/)**: A cyber defense search engine for gathering internet-facing threat data.
+- **[Censys](http://censys.io/)**: Maps the internet for open ports, vulnerabilities, and services.
+- **[Ivre](http://ivre.rocks/)**: Network recon and intrusion detection framework.
+- **[BGPView](http://bgpview.io/)**: Tool for exploring internet routing and BGP data.
+- **[DNSDumpster](http://dnsdumpster.com/)**: A tool for DNS and subdomain reconnaissance.
+- **[CertStream](http://certstream.calidog.io/)**: Monitors real-time Certificate Transparency logs for new domain certificates.
+- **[Exploit Observer](https://www.exploit.observer/)**: Tracks known exploits across the internet.
+- **[Subdomain Center](https://www.subdomain.center/)**: Automated subdomain enumeration service.
+- **[Malcore](https://malcore.io/)**: Malware scanning and threat analysis platform.
+- **[SearchCode](https://searchcode.com/)**: Source code search engine for vulnerability hunting.
+- **[Internet Intelligence](https://netlas.io/)**: Monitors exposed services, devices, and vulnerabilities.
+- **[Criminal IP](https://www.criminalip.io/)**: Threat intelligence platform focused on vulnerabilities and threat hunting.
+- **[GreyNoise](https://www.greynoise.io/)**: Provides context about internet-wide noise and non-malicious scans.
+- **[Arkham Intelligence](https://www.arkhamintelligence.com/)**: Tracks on-chain crypto assets and related threat activities.
+- **[WhatsMyName](https://whatsmyname.app/)**: OSINT username enumeration tool.
+- **[DeHashed](https://dehashed.com/)**: Search engine for breached data and credentials.
+- **[WhiteIntel](https://whiteintel.io/)**: Platform for analyzing threat actor activities.
+- **[ManyPasswords](https://github.com/many-passwords/many-passwords)**: Repository of common password lists for brute-forcing.
+- **[DNS History](http://dnshistory.org/)**: Historical DNS records lookup tool.
+- **[Global Terrorism Catalogue](https://www.kaggle.com/datasets/klapeyefoundation/global-terrorism)**: Dataset tracking global terrorism events.
+- **[Public Intelligence](https://publicintelligence.net/)**: Repository of government and security-related documents.
+- **[CINS Army](http://cinsscore.com/#list)**: List of known malicious IPs for threat analysis.
+- **[Umbrella List](http://s3-us-west-1.amazonaws.com/umbrella-static/index.html)**: Cisco Umbrella threat intelligence database.
+- **[Malware Bazaar](https://bazaar.abuse.ch/)**: Repository of malware samples and associated indicators.
+- **[War on the Rocks](https://warontherocks.com/)**: Articles on cybersecurity, geopolitics, and military strategy.
+- **[IntelligenceX](https://intelx.io/)**: Advanced search engine for public and dark web content.
+- **[Counter Extremism](https://www.counterextremism.com/)**: Information on extremist organizations and countermeasures.
+- **[MITRE ATT&CK](https://attack.mitre.org/)**: Knowledge base of adversary tactics, techniques, and procedures (TTPs).
+- **[Exploit Alert](https://www.exploitalert.com/)**: A platform tracking active exploits in the wild.
 
-- #### Threat Intelligence Tools
+### **Search & Intelligence Tools**  
+- **[Google](http://google.com/)**: Popular search engine for OSINT and general queries.  
+- **[IntelX](http://intelx.io/)**: Advanced search engine for public and dark web data.  
+- **[URLScan](http://urlscan.io/)**: Scans and visualizes website interactions for analysis.  
+- **[PublicWWW](http://publicwww.com/)**: Search engine for website source codes.  
+- **[Searchcode](http://searchcode.com/)**: Source code search engine for vulnerabilities and patterns.  
+- **[Grep.app](http://grep.app/)**: Tool to search open-source code repositories.  
+- **[Onion Search Engine](http://onionsearchengine.com/)**: Specialized search for .onion sites on the dark web.  
+- **[Archive.org](http://archive.org/)**: Internet Archive for accessing historical versions of web pages.  
+- **[Spyonweb](http://spyonweb.com/)**: Tool to investigate domains by IP addresses or analytics codes.
 
-- [BinaryEdge](http://app.binaryedge.io)
-- [FOFA](http://fofa.info)
-- [ZoomEye](http://zoomeye.org)
-- [LeakIX](http://leakix.net)
-- [GreyNoise](http://viz.greynoise.io)
-- [Pulsedive](http://pulsedive.com)
-- [ThreatCrowd](http://threatcrowd.org)
-- [ThreatMiner](http://threatminer.org)
-- [SOC Radar](http://socradar.io)
+### **Threat Intelligence Tools**  
+- **[BinaryEdge](http://app.binaryedge.io/)**: Platform for internet-wide scanning and monitoring.  
+- **[FOFA](http://fofa.info/)**: Tool for fingerprinting and asset discovery across the internet.  
+- **[ZoomEye](http://zoomeye.org/)**: Search engine for discovering networked devices and vulnerabilities.  
+- **[LeakIX](http://leakix.net/)**: Tracks exposed databases and other leaks online.  
+- **[GreyNoise](http://viz.greynoise.io/)**: Provides context for background internet noise and scans.  
+- **[Pulsedive](http://pulsedive.com/)**: Platform for enriching and visualizing threat intelligence indicators.  
+- **[ThreatCrowd](http://threatcrowd.org/)**: Tool for investigating domains, IPs, and file hashes.  
+- **[ThreatMiner](http://threatminer.org/)**: Threat analysis tool for malware, domains, and IPs.  
+- **[SOC Radar](http://socradar.io/)**: Threat intelligence and attack surface monitoring tool.  
 
-- #### Vulnerability & Malware Tools
+### **Vulnerability & Malware Tools**  
+- **[Vulners](http://vulners.com/)**: Searchable database of vulnerabilities and exploits.  
+- **[VulDB](http://vuldb.com/)**: Vulnerability database and advisory platform.  
+- **[CVE Mitre](http://cve.mitre.org/)**: Comprehensive resource for Common Vulnerabilities and Exposures (CVEs).  
+- **[Hybrid Analysis](http://hybrid-analysis.com/)**: Malware analysis platform with sandbox features.  
+- **[MalShare](http://malshare.com/)**: Repository for malware samples and analysis.  
 
-- [Vulners](http://vulners.com)
-- [VulDB](http://vuldb.com)
-- [CVE Mitre](http://cve.mitre.org)
-- [Hybrid Analysis](http://hybrid-analysis.com)
-- [MalShare](http://malshare.com)
+### **Email & Communication Tools**  
+- **[Hunter.io](http://hunter.io/)**: Finds email addresses associated with a domain.  
+- **[Have I Been Pwned](http://haveibeenpwned.com/)**: Checks if your email or phone has been part of a data breach.  
+- **[PassiveTotal](http://passivetotal.org/)**: Provides domain and IP intelligence for threat hunting.  
 
-- #### Email & Communication Tools
 
-- [Hunter.io](http://hunter.io)
-- [Have I Been Pwned](http://haveibeenpwned.com)
-- [PassiveTotal](http://passivetotal.org)
+### **Wi-Fi & Network Mapping Tools**  
+- **[WiGLE](http://wigle.net/)**: Maps Wi-Fi networks and associated geolocations.  
 
-- #### Wi-Fi & Network Mapping Tools
-
-- [WiGLE](http://wigle.net)
-
-- ####  Attack Surface Management Tools
-
-- [Netlas](http://app.netlas.io) 
-- [FullHunt](http://fullhunt.io) 
-- [BinaryEdge](http://binaryedge.io)
+### **Attack Surface Management Tools**  
+- **[Netlas](http://app.netlas.io/)**: Monitors exposed assets and provides internet-wide search capabilities.  
+- **[FullHunt](http://fullhunt.io/)**: Platform for attack surface and vulnerability management.  
+- **[BinaryEdge](http://binaryedge.io/)**: Also listed in threat intelligence, focuses on internet-wide scanning and monitoring.  
 
 # Penetration Testing
 
-- #### Subdomain
+### Subdomain
 
 * [subDomainsBrute](https://github.com/lijiejie/subDomainsBrute) - A fast sub domain brute tool for pentesters ![](svg/Windows.svg)![](svg/linux.svg)![](svg/mac.svg)
 * [ksubdomain](https://github.com/boy-hack/ksubdomain) - Subdomain enumeration tool, asynchronous dns packets, use pcap to scan 1600,000 subdomains in 1 second ![](svg/Windows.svg)![](svg/linux.svg)![](svg/mac.svg)
@@ -637,7 +700,7 @@ the [browser malware](#browser-malware) section.*
 * [altdns](https://github.com/infosec-au/altdns) - Altdns takes in words that could be present in subdomains under a domain (such as test, dev, staging) as well as takes in a list of subdomains that you know of.
 * [dnscan](https://github.com/rbsec/dnscan) - Fast and lightweight dns bruteforcer with built-in wordlist and zone transfer checks.
 
-- #### Google Hacking
+### Google Hacking
 
 * [GHDB](https://www.exploit-db.com/google-hacking-database/) - Google Hack Database  ![](svg/chrome.svg)
 * [SearchDiggity](http://www.bishopfox.com/resources/tools/google-hacking-diggity/attack-tools/) - SearchDiggity 3.1 is the primary attack tool of the Google Hacking Diggity Project ![](svg/Windows.svg)
@@ -646,7 +709,7 @@ the [browser malware](#browser-malware) section.*
 * [Pagodo](https://github.com/opsdisk/pagodo) - pagodo (Passive Google Dork) - Automate Google Hacking Database scraping and searching . ![](svg/linux.svg)![](svg/mac.svg)
 * [Google-Dorks](https://github.com/Proviesec/google-dorks) - Useful Google Dorks for WebSecurity and Bug Bounty
 
-- #### Github 
+### Github 
 
 * [GitHacker](https://github.com/WangYihang/GitHacker) -  A Git source leak exploit tool that restores the entire Git repository, including data from stash, for white-box auditing and analysis of developers' mind. ![](svg/Windows.svg)![](svg/linux.svg)![](svg/mac.svg)
 * [GitGraber](https://github.com/hisxo/gitGraber) - gitGraber is a tool developed in Python3 to monitor GitHub to search and find sensitive data in real time for different online services. ![](svg/Windows.svg)![](svg/linux.svg)![](svg/mac.svg)
@@ -655,7 +718,7 @@ the [browser malware](#browser-malware) section.*
 * [GitGot](https://github.com/BishopFox/GitGot) Semi-automated, feedback-driven tool to rapidly search through troves of public data on GitHub for sensitive secrets.
 * [GitDump](https://github.com/Ebryx/GitDump) - A pentesting tool that dumps the source code from .git even when the directory traversal is disabled
 
-- #### Port Scan
+### Port Scan
 
 * [Nmap | Zenmap](https://nmap.org/) - Free and open source utility for network discovery and security auditing
 * [Masscan](https://github.com/robertdavidgraham/masscan) - TCP port scanner, spews SYN packets asynchronously
@@ -671,14 +734,16 @@ the [browser malware](#browser-malware) section.*
 * [Yujianportscan](https://github.com/foryujian/yujianportscan) A Fast Port Scanner GUI Tools  Build by VB.NET + IOCP 
 * [Naabu](https://github.com/projectdiscovery/naabu) - A fast port scanner written in go with a focus on reliability and simplicity.
 
-- #### Phishing
+### Phishing
+
 * [gophish](https://github.com/gophish/gophish) - Open-Source Phishing Toolkit
 * [AdvPhishing](https://github.com/Ignitetch/AdvPhishing) - This is Advance Phishing Tool ! OTP PHISHING
 * [SocialFish](https://github.com/UndeadSec/SocialFish) - Educational Phishing Tool & Information Collector
 * [Zphisher](https://github.com/htr-tech/zphisher) - An automated phishing tool with 30+ templates. This Tool is made for educational purpose only ! Author will not be responsible for any misuse of this toolkit !
 * [Nexphisher](https://github.com/htr-tech/nexphisher) - Advanced Phishing tool for Linux & Termux
 
-- #### Vulnerability Scanner
+### Vulnerability Scanner
+
 * [Struts-Scan](https://github.com/Lucifer1993/struts-scan) - Struts2 vulnerability detection and utilization tools
 * [Nikto](https://github.com/sullo/nikto) - Nikto is an Open Source (GPL) web server scanner which performs comprehensive tests against web servers for multiple items
 * [W3af](https://github.com/andresriancho/w3af/) - Web application attack and audit framework, the open source web vulnerability scanner
@@ -699,7 +764,7 @@ the [browser malware](#browser-malware) section.*
 * [Afrog](https://github.com/zan8in/afrog) -  A Vulnerability Scanning Tools For Penetration Testing
 * [OpalOPC](https://opalopc.com/) -  A vulnerability and misconfiguration scanner for OPC UA applications
 
-- ####  CMS & Framwork Identification
+###  CMS & Framwork Identification
 
 * [AngelSword](https://github.com/Lucifer1993/AngelSword) - CMS vulnerability detection framework
 * [WhatWeb](https://github.com/urbanadventurer/WhatWeb) - Next generation web scanner ![](svg/linux.svg)
@@ -716,7 +781,8 @@ the [browser malware](#browser-malware) section.*
 * [TideFinger](http://finger.tidesec.com/) -  Fingerprinter Tool from TideSec Team ![](svg/chrome.svg)
 * [360finger-p](https://fp.shuziguanxing.com/) - Fingerprinter Tool from 360 Team ![](svg/chrome.svg)
 
-- #### Web Applications Proxies
+### Web Applications Proxies
+
 * [Burpsuite](https://portswigger.net/) - Burpsuite is a graphical tool for testing Web application security ![](svg/Windows.svg)![](svg/linux.svg)![](svg/mac.svg)
 * [ZAP](https://github.com/zaproxy/zaproxy) One of the world’s most popular free security tools ![](svg/Windows.svg)![](svg/linux.svg)![](svg/mac.svg)
 * [Mitmproxy](https://github.com/mitmproxy/mitmproxy) - An interactive TLS-capable intercepting HTTP proxy for penetration testers and software developers. ![](svg/Windows.svg)![](svg/linux.svg)![](svg/mac.svg)
@@ -724,7 +790,7 @@ the [browser malware](#browser-malware) section.*
 * [Hetty](https://github.com/dstotijn/hetty) - An HTTP toolkit for security research. ![](svg/Windows.svg)![](svg/linux.svg)![](svg/mac.svg)
 * [Proxify](https://github.com/projectdiscovery/proxify) - Swiss Army knife Proxy tool for HTTP/HTTPS traffic capture, manipulation, and replay on the go.
 
-- #### Web Crawlers & Directory Brute Force
+### Web Crawlers & Directory Brute Force
 
 * [Dirbrute](https://github.com/Xyntax/DirBrute) - Multi-thread WEB directory blasting tool (with dics inside)
 * [Dirb](https://dirb.sourceforge.net/) - DIRB is a Web Content Scanner. It looks for existing (and/or hidden) Web Objects. It basically works by launching a dictionary based attack against a web server and analyzing the responses. ![](svg/Windows.svg)![](svg/linux.svg)![](svg/mac.svg)
@@ -738,14 +804,14 @@ the [browser malware](#browser-malware) section.*
 * [YJdirscan](https://github.com/foryujian/yjdirscan) - Yujian dirscan Gui Pro
 
 
-- #### Docker Scanners
+### Docker Scanners
 
 * [Fuxi-Scanner](https://github.com/jeffzh3ng/Fuxi-Scanner) - open source network security vulnerability scanner, it comes with multiple functions. ![](svg/Docker.svg)
 * [Xunfeng](https://github.com/ysrc/xunfeng) - The patrol is a rapid emergency response and cruise scanning system for enterprise intranets. ![](svg/Docker.svg)
 * [WebMap](https://github.com/SabyasachiRana/WebMap) - Nmap Web Dashboard and Reporting. ![](svg/Docker.svg)
 * [Pentest-Collaboration-Framework](https://gitlab.com/invuls/pentest-projects/pcf) - Opensource, cross-platform and portable toolkit for automating routine processes when carrying out various works for testing!
 
-- #### Password Attacks
+### Password Attacks
 
 * [Hydra](https://github.com/vanhauser-thc/thc-hydra) - Hydra is a parallelized login cracker which supports numerous protocols to attack
 * [Medusa](http://foofus.net/goons/jmk/medusa/medusa.html) - Medusa is intended to be a speedy, massively parallel, modular, login brute-forcer
@@ -756,7 +822,7 @@ the [browser malware](#browser-malware) section.*
 * [John](https://github.com/openwall/john) - John the Ripper jumbo - advanced offline password cracker, which supports hundreds of hash and cipher types, and runs on many operating systems, CPUs, GPUs, and even some FPGAs.
 * [crowbar](https://github.com/galkan/crowbar) - brute forcing tool that can be used during penetration tests. Supports OpenVPN, RDP (with NLA), ssh and VNC. 
 
-- #### Wordlists
+### Wordlists
 
 * [wordlists](https://github.com/trickest/wordlists/) - Real-world infosec wordlists, updated regularly
 * [psudohash](https://github.com/t3l3machus/psudohash) - Password list generator that focuses on keywords mutated by commonly used password creation patterns
@@ -764,14 +830,14 @@ the [browser malware](#browser-malware) section.*
 * [Rockyou](https://gitlab.com/kalilinux/packages/wordlists) - wordlists packaging for Kali Linux.
 * [Weakpass](https://weakpass.com/) - For any kind of bruteforce find wordlists.
 
-- #### Wireless Tools
+### Wireless Tools
 
 * [Fern Wifi cracker](https://github.com/savio-code/fern-wifi-cracker) - Fern-Wifi-Cracker is designed to be used in testing and discovering flaws in ones own network with the aim of fixing the flaws detected
 * [EAPHammer](https://github.com/s0lst1c3/eaphammer) - EAPHammer is a toolkit for performing targeted evil twin attacks against WPA2-Enterprise networks.
 * [Wifite2](https://github.com/derv82/wifite2) - Wifite is designed to use all known methods for retrieving the password of a wireless access point.
 * [JackIt](https://github.com/insecurityofthings/jackit) - Implementation of Bastille's MouseJack exploit. Easy entry point through wireless keyboards and mices during redteam engagement.
 
-- #### Cross-site Scripting (XSS)
+### Cross-site Scripting (XSS)
 
 * [BeeF](https://github.com/beefproject/beef) - The Browser Exploitation Framework Project
 * [BlueLotus_XSSReceiver](https://github.com/firesunCN/BlueLotus_XSSReceiver) - XSS Receiver platform without SQL
@@ -784,7 +850,7 @@ the [browser malware](#browser-malware) section.*
 * [dalfox](https://github.com/hahwul/dalfox) - DalFox is an powerful open source XSS scanning tool and parameter analyzer, utility
 * [ezXSS](https://github.com/ssl/ezXSS) - ezXSS is an easy way for penetration testers and bug bounty hunters to test (blind) Cross Site Scripting.
 
-- ####  Sql Injection
+###  Sql Injection
 
 * [Sqlmap](https://github.com/sqlmapproject/sqlmap) - Automatic SQL injection and database takeover tool 
 * [SSQLInjection](https://github.com/shack2/SuperSQLInjectionV1) - SSQLInjection is a SQL injection tool , support Access/MySQL/SQLServer/Oracle/PostgreSQL/DB2/SQLite/Informix Database. 
@@ -795,7 +861,7 @@ the [browser malware](#browser-malware) section.*
 * [sql-injection-payload-list](https://github.com/payloadbox/sql-injection-payload-list) -  SQL Injection Payload List
 * [Advanced-SQL-Injection-Cheatsheet](https://github.com/kleiton0x00/Advanced-SQL-Injection-Cheatsheet) - A cheat sheet that contains advanced queries for SQL Injection of all types.
 
-- #### Exploit Framework
+### Exploit Framework
 
 * [POC-T](https://github.com/Xyntax/POC-T) - Pentest Over Concurrent Toolkit
 * [Pocsuite3](https://github.com/knownsec/pocsuite3) - pocsuite3 is an open-sourced remote vulnerability testing framework developed by the Knownsec 404 Team.
@@ -809,7 +875,7 @@ the [browser malware](#browser-malware) section.*
 * [MYExploit](https://github.com/achuna33/MYExploit) - A GUI Tools for Scanning OA vulnerabilities
 * [ronin-exploits](https://github.com/ronin-rb/ronin-exploits#readme) - A Ruby micro-framework for writing and running exploits and payloads.
 
-- #### Sniffing & Spoofing
+### Sniffing & Spoofing
 
 * [WireShark](https://github.com/wireshark/wireshark) - Wireshark is a network traffic analyzer, or "sniffer", for Unix and Unix-like operating systems.
 * [Cain & abel](http://www.oxid.it/cain.html) - Cain & Abel is a password recovery tool for Microsoft Operating Systems.
@@ -817,7 +883,7 @@ the [browser malware](#browser-malware) section.*
 * [bettercap](https://github.com/bettercap/bettercap) - ARP, DNS, NDP and DHCPv6 spoofers for MITM attacks on IPv4 and IPv6 based networks
 * [EvilFOCA](https://github.com/ElevenPaths/EvilFOCA) - Evil Foca is a tool for security pentesters and auditors whose purpose it is to test security in IPv4 and IPv6 data networks. 
 
-- #### Shell
+### Shell
 
 * [Goshell](https://github.com/eze-kiel/goshell) - Generate reverse shells in command line with Go !
 * [Print-My-Shell](https://github.com/sameera-madushan/Print-My-Shell) - Python script wrote to automate the process of generating various reverse shells.
@@ -831,7 +897,7 @@ the [browser malware](#browser-malware) section.*
 * [Reverse_ssh](https://github.com/NHAS/reverse_ssh) - SSH based reverse shell
 * [Hoaxshell](https://github.com/t3l3machus/hoaxshell) - A Windows reverse shell payload generator and handler that abuses the http(s) protocol to establish a beacon-like reverse shell.
 
-- #### Listener
+### Listener
 
 * [Netcat](https://netcat.sourceforge.net/) - Netcat is a featured networking utility which reads and writes data across network connections, using the TCP/IP protocol.
 * [Rustcat](https://github.com/robiot/rustcat) - Rustcat(rcat) - The modern Port listener and Reverse shell.
@@ -840,7 +906,7 @@ the [browser malware](#browser-malware) section.*
 * [Powercat](https://github.com/besimorhino/powercat) - netshell features all in version 2 powershell.
 * [Socat](https://repo.or.cz/socat.git) - Socat is a flexible, multi-purpose relay tool.
 
-- #### Web Shell
+### Web Shell
 
 * Chopper
 > Tips: The tool comes from the network, no backdoor verification, please choose it on yourself......
@@ -864,7 +930,7 @@ the [browser malware](#browser-malware) section.*
 * [php-reverse-shell](https://github.com/pentestmonkey/php-reverse-shell) - Simple php reverse shell implemented using binary.
 * [Webshell_Generate](https://github.com/cseroad/Webshell_Generate) - Generate kind of Webshells bypass AV
 
-- #### Vulnerability application
+### Vulnerability application
 
 * [DVWA](https://github.com/ethicalhack3r/DVWA) - Damn Vulnerable Web Application (DVWA)
 * [WebGoat](https://github.com/WebGoat/WebGoat) - WebGoat is a deliberately insecure web application maintained by OWASP designed to teach web application security lessons
@@ -884,7 +950,8 @@ the [browser malware](#browser-malware) section.*
 * [XXE-Lab](https://github.com/c0ny1/xxe-lab) - A XXE vulnerability Demo containing language versions such as PHP, Java, python, C#, etc
 * [Vulnerable-Flask-App](https://github.com/anil-yelken/Vulnerable-Flask-App) - Erlik2 Vulnerable-Flask-App provided by [anil-yelken](https://github.com/anil-yelken).
 
-- #### CTF challenges
+### CTF challenges
+
 * [Vulnhub](https://www.vulnhub.com/) - VulnHub provides materials allowing anyone to gain practical hands-on experience with digital security, computer applications and network administration
 * [TryHackMe](https://tryhackme.com/) - TryHackMe is a free online platform for learning cyber security, using hands-on exercises and labs, all through your browser!
 * [Hackthebox](https://www.hackthebox.com/) - Hack The Box is a massive, online cybersecurity training platform, allowing individuals, companies, universities and all kinds of organizations around the world to level up their hacking skills.
