@@ -1,7 +1,5 @@
 
-CompTIA Security+ (SY0-701) Study Notes
-
-# Introduction
+# CompTIA Security+ (SY0-701) Study Notes
 
 ## Introduction
 
