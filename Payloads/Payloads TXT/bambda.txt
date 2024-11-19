@@ -1,0 +1,64 @@
+/**
+* Filters Proxy HTTP history for requests with vulnerable parameters based on the OWASP Top 25
+* using the parameter arrays written by Tur24Tur / BugBountyzip (https://github.com/BugBountyzip).
+* @author Shain Lakin (https://github.com/flamebarke/SkittlesBambda)
+* Implements colour highlighting for each class of vulnerability along with
+* automatic note annotations detailing the parameter to test and class of vulnerability.
+**/
+
+// Define vulnerable parameter group record
+record VulnParamGroup(String title, HighlightColor color, String... parameterNames) {}
+
+// Vulnerable Parameter Groups
+VulnParamGroup ssrf = new VulnParamGroup("SSRF", HighlightColor.GREEN, "dest", "redirect", "uri", "path", "continue", "url", "window", "next", "data", "reference", "site", "html", "val", "validate", "domain", "callback", "return", "page", "feed", "host", "port", "to", "out", "view", "dir");
+VulnParamGroup sql = new VulnParamGroup("SQL", HighlightColor.BLUE, "id", "page", "report", "dir", "search", "category", "file", "class", "url", "news", "item", "menu", "lang", "name", "ref", "title", "view", "topic", "thread", "type", "date", "form", "main", "nav", "region");
+VulnParamGroup xss = new VulnParamGroup("XSS", HighlightColor.ORANGE, "q", "s", "search", "id", "lang", "keyword", "query", "page", "keywords", "year", "view", "email", "type", "name", "p", "month", "image", "list_type", "url", "terms", "categoryid", "key", "l", "begindate", "enddate");
+VulnParamGroup lfi = new VulnParamGroup("LFI", HighlightColor.YELLOW, "cat", "dir", "action", "board", "date", "detail", "file", "download", "path", "folder", "prefix", "include", "page", "inc", "locate", "show", "doc", "site", "type", "view", "content", "document", "layout", "mod", "conf");
+VulnParamGroup or = new VulnParamGroup("OR", HighlightColor.PINK, "next", "url", "target", "rurl", "dest", "destination", "redir", "redirect_uri", "redirect_url", "redirect", "out", "view", "to", "image_url", "go", "return", "returnTo", "return_to", "checkout_url", "continue", "return_path");
+VulnParamGroup rce = new VulnParamGroup("RCE", HighlightColor.RED, "cmd", "exec", "command", "execute", "ping", "query", "jump", "code", "reg", "do", "func", "arg", "option", "load", "process", "step", "read", "feature", "exe", "module", "payload", "run", "print");
+
+// Toggle for highlighting
+boolean highlightEnabled = true;
+
+// Set multi vulnerable parameter group colour
+HighlightColor multipleVulnColor = HighlightColor.MAGENTA;
+VulnParamGroup[] groups = {ssrf, sql, xss, lfi, or, rce};
+Set<String> foundParams = new HashSet<>();
+Map<HighlightColor, Integer> colorCounts = new HashMap<>();
+String combinedNotes = "";
+
+// Get the request object
+var request = requestResponse.request();
+
+// Main loop to check for matches
+for (VulnParamGroup group : groups) {
+    for (String paramName : group.parameterNames()) {
+        if (request.hasParameter(paramName, HttpParameterType.URL) ||
+            request.hasParameter(paramName, HttpParameterType.BODY)) {
+            if (highlightEnabled) {
+                foundParams.add(group.title() + ": " + paramName);
+                colorCounts.put(group.color(), colorCounts.getOrDefault(group.color(), 0) + 1);
+            }
+            // Return if only one vulnerability class applies
+            if (!highlightEnabled) {
+                requestResponse.annotations().setHighlightColor(group.color());
+                return true;
+            }
+        }
+    }
+}
+
+// If more than one vulnerability class applies set the multi vulnerable parameter colour
+if (!foundParams.isEmpty()) {
+    HighlightColor highlightColor = multipleVulnColor;
+    if (colorCounts.size() == 1) {
+        highlightColor = colorCounts.keySet().iterator().next();
+    }
+    
+    requestResponse.annotations().setHighlightColor(highlightColor);
+    combinedNotes = String.join(", ", foundParams);
+    requestResponse.annotations().setNotes(combinedNotes);
+    return true;
+}
+
+return false;
