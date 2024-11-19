@@ -10,6 +10,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/Nmap/Python Scripts/csv_file.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/Ransomware/Tools use by ransomware gangs/RTM_ThreatHunt_Checklist.csv">
           <value>
             <Attribute>
