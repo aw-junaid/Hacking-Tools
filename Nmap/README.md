@@ -27,4 +27,6 @@ and Mac OS X.
 - [ICMP header](https://github.com/aw-junaid/Hacking-Tools/blob/master/Nmap/Nmap%20Commands/ICMP%20header.md)
 - [Host Discovery (“Ping Scanning”)](https://github.com/aw-junaid/Hacking-Tools/blob/master/Nmap/Nmap%20Commands/Host%20Discovery%20(%E2%80%9CPing%20Scanning%E2%80%9D).md)
 - [CIDR Notation](https://github.com/aw-junaid/Hacking-Tools/blob/master/Nmap/Nmap%20Commands/CIDR%20network%20notation.md)
+- [The Phases of an Nmap Scan1](https://github.com/aw-junaid/Hacking-Tools/blob/master/Nmap/Nmap%20Commands/The%20Phases%20of%20an%20Nmap%20Scan1.md)
+- [The Phases of an Nmap Scan](https://github.com/aw-junaid/Hacking-Tools/blob/master/Nmap/Nmap%20Commands/The%20Phases%20of%20an%20Nmap%20Scan.md)
 
