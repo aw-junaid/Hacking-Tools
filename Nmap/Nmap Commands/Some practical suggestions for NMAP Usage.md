@@ -18,23 +18,16 @@ before scanning a network. Adrian Lamo would probably have avoided jail if he ha
 Times to test their security rather than telling reporters about the flaws afterward. Unfortunately they
 would likely have said no. Be prepared for this answer.
 
-Probably at least 90% of network scanning is non-controversial. You are rarely badgered for scanning
-your own machine or the networks you administer. The controversy comes when scanning other networks.
-There are many reasons (good and bad) for doing this sort of network exploration. Perhaps you are scanning
-the other systems in your dorm or department to look for publicly shared files (FTP, SMB, WWW, etc.).
-Or maybe you are just trying to find the IP of a certain printer. You might have scanned your favorite web
-site to see if they are offering any other services, or because you were curious what OS they run. Perhaps
-you are just trying to test connectivity, or maybe you wanted to do a quick security sanity check before
-handing off your credit card details to that e-commerce company. You might be conducting Internet
-research. Or are you performing initial reconnaissance in preparation for a break-in attempt? The remote
-administrators rarely know your true intentions, and do sometimes get suspicious. The best approach is
-to get permission first. I have seen a few people with non-administrative roles land in hot water after
-deciding to “prove” network insecurity by launching an intrusive scan of the entire company or campus.
-Administrators tend to be more cooperative when asked in advance than when woken up at 3AM by an
-IDS alarm claiming they are under massive attack. So whenever possible, obtain written authorization
-before scanning a network. Adrian Lamo would probably have avoided jail if he had asked the New York
-Times to test their security rather than telling reporters about the flaws afterward. Unfortunately they
-would likely have said no. Be prepared for this answer.
+Target your scan as tightly as possible. Any machine connected to the Internet is scanned regularly enough
+that most administrators ignore such Internet white noise. But scanning enough networks or executing
+very noisy/intrusive scans increases the probability of generating complaints. So if you are only looking
+for web servers, specify - p 8 0 rather than scanning all 65,536 TCP ports on each machine. If you are only
+trying to find available hosts, do an Nmap ping scan rather than full port scan. Do not scan a CIDR /16
+(65K hosts) when a /24 netblock suffices. The random scan mode now takes an argument specifying the
+number of hosts, rather than running forever. So consider - i R 1 0 0 0 rather than - i R 1 0 0 0 0 if the
+former is sufficient. Use the default timing (or even -T polite ) rather than -T insane . Avoid noisy
+and relatively intrusive scans such as version detection (-sV). Similarly, a SYN scan (-sS) is quieter
+than a connect scan (-sT) while providing the same information and often being faster.
 
 As noted previously, do not do anything controversial from your work or school connections. Even though
 your intentions may be good, you have too much to lose if someone in power (e.g. boss, dean) decides
