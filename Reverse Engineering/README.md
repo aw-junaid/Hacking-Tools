@@ -11,6 +11,8 @@ Most of the malwares are written in 32bit or 16 bit. They also works on 64 bit o
 3. Text Section: This section is used for the actual code sections as it begins with a global _start which tells the kernel where execution begins.
 
 - [moving_immediate_data](https://github.com/aw-junaid/Hacking-Tools/blob/master/Reverse%20Engineering/Malware%20Data/Malware/%3Bmoving_immediate_data.md)
+- [Debugging - moving_immediate_data](https://github.com/aw-junaid/Hacking-Tools/blob/master/Reverse%20Engineering/Malware%20Data/Malware/Debugging%20-%20moving_immediate_data.md)
+
 
 ![image](https://github.com/user-attachments/assets/b16de288-bb19-4636-8697-eb6b762a87cf)
 
