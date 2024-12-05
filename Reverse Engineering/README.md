@@ -36,3 +36,4 @@ Keep in mind, none of these addresses are part of permanent memory. What is stat
 When the return address is popped off the stack returns to the next instruction, the instruction is called the Interrupt Return or IRET which completes the execution of program flow.
 
 
+**CMOV can prevent the processor from utilizing the JMP instructions and speeds up the respective binary.**
