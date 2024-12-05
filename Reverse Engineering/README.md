@@ -39,8 +39,7 @@ When the return address is popped off the stack returns to the next instruction,
 **CMOV can prevent the processor from utilizing the JMP instructions and speeds up the respective binary.**
 
 
-Keep in mind to review the relationships between the unsigned and signed operations. The unsigned instructions utilize the CF, ZF and PF to determine the difference between the two operands where the signed instructions utilize the SF and OF to indicate the condition of the comparison between the operands.
+The relationships between the unsigned and signed operations. The unsigned instructions utilize the CF, ZF and PF to determine the difference between the two operands where the signed instructions utilize the SF and OF to indicate the condition of the comparison between the operands.
 
-If you need a refresher on the flag please review Part 14 on Flags in this series.
 
 The CMOV instructions rely on a mathematical instruction that sets the EFLAGS register to operate and therefore saves the programmer to use JMP statements after the compare statement.
