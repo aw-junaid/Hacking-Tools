@@ -1,6 +1,6 @@
 # Personal Research For Malware Developing
 
-Most of the malwares are written in 32bit or 16 bit. They also works on 64 bit or higher then that.  
+Most of the malwares are written in 32bit or 16 bit. They also works on 64 bit or higher then that.   
 
 - [Converting between Intel and AT&T syntax](https://github.com/aw-junaid/Hacking-Tools/blob/master/Reverse%20Engineering/Malware%20Data/Malware/Converting%20between%20Intel%20and%20AT%26T%20syntax.md)
 
