@@ -12,11 +12,11 @@ Thank you for contributing to the **Hacking Tools** repository! This project aim
 
 ## 1. Code of Conduct
 
-Please read and respect our [Code of Conduct](CODE_OF_CONDUCT.md). All contributors are expected to maintain a respectful, inclusive environment. Ethical considerations are paramount—our tools are intended for legal and educational purposes only.
+Please read and respect our [Code of Conduct](https://github.com/aw-junaid/Hacking-Tools/blob/master/CODE_OF_CONDUCT.md). All contributors are expected to maintain a respectful, inclusive environment. Ethical considerations are paramount—our tools are intended for legal and educational purposes only.
 
 ## 2. Getting Started
 
-1. **Fork the Repository**: Start by [forking the repository](https://help.github.com/articles/fork-a-repo/) to your GitHub account.
+1. **Fork the Repository**: Start by [forking the repository](https://github.com/aw-junaid/Hacking-Tools) to your GitHub account.
 2. **Clone Your Fork**: Clone your forked repository to your local machine:
    ```bash
    git clone https://github.com/aw-junaid/Hacking-Tools
