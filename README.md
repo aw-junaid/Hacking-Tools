@@ -10,7 +10,6 @@
 ![Website](https://img.shields.io/website?url=https%3A%2F%2Fawjunaid.com%2F)
 ![GitHub repo size](https://img.shields.io/github/repo-size/aw-junaid/hacking-tools)
 
-
 ## Connect With Me
 
 <div align="left">
