@@ -792,6 +792,7 @@
 
 * [POC-T](https://github.com/Xyntax/POC-T) - Pentest Over Concurrent Toolkit
 * [Pocsuite3](https://github.com/knownsec/pocsuite3) - pocsuite3 is an open-sourced remote vulnerability testing framework developed by the Knownsec 404 Team.
+* [Darkmoon](https://github.com/ASCIT31/Dark-Moon) - Open-source (GPL-3.0) autonomous AI penetration testing framework and MCP host that orchestrates 80+ tools across web, Active Directory and Kubernetes with an evidence trail per finding.
 * [Metasploit](https://github.com/rapid7/metasploit-framework) - The world’s most used penetration testing framework
 * [Venom](https://github.com/r00t-3xp10it/venom) - Shellcode generator/compiler/handler (metasploit)
 * [Empire](https://github.com/BC-SECURITY/Empire) - Empire is a PowerShell and Python post-exploitation agent
