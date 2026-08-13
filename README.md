@@ -38,7 +38,10 @@
 
 
   # 💰 You can help me by Donating
-  [![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/awjunaid) 
+[![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/awjunaid)
+[![The SQL Injection Handbook](https://img.shields.io/badge/The%20SQL%20Injection%20Handbook-336791?style=for-the-badge&logo=postgresql&logoColor=white)](https://buymeacoffee.com/awjunaid/e/565571)
+[![Kali Linux Unleashed](https://img.shields.io/badge/Kali%20Linux%20Unleashed-9B59B6?style=for-the-badge&logo=kalilinux&logoColor=white)](https://buymeacoffee.com/awjunaid/e/558655)
+[![359 Python Automation Scripts](https://img.shields.io/badge/359%20Python%20Automation%20Scripts-3776AB?style=for-the-badge&logo=python&logoColor=FFD43B)](https://buymeacoffee.com/awjunaid/e/558147)
   
 ---
 
