@@ -3,7 +3,7 @@
 ## 🌐 Server & Network Tools
 
 - **Shodan** — [Website](http://shodan.io) (🌐 Server, 🛡️ Vulnerabilities)
-- **Onyphe** — [Website](http://onyphe.io) (🌐 Server)
+- **Onyphe** — [Website](https://onyphe.io) (🌐 Server)
 - **Censys** — [Website](http://censys.io) (🌐 Server)
 - **Ivre** — [Website](http://ivre.rocks) (🌐 Server)
 - **BGPView** — [Website](http://bgpview.io) (🌍 BGP Information)
@@ -21,6 +21,7 @@
 - **Onion Search Engine** — [Website](http://onionsearchengine.com) (🕵️ Dark Web Search)
 - **Archive.org** — [Website](http://archive.org) (📜 Historical Website Data)
 - **Spyonweb** — [Website](http://spyonweb.com) (🔎 Website Ownership)
+- **Xquik** — [Website](https://github.com/Xquik-dev/x-twitter-scraper) (🐦 Twitter/X, 🔍 OSINT)
 
 ## ⚠️ Threat Intelligence Tools
 
